@@ -7,4 +7,4 @@ I wrote this script who wants to store HyperDrive (HD) based Adobe application i
 On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip".
 
 # What does this script do?
-This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine present on unpacked assets (from installation media) with unpacked assets excluded via exclude.txt and invokes Set-up.exe on temporary directory set by script to install repacked product.
+This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets and script files excluded via exclude.txt and invokes Set-up.exe on temporary directory set by script to install repacked product.
