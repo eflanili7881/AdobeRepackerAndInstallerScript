@@ -10,5 +10,5 @@ I wrote this script who wants to store HyperDrive (HD) based Adobe application i
 This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets and script file and exclude.txt excluded via exclude.txt and invokes Set-up.exe on temporary directory set by script to install repacked product.
 
 # Limitations
-- *.pima archives under "packages" directory (for Creative Cloud itself) cannot be unpacked and repacked because Creative Cloud installer throws error 4. I think HyperDrive install engine doesn't forces signatures to be valid on "products" directory, but enforces signatures must be valid on "packages" directory.
+- *.pima archives under "packages" directory (for Creative Cloud itself) cannot be unpacked and repacked because Creative Cloud installer throws error 4. I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory.
 - ZIP file must not exceed 2 GB. I tested Premiere Pro with -mx0 flag on 7z command line and HyperDrive installer engine throws error. Maybe it's with CompressionType on Application.json or something.
