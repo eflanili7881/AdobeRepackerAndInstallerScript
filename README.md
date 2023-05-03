@@ -1,7 +1,7 @@
 # Adobe HyperDrive (HD) Unpacked Installer
-A .bat script that compresses unpacked Adobe HyperDrive (HD) installers with unpacked assets and installs them.
+A .bat script that compresses unpacked Adobe HyperDrive (HD) assets and installs them.
  
-I wrote this script who wants to store HyperDrive (HD) based Adobe application installers with assets unpacked for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs.
+I wrote this script who wants to store HyperDrive (HD) based Adobe application installers with assets unpacked for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 # Requirements
 On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip".
