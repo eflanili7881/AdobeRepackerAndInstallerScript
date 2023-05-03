@@ -1,0 +1,4 @@
+\products\LTRM\AdobeLightroom-mul
+\products\COSY\CoreSync-mul
+install.bat
+exclude.txt
