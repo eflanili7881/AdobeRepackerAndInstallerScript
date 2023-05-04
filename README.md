@@ -4,7 +4,7 @@ A .bat script that compresses unpacked Adobe RIBS assets and installs them.
 Please, don't use this script for piracy things. I wrote this script for who wants to store RIBS-based Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 # Special note
-- You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe) file from one of the d!akov repacks. Unfortunately, this is the current way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install out repacked assets.
+- You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe) file from one of the d!akov repacks. Unfortunately, this is the current way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
 - Unlike HyperDrive-based installers, with d!akov install engine, *.pima archives under "packages" folder can be repacked. With original engine and repacked *.pima archive, it throws error on initializing setup phase on very beginning.
 
 # Requirements
