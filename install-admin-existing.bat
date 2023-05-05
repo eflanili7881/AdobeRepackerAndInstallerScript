@@ -18,7 +18,7 @@ for /d %%a in ("*") do mkdir "%adobetempinstaller%\packages\%%a"
 cd "%~dp0"
 mkdir %adobetempinstaller%\payloads
 cd "%~dp0payloads"
-for /d %%a in ("*") do mkdir "%adobetempinstaller%\payloads\%%a"
+for /d %%b in ("*") do mkdir "%adobetempinstaller%\payloads\%%b"
 cd "%~dp0"
 echo "==> Copying Exclusion File ..."
 copy "%~dp0exclude.txt" "%excludefolder%\exclude.txt"
