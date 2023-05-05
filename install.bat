@@ -2,7 +2,7 @@
 rem #####################
 rem # Preparation Phase #
 rem #####################
-cd %~dp0
+cd "%~dp0"
 echo "==> Setting Variables ..."
 set adobetempinstaller=%temp%\adobetempinstaller
 set excludefolder=%systemdrive%\excludefolder
@@ -13,8 +13,9 @@ echo "==> Creating Directories ..."
 mkdir %excludefolder%
 mkdir %adobetempinstaller%
 mkdir %adobetempinstaller%\products
-mkdir %adobetempinstaller%\products\LTRM
-mkdir %adobetempinstaller%\products\COSY
+cd "%~dp0products"
+for /d %%a in ("*") do mkdir "%adobeinstallertemp%\products\%%a"
+cd "%~dp0"
 echo "==> Copying Exclusion File ..."
 copy "%~dp0exclude.txt" "%excludefolder%\exclude.txt"
 rem #####################
