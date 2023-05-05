@@ -13,26 +13,13 @@ echo "==> Creating Directories ..."
 mkdir %excludefolder%
 mkdir %adobetempinstaller%
 mkdir %adobetempinstaller%\packages
-mkdir %adobetempinstaller%\packages\CCM
-mkdir %adobetempinstaller%\packages\core
-mkdir %adobetempinstaller%\packages\D6
-mkdir %adobetempinstaller%\packages\DECore
-mkdir %adobetempinstaller%\packages\DWA
-mkdir %adobetempinstaller%\packages\IPC
-mkdir %adobetempinstaller%\packages\LWA
-mkdir %adobetempinstaller%\packages\P6
-mkdir %adobetempinstaller%\packages\P7
-mkdir %adobetempinstaller%\packages\UWA
+cd "%~dp0packages"
+for /d %%a in ("*") do mkdir "%adobetempinstaller%\packages\%%a"
+cd "%~dp0"
 mkdir %adobetempinstaller%\payloads
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9AllTrial
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9de_DELanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9en_USLanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9es_ESLanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9fr_FRLanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9it_ITLanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9ja_JPLanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9pt_BRLanguagePack
-mkdir %adobetempinstaller%\payloads\AdobeSpeedGrade9ru_RULanguagePack
+cd "%~dp0payloads"
+for /d %%a in ("*") do mkdir "%adobetempinstaller%\payloads\%%a"
+cd "%~dp0"
 echo "==> Copying Exclusion File ..."
 copy "%~dp0exclude.txt" "%excludefolder%\exclude.txt"
 echo "==> Renaming C:\Program Files (x86)\Common Files\Adobe\OOBE Folder ..."
