@@ -12,7 +12,7 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 - On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip". But you can edit install.bat to change 7-Zip's location currently. I may update script to detect 7-Zip's install location by reading registry.
 
 ## What does this script do?
-This script compresses all unpacked assets that present on "payloads" folder to temporary directory set by script, copies RIBS installer engine from installation media with unpacked assets and script file and exclude.txt excluded via exclude.txt and invokes Set-up.exe on temporary directory set by script to install repacked product.
+This script compresses all unpacked assets that present on "payloads" folder to temporary directory set by script, copies RIBS installer engine from installation media with unpacked assets excluded via excludepackages.txt and excludepayloads.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
 
 ## Limitations
 - ZIP file must not exceed 2 GB. I tested this with HyperDrive installer engine and it throwed error. But I didn't tested this with RIBS engine. May it supports 2 GB+ files or not. Proceed with caution.
