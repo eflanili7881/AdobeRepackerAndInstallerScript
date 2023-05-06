@@ -5,12 +5,12 @@ rem #####################
 cd %~dp0
 echo "==> Setting Variables ..."
 set adobetempinstaller=%systemdrive%\adobetempinstaller
-set excludefolder=%systemdrive%\excludefolder
+set adobeworkfolder=%systemdrive%\adobeworkfolder
 echo "==> Deleting Previously Failed Instance ..."
-rd %excludefolder% /s /q
+rd %adobeworkfolder% /s /q
 rd %adobetempinstaller% /s /q
 echo "==> Creating Directories ..."
-mkdir %excludefolder%
+mkdir %adobeworkfolder%
 mkdir %adobetempinstaller%
 mkdir %adobetempinstaller%\packages
 cd "%~dp0packages"
@@ -19,40 +19,42 @@ cd "%~dp0"
 mkdir %adobetempinstaller%\payloads
 cd "%~dp0payloads"
 for /d %%b in ("*") do mkdir "%adobetempinstaller%\payloads\%%b"
+echo "==> Creating Exclusion File ..."
+echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
+pause
+cd "%~dp0packages"
+powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\excludepackages.txt
 cd "%~dp0"
-echo "==> Copying Exclusion File ..."
-copy "%~dp0exclude.txt" "%excludefolder%\exclude.txt"
+cd "%~dp0payloads"
+powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\excludepayloads.txt
+echo "Remove first 3 line from get-childitem, remove main folders, remove all things before packages, payloads folder that not including \ before on packages, payloads folder, remove all spaces from file, put \ every end of the line and save it."
+pause
+notepad %adobeworkfolder%\excludepackages.txt
+notepad %adobeworkfolder%\excludepayloads.txt
 echo "==> Renaming C:\Program Files (x86)\Common Files\Adobe\OOBE Folder ..."
 move "C:\Program Files (x86)\Common Files\Adobe\OOBE" "C:\Program Files (x86)\Common Files\Adobe\OOBE.OLD"
 rem #####################
 rem # Compression Phase #
 rem #####################
 echo "==> Compressing Unpacked Products ..."
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\CCM\CCM.pima" -mx5 -r "%~dp0\packages\CCM\CCM\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\core\PDApp.pima" -mx5 -r "%~dp0\packages\core\PDApp\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\D6\D6.pima" -mx5 -r "%~dp0\packages\D6\D6\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\DECore\DECore.pima" -mx5 -r "%~dp0\packages\DECore\DECore\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\DWA\DWA.pima" -mx5 -r "%~dp0\packages\DWA\DWA\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\IPC\IPC.pima" -mx5 -r "%~dp0\packages\IPC\IPC\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\LWA\LWA.pima" -mx5 -r "%~dp0\packages\LWA\LWA\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\P6\P6.pima" -mx5 -r "%~dp0\packages\P6\P6\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\P7\P7.pima" -mx5 -r "%~dp0\packages\P7\P7\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\packages\UWA\UWA.pima" -mx5 -r "%~dp0\packages\UWA\UWA\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9AllTrial\Assets1_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9AllTrial\Assets1_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9AllTrial\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9AllTrial\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9de_DELanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9de_DELanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9en_USLanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9en_USLanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9es_ESLanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9es_ESLanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9fr_FRLanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9fr_FRLanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9it_ITLanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9it_ITLanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9ja_JPLanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9ja_JPLanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9pt_BRLanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9pt_BRLanguagePack\Assets2_1\*"
-"c:\program files\7-zip\7z" a -bd -tzip "%adobetempinstaller%\payloads\AdobeSpeedGrade9ru_RULanguagePack\Assets2_1.zip" -mx5 -r "%~dp0payloads\AdobeSpeedGrade9ru_RULanguagePack\Assets2_1\*"
+echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
+pause
+cd "%~dp0packages"
+powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compresspackages.txt
+cd "%~dp0"
+cd "%~dp0payloads"
+powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compresspayloads.txt
+echo "Remove first 3 line from get-childitem, remove main folders, remove all things before packages, payloads folder that including \ before on packages, payloads folder, remove all spaces from file, put \ every end of the line and save it."
+notepad %adobeworkfolder%\compresspackages.txt
+notepad %adobeworkfolder%\compresspayloads.txt
+pause
+for /f "usebackq delims=" %%c in ("%adobeworkfolder%\compresspackages.txt") do "C:\Program Files\7-Zip\7z.exe" a -bd -tzip "%adobetempinstaller%\%%c.pima" -mx5 -r "%~dp0%%c\*"
+for /f "usebackq delims=" %%d in ("%adobeworkfolder%\compresspayloads.txt") do "C:\Program Files\7-Zip\7z.exe" a -bd -tzip "%adobetempinstaller%\%%d.zip" -mx5 -r "%~dp0%%d\*"
 rem ###########################
 rem # Copying Installer Phase #
 rem ###########################
 echo "==> Copying Installer ..."
-xcopy /q /e /h "%~dp0*" "%adobetempinstaller%" /exclude:%excludefolder%\exclude.txt
+xcopy /q /e /h "%~dp0*" "%adobetempinstaller%" /exclude:%adobeworkfolder%\excludepackages.txt+%adobeworkfolder%\excludepayloads.txt
 rem ######################
 rem # Installation Phase #
 rem ######################
@@ -66,7 +68,7 @@ rem # Clean-up Phase #
 rem ##################
 echo "==> Cleaning Up ..."
 rd %adobetempinstaller% /s /q
-rd %excludefolder% /s /q
+rd %adobeworkfolder% /s /q
 echo "==> Restoring C:\Program Files (x86)\Common Files\Adobe\OOBE Folder ..."
 move "C:\Program Files (x86)\Common Files\Adobe\OOBE.OLD" "C:\Program Files (x86)\Common Files\Adobe\OOBE.ORG"
 rd "C:\Program Files (x86)\Common Files\Adobe\OOBE" /s /q
