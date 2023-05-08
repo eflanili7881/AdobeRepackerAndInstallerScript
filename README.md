@@ -5,6 +5,7 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 
 ## Requirements
 - On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip". But you can edit install.bat to change 7-Zip's location currently. I may update script to detect 7-Zip's install location by reading registry.
+- Latest PowerShell for Windows. Without updating PowerShell, it may work but folder scanning may not successful.
 
 ## What does this script do?
 This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets excluded via exclude.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
