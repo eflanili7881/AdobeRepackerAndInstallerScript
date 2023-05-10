@@ -27,4 +27,4 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeAfterEffects9ProtectedAll
   - AdobeAfterEffects9FCAll
   - MSXML6.0 (due to conflict between x64 and ia64. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
-  - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.).
+  - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
