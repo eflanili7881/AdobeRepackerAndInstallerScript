@@ -29,3 +29,4 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - MSXML6.0 (Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
   - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
   - AdobeVersionCue4All (Package normally unpackable, but it throws error 1603 while initialization phase.)
+  - AdobeAfterEffects9All (Not on standalone application, but on Master Collection and probably on other suites, this package slows initialization phase like 10-20 minutes or longer, but it still fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.)
