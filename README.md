@@ -24,7 +24,7 @@ This script compresses all unpacked assets that present on "payloads" folder to 
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but installer will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS5 and above.
 - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase, but on installation phase, it doesn't and it will fail.
 - With more interesting thing, above 2 statements, Adobe Premiere Pro CS4 was installed successfully, with unpacked protected contents. I think this problem was about invalid character problem that Adobe After Effects CS4 Protected Contents' unpacked assets path that contains or this problem was specifically for After Effects. Currently unpackable assets are:
- - AdobeAfterEffects9ProtectedAll
- - AdobeAfterEffects9FCAll
- - MSXML6.0 (due to conflict between x64 and ia64. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
- - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.).
+  - AdobeAfterEffects9ProtectedAll
+  - AdobeAfterEffects9FCAll
+  - MSXML6.0 (due to conflict between x64 and ia64. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
+  - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.).
