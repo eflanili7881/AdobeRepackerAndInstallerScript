@@ -38,6 +38,7 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobePremierePro3All (Installation fails with error 1603.)
   - AdobePhotoshop10* (Installation fails with error 1603.)
   - AdobeIllustrator13* (Installation fails with error 1603.)
+  - AdobeInDesign5* (Installation fails with error 1603.)
   - Probably all main packages and protected packages can't be unpacked. But optional packages like Bridge does.
 - But some CS3 main packs can be unpacked. These are:
   - AdobeDreamweaver9*
