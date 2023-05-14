@@ -45,3 +45,4 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeDreamweaver9*
   - AdobeFlash9*
   - AdobeFireworks9*
+  - AdobeContribute4.1*
