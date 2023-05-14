@@ -36,4 +36,5 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeAfterEffects8FCAll (unpacked version prevents installation phase to be completed and it throws error.)
   - AdobeAfterEffects8ProtectedAll (On CS3, throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.)
   - AdobePremierePro3All (Installation fails with error 1603.)
+  - AdobePhotoshop10* (Installation fails with error 1603.)
   - Probably all main packages and protected packages can't be unpacked. But optional packages like Bridge does.
