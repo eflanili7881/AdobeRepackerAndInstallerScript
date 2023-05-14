@@ -43,3 +43,4 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - Probably all main packages and protected packages can't be unpacked. But optional packages like Bridge does.
 - But some CS3 main packs can be unpacked. These are:
   - AdobeDreamweaver9*
+  - AdobeFlash9*
