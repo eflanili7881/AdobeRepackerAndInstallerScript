@@ -44,3 +44,4 @@ This script compresses all unpacked assets that present on "payloads" folder to 
 - But some CS3 main packs can be unpacked. These are:
   - AdobeDreamweaver9*
   - AdobeFlash9*
+  - AdobeFireworks9*
