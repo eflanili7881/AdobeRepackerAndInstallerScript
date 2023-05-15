@@ -47,7 +47,7 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeDreamweaver9*
   - AdobeFlash9*
   - AdobeFireworks9*
-  - AdobeIllustrator13* (on Master Collection and probably on other suites.)
-  - AdobeInDesign5* (on Master Collection and probably on other suites.)
-  - AdobePhotoshop10* (on Master Collection and probably on other suites.)
+  - AdobeIllustrator13* (on Master Collection and probably on other suites (Not on Design Premium).)
+  - AdobeInDesign5* (on Master Collection and probably on other suites (Not on Design Premium).)
+  - AdobePhotoshop10* (on Master Collection and probably on other suites (Not on Design Premium).)
   - AdobeContribute4.1*
