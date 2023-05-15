@@ -40,9 +40,14 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeIllustrator13* (Installation fails with error 1603.)
   - AdobeInDesign5* (Installation fails with error 1603.)
   - AdobeInCopy5* (Installation fails with error 1603.)
+  - AdobeEncore3All (Installation fails with error 1603.)
+  - AdobeSoundboothAll (Installation fails with error 1603 on Master Collection. I don't have standalone product :(( )
   - Probably all main packages and protected packages can't be unpacked. But optional packages like Bridge does.
 - But some CS3 main packs can be unpacked. These are:
   - AdobeDreamweaver9*
   - AdobeFlash9*
   - AdobeFireworks9*
+  - AdobeIllustrator13* (on Master Collection and probably on other suites.)
+  - AdobeInDesign5* (on Master Collection and probably on other suites.)
+  - AdobePhotoshop10* (on Master Collection and probably on other suites.)
   - AdobeContribute4.1*
