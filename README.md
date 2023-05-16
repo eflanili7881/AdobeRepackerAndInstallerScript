@@ -47,8 +47,8 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeDreamweaver9*
   - AdobeFlash9*
   - AdobeFireworks9*
-  - AdobeIllustrator13* (on Master Collection and probably on other suites (Not on Design Premium).)
-  - AdobeInDesign5* (on Master Collection and probably on other suites (Not on Design Premium).)
-  - AdobePhotoshop10* (on Master Collection and probably on other suites (Not on Design Premium).)
+  - AdobeIllustrator13* (only on Master Collection.)
+  - AdobeInDesign5* (only on Master Collection.)
+  - AdobePhotoshop10* (only on Master Collection.)
   - AdobeContribute4.1*
   - On Adobe Acrobat Pro 8 on Design Premium and Standard, they may say C:\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL says missing during install. Specifying \payloads\AdobeAcrobat8de_DE\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL will solves this.
