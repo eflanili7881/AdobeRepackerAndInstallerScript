@@ -31,6 +31,7 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
   - AdobeVersionCue4All (Package normally unpackable, but it throws error 1603 while initialization phase.)
   - AdobeAfterEffects9All ((Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed, but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.))
+  - AdobeCaptivate4* (Installation fails with error 1603.)
   - CS3
   - AdobeAfterEffects8All (On CS3, this package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.)
   - AdobeAfterEffects8FCAll (unpacked version prevents installation phase to be completed and it throws error.)
