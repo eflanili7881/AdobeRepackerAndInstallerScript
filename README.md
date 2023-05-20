@@ -32,10 +32,11 @@ This script compresses all unpacked assets that present on "payloads" folder to 
   - AdobeVersionCue4All (Package normally unpackable, but it throws error 1603 while initialization phase.)
   - AdobeAfterEffects9All ((Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed, but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.))
   - AdobeCaptivate4* (Installation fails with error 1603.)
+  - AdobeDirector11.5* (Package normally unpackable, but it throws error 1603 while initialization phase.)
   - CS3
-  - AdobeAfterEffects8All (On CS3, this package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.)
+  - AdobeAfterEffects8All (This package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.)
   - AdobeAfterEffects8FCAll (unpacked version prevents installation phase to be completed and it throws error.)
-  - AdobeAfterEffects8ProtectedAll (On CS3, throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.)
+  - AdobeAfterEffects8ProtectedAll (Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.)
   - AdobePremierePro3All (Installation fails with error 1603.)
   - AdobePhotoshop10* (Installation fails with error 1603.)
   - AdobeIllustrator13* (Installation fails with error 1603.)
