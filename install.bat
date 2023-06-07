@@ -19,7 +19,7 @@ cd "%~dp0"
 echo "==> Creating Exclusion File ..."
 echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
 pause
-powershell  -command "get-childitem -path %~dp0products -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\exclude.txt
+powershell -command "get-childitem -path %~dp0products -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\exclude.txt
 echo "Remove first 3 line from get-childitem, remove main folders, remove all things before products that not including \ before on products folder and remove all spaces from file and save it."
 notepad %adobeworkfolder%\exclude.txt
 pause
@@ -29,7 +29,7 @@ rem #####################
 echo "==> Compressing Unpacked Products ..."
 echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
 pause
-powershell  -command "get-childitem -path .\products -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compress.txt
+powershell -command "get-childitem -path .\products -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compress.txt
 echo "Remove first 3 line from get-childitem, remove main folders, remove all things before products that including \ before on products folder and remove all spaces from file and save it."
 notepad %adobeworkfolder%\compress.txt
 pause
