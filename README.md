@@ -17,4 +17,4 @@ This script compresses all unpacked assets that present on "products" folder to 
   - With script I wrote in https://github.com/osmankovan123/AdobeLZMA2UnpackerScript , they can now be unpacked.
 
 ## Known Issues
--On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, packages turns into (gibberish)packages i.e.). To solve this, copy first line just below the first line.
+- On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, *packages* turns into *´╗┐packages* i.e.). To solve this, copy first line just below the first line.
