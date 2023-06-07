@@ -15,3 +15,6 @@ This script compresses all unpacked assets that present on "products" folder to 
 - ZIP file must not exceed 2 GB. I tested Premiere Pro with -mx0 flag on 7z command line and HyperDrive installer engine throws error. Maybe it's with CompressionType on Application.json or something.
 - ~~Currently, LZMA2-compressed ZIP files cannot be unpacked and repacked. They cannot be unpacked with 7-Zip itself. They may obtainable if unpacked version is copied from adobeTemp directory really fast. Because as soon as install finishes, HyperDrive installer engine deletes that files as soon as possible.~~
   - With script I wrote in https://github.com/osmankovan123/AdobeLZMA2UnpackerScript , they can now be unpacked.
+
+## Known Issues
+-On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, packages turns into (gibberish)packages i.e.). To solve this, copy first line just below the first line.
