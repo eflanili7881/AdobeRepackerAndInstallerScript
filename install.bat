@@ -18,7 +18,7 @@ for /d %%a in ("*") do mkdir "%adobetempinstaller%\products\%%a"
 cd "%~dp0"
 echo "==> Creating Exclusion File ..."
 powershell -command "start-transcript -path "%adobeworkfolder%\exclude.txt"; get-childitem -path "%~dp0products" -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
-echo "Remove all lines but file/folder paths, remove main folders, remove all things before products that not including \ before on products folder and save it."
+echo "Remove all lines but file/folder paths, remove main folders, remove all things before products that not including \ before on products folder, copy first line to one below to avoid an anomaly and save it."
 notepad %adobeworkfolder%\exclude.txt
 pause
 rem #####################
