@@ -44,7 +44,7 @@ powershell -command "get-childitem -path "." -recurse -directory -depth 1 | sele
 cd "%~dp0"
 cd "%~dp0payloads"
 powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compresspayloads.txt
-echo "Remove first 3 line from get-childitem, remove main folders, remove all things before packages, payloads folder that including \ before on packages, payloads folder, remove all spaces from file, put \ every end of the line and save it."
+echo "Remove first 3 line from get-childitem, remove main folders, remove all things before packages, payloads folder that including \ before on packages, payloads folder, remove all spaces from file and save it."
 notepad %adobeworkfolder%\compresspackages.txt
 notepad %adobeworkfolder%\compresspayloads.txt
 pause
