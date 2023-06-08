@@ -23,11 +23,11 @@ echo "==> Creating Exclusion File ..."
 echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
 pause
 cd "%~dp0packages"
-powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\excludepackages.txt
+powershell -command "start-transcript -path "%adobeworkfolder%\excludepackages.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
 cd "%~dp0"
 cd "%~dp0payloads"
-powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\excludepayloads.txt
-echo "Remove first 3 line from get-childitem, remove main folders, remove all things before packages, payloads folder that not including \ before on packages, payloads folder, remove all spaces from file, put \ every end of the line and save it."
+powershell -command "start-transcript -path "%adobeworkfolder%\excludepayloads.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
+echo "Remove all lines but file/folder paths, remove main folders, remove all things before packages and payloads that not including \ before on packages and payloads folder, put \ every end of the line, copy first line to one below to avoid an anomaly and save it."
 pause
 notepad %adobeworkfolder%\excludepackages.txt
 notepad %adobeworkfolder%\excludepayloads.txt
@@ -38,11 +38,11 @@ echo "==> Compressing Unpacked Products ..."
 echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
 pause
 cd "%~dp0packages"
-powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compresspackages.txt
+powershell -command "start-transcript -path "%adobeworkfolder%\compresspackages.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
 cd "%~dp0"
 cd "%~dp0payloads"
-powershell -command "get-childitem -path "." -recurse -directory -depth 1 | select FullName" > %adobeworkfolder%\compresspayloads.txt
-echo "Remove first 3 line from get-childitem, remove main folders, remove all things before packages, payloads folder that including \ before on packages, payloads folder, remove all spaces from file, put \ every end of the line and save it."
+powershell -command "start-transcript -path "%adobeworkfolder%\compresspayloads.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
+echo "Remove all lines but file/folder paths, remove main folders, remove all things before packages and payloads that not including \ before on packages and payloads folder, copy first line to one below to avoid an anomaly and save it."
 notepad %adobeworkfolder%\compresspackages.txt
 notepad %adobeworkfolder%\compresspayloads.txt
 pause
