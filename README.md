@@ -8,13 +8,13 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 - Unlike HyperDrive-based installers, with d!akov install engine, *.pima archives under "packages" folder can be repacked. With original engine and repacked *.pima archive, it throws error on initializing setup phase on very beginning.
 - CS5.5 and CS5 do not require d!akov installer engine to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers. Because CS5.5 and before's RIBS installer engines doesn't have signature verification.
 - CS4 and CS3 doesn't require this script. Payloads stored as MSI installer and no verification is present except for protected ones (?). If installer assets unpacked via "msiexec /a" and replacing packed assets with unpacked ones, installer will install our unpacked assets with an honor.
-- Despite d!akov repacks' packages folder can be unpacked, minimal package set is this (with pirating, unfortunately):
+- Despite d!akov repacks' packages *.pima archives can be unpacked, minimal package set for just installing application is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
   - core
   - D6
   - DECore
   - UWA
-- But if you want to use your legit license, it's
-  - All packages from pirated set
+- But if you want to use your legit license, it's:
+  - All packages from above
   - DWA
 
 ## Requirements
