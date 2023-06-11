@@ -15,7 +15,7 @@ Please, don't use this script for piracy things. I wrote this script for who wan
   - UWA
 - But if you want to use your legit license, it's:
   - All packages from above
-  - DWA
+  - P6
 
 ## Requirements
 - On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip". But you can edit install.bat to change 7-Zip's location currently. I may update script to detect 7-Zip's install location by reading registry.
