@@ -53,12 +53,12 @@ This script compresses all unpacked assets that present on "payloads" folder to 
     - AdobeInCopy5* (Installation fails with error 1603.)
     - AdobeEncore3All (Installation fails with error 1603.)
     - AdobeSoundboothAll (Installation fails with error 1603 on Master Collection. I don't have standalone product :(( )
-  - But some CS3 main packs can be unpacked. These are:
-    - AdobeDreamweaver9*
-    - AdobeFlash9*
-    - AdobeFireworks9*
-    - AdobeIllustrator13* (only on Master Collection.)
-    - AdobeInDesign5* (only on Master Collection.)
-    - AdobePhotoshop10* (only on Master Collection.)
-    - AdobeContribute4.1*
-    - On Adobe Acrobat Pro 8 (in suites), they may say C:\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL says missing during install. Specifying \payloads\AdobeAcrobat8de_DE\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL will solves this.
+    - But some CS3 main packs can be unpacked. These are:
+      - AdobeDreamweaver9*
+      - AdobeFlash9*
+      - AdobeFireworks9*
+      - AdobeIllustrator13* (only on Master Collection.)
+      - AdobeInDesign5* (only on Master Collection.)
+      - AdobePhotoshop10* (only on Master Collection.)
+      - AdobeContribute4.1*
+      - On Adobe Acrobat Pro 8 (in suites), they may say C:\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL says missing during install. Specifying \payloads\AdobeAcrobat8de_DE\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL will solves this.
