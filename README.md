@@ -52,7 +52,7 @@ This script compresses all unpacked assets that present on "payloads" folder to 
     - AdobeInDesign5* (Installation fails with error 1603.)
     - AdobeInCopy5* (Installation fails with error 1603.)
     - AdobeEncore3All (Installation fails with error 1603.)
-    - AdobeSoundboothAll (Installation fails with error 1603 on Master Collection. I don't have standalone product :(( )
+    - AdobeSoundboothAll (Installation fails with error 1603 on Master Collection. I don't have standalone product :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) ) )
     - But some CS3 main packs can be unpacked. These are:
       - AdobeDreamweaver9*
       - AdobeFlash9*
