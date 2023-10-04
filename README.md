@@ -22,12 +22,12 @@ This script compresses all unpacked assets that present on "products" folder to 
 ## Known Issues
 - On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, *packages* turns into *´╗┐packages* i.e.). 
   - To solve this, copy first line just below the first line.
-  - If output's like this:
-    - products\AEFT
-    - products\KFNT
-    - products\ACR
-  - After that, output should be like this:
-    - products\AEFT
-    - products\AEFT
-    - products\KFNT
-    - products\ACR
+    - If output's like this:
+      - products\AEFT
+      - products\KFNT
+      - products\ACR
+    - After that, output should be like this:
+      - products\AEFT
+      - products\AEFT
+      - products\KFNT
+      - products\ACR
