@@ -11,6 +11,12 @@ Please, don't use this script for piracy things. I wrote this script for who wan
     - version 8.0.0.15 packages\DECore\DECore.pima\DE6\Setup.dll => Allows custom asset archives to be installed.
     - version 8.0.0.14 packages\UWA\UWA.pima\updatercore.dll => (?) Allows custom asset archives to be installed (only on updates, I guess.).
     - version 8.0.0.73 resources\AdobePIM.dll => Allows repacked *.pima archives from packages folder to be loaded.
+    - If \payloads\Media_db.db\PayloadData\ (any payload id that has higher version than 8.0.0.15) \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example: *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.* This can be fixed with DB Browser from https://sqlitebrowser.org/dl.
+      - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
+      - Than paste these 2 commands:
+        - update PayloadData **(do not press Enter here.)**
+        - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(press Enter here.)**
+      - This will replace any 9.0.0.6 with 8.0.0.15.
 - Unlike HyperDrive-based installers, with d!akov install engine, *.pima archives under "packages" folder can be repacked. With original engine and repacked *.pima archive, it throws error on initializing setup phase on very beginning.
 - CS5.5 and CS5 do not require d!akov installer engine to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers. Because CS5.5 and before's RIBS installer engines doesn't have signature verification.
 - CS4 and CS3 doesn't require this script. Payloads stored as MSI installer and no verification is present except for protected ones (?). If installer assets unpacked via "msiexec /a" and replacing packed assets with unpacked ones, installer will install our unpacked assets with an honor.
@@ -33,7 +39,6 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 ## Limitations
 - ZIP file must not exceed 2 GB. I tested this with HyperDrive installer engine and it throwed error. But I didn't tested this with RIBS engine. May it supports 2 GB+ files or not. Proceed with caution.
 - If original Adobe CC 2015 application is installed with original RIBS engine, use install-admin-existing.bat. You need to run this file as administrator for temporarily replacing OOBE folder on C:\Program Files\Common Files\Adobe. This folder is where the installer engine is. If no Adobe application was installed before, use install-fresh.bat. You can run this file as normal user.
-- If \payloads\Media_db.db\PayloadData\ (any payload id that has higher version of RIBS 8.0.0.15) \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs: *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.* This can be fixed with DB Browser from https://sqlitebrowser.org/dl/ . Edit \payloads\Media_db.db\PayloadData\ (any payload id that has higher version of RIBS 8.0.0.15) \PayloadInfo that's greater than 8.0.0.15 to 8.0.0.15 or lower.
 - On CS5.5(?) and CS5, some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but installer will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
 - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase, but on installation phase, it doesn't and it will fail.
