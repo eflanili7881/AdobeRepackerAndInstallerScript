@@ -16,7 +16,7 @@ Please, don't use this script for piracy things. I wrote this script for who wan
       - Than paste these 2 commands:
         - update PayloadData **(do not press Enter here.)**
         - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(press Enter here.)**
-      - This will replace any 9.0.0.6 with 8.0.0.15. You may change these version depending on product you're gonna installing.
+      - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
 - Unlike HyperDrive-based installers, with d!akov install engine, *.pima archives under "packages" folder can be repacked. With original engine and repacked *.pima archive, it throws error on initializing setup phase on very beginning.
 - CS5.5 and CS5 do not require d!akov installer engine to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers. Because CS5.5 and before's RIBS installer engines doesn't have signature verification.
 - CS4 and CS3 doesn't require this script. Payloads stored as MSI installer and no verification is present except for protected ones (?). If installer assets unpacked via "msiexec /a" and replacing packed assets with unpacked ones, installer will install our unpacked assets with an honor.
