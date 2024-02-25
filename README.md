@@ -13,9 +13,9 @@ Please, don't use this script for piracy things. I wrote this script for who wan
     - version 8.0.0.73 resources\AdobePIM.dll => Allows repacked *.pima archives from packages folder to be loaded.
     - If \payloads\Media_db.db\PayloadData\ (any payload id that has higher version than 8.0.0.15) \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example: *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.* This can be fixed with DB Browser from https://sqlitebrowser.org/dl.
       - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
-      - Than paste these 2 commands:
-        - update PayloadData **(do not press Enter here.)**
-        - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(press Enter here.)**
+      - Than paste these 2 commands to separate lines:
+        - update PayloadData **(do not execute command here.)**
+        - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
       - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
 - Unlike HyperDrive-based installers, with d!akov install engine, *.pima archives under "packages" folder can be repacked. With original engine and repacked *.pima archive, it throws error on initializing setup phase on very beginning.
 - CS5.5 and CS5 do not require d!akov installer engine to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers. Because CS5.5 and before's RIBS installer engines doesn't have signature verification.
