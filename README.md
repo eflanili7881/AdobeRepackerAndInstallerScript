@@ -29,8 +29,8 @@ Please, don't use this script for piracy things. I wrote this script for who wan
     - D6
     - DECore
     - UWA
-  - But if you want to use your legit license, it's all packages above with that extra package:
-    - P6
+    - But if you want to use your legit license, it's all packages above with that extra package:
+      - P6
 - CS4 and CS3 doesn't require this script. Payloads stored as MSI installer and no verification is present except for protected ones (?). If installer assets unpacked via "msiexec /a" and replacing packed assets with unpacked ones, installer will install our unpacked assets with an honor.
 
 ## Requirements
