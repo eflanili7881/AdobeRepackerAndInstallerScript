@@ -5,12 +5,13 @@ A .bat script that compresses unpacked Adobe RIBS assets and installs them.
 Please, don't use this script for piracy things. I wrote this script for who wants to store RIBS-based Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 ## Special note
-- You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe) file from one of the d!akov repacks for CS6 to CC 2015 installers. Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
-  - Or you can download one of the m0nkrus' repacks and take these files from it (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.).
-  - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions:
-    - version 8.0.0.15 packages\DECore\DECore.pima\DE6\Setup.dll => Allows custom asset archives to be installed.
-    - version 8.0.0.14 packages\UWA\UWA.pima\updatercore.dll => (?) Allows custom asset archives to be installed (only on updates, I guess.).
-    - version 8.0.0.73 resources\AdobePIM.dll => Allows repacked *.pima archives from packages folder to be loaded.
+- You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe) file from one of the d!akov or m0nkrus repacks for CS6 to CC 2015 installers (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
+  - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
+    | Binary Version   | Binary Path                               | Binary Purpose                                                               |
+    | :--------------: | :---------------------------------------: | :--------------------------------------------------------------------------: |
+    | version 8.0.0.15 | packages\DECore\DECore.pima\DE6\Setup.dll | Allows custom asset archives to be installed.                                |
+    | version 8.0.0.14 | packages\UWA\UWA.pima\updatercore.dll     | (?) Allows custom asset archives to be installed (only on updates, I guess.).|
+    | version 8.0.0.73 | resources\AdobePIM.dll                    | Allows repacked *.pima archives from packages folder to be loaded.           |
       - You can only manually patch 8.x.x.x (CC 2014 series) installer engine and above. 7.x.x.x (CC 2013) and below gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
         - For Creative Cloud Packager 7.x.x.x engine (1.1.0.27 version, CC 2013-era), only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
     - If \payloads\Media_db.db\PayloadData\ (any payload id that has higher version than 8.0.0.15) \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example for SpeedGrade CC 2015 with 8.x.x.x engine:
@@ -21,8 +22,8 @@ Please, don't use this script for piracy things. I wrote this script for who wan
             - update PayloadData **(do not execute command here.)**
             - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
           - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
-- Unlike HyperDrive-based installers, with d!akov install engine, *.pima archives under "packages" folder can be repacked. With original engine and repacked *.pima archive, it throws error on initializing setup phase on very beginning.
-- CS5.5 and CS5 do not require d!akov installer engine to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers. Because CS5.5 and before's RIBS installer engines doesn't have signature verification.
+- Unlike HyperDrive-based installers, with patched AdobePIM.dll, *.pima archives under "packages" folder can be repacked. With original AdobePIM.dll and repacked *.pima archive, it throws error on initializing setup phase on very beginning about Adobe Genuine Software Verification failure.
+- CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have signature verification.
 - CS4 and CS3 doesn't require this script. Payloads stored as MSI installer and no verification is present except for protected ones (?). If installer assets unpacked via "msiexec /a" and replacing packed assets with unpacked ones, installer will install our unpacked assets with an honor.
 - Despite d!akov repacks' packages *.pima archives can be unpacked, minimal package set for just installing application is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
   - core
