@@ -45,17 +45,17 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - If original Adobe CC 2015 application is installed with original RIBS engine, use install-admin-existing.bat. You need to run this file as administrator for temporarily replacing OOBE folder on C:\Program Files\Common Files\Adobe. This folder is where the installer engine is. If no Adobe application was installed before, use install-fresh.bat. You can run this file as normal user.
 - On CS5.5(?) and CS5, some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
   - These packages are:
-    -AdobeOnLocation5.1ProtectedAll
-    -AdobeOnLocation5ProtectedAll
-    -AdobePresenter706-AS_PC-mul
-    -AdobeAfterEffects10.5ProtectedAll
-    -AdobeEncore5RoyaltyAll
-    -AdobePremierePro5RoyaltyAll
-    -AMEDolby5All
-    -AMEDolby5All_x64
-    -AMEPCI5All
-    -AMEPCI5All_x64
-    -AdobePremierePro5ProtectedAll
+    - AdobeOnLocation5.1ProtectedAll
+    - AdobeOnLocation5ProtectedAll
+    - AdobePresenter706-AS_PC-mul
+    - AdobeAfterEffects10.5ProtectedAll
+    - AdobeEncore5RoyaltyAll
+    - AdobePremierePro5RoyaltyAll
+    - AMEDolby5All
+    - AMEDolby5All_x64
+    - AMEPCI5All
+    - AMEPCI5All_x64
+    - AdobePremierePro5ProtectedAll
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but installer will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
 - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase, but on installation phase, it doesn't and it will fail.
 - With more interesting thing, above 2 statements, Adobe Premiere Pro CS4 was installed successfully, with unpacked protected contents. I think this problem was about invalid character problem that Adobe After Effects CS4 Protected Contents' unpacked assets path that contains or this problem was specifically for After Effects. Currently not unpackable assets are:
