@@ -25,7 +25,7 @@ rem #####################
 rem # Compression Phase #
 rem #####################
 echo "==> Compressing Unpacked Products ..."
-powershell -command "start-transcript -path %adobeworkfolder%\compress.txt; get-childitem -path .\products -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
+powershell -command "start-transcript -path "%adobeworkfolder%\compress.txt"; get-childitem -path .\products -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
 echo "Remove all lines but file/folder paths, remove main folders, remove all things before products that including \ before on products folder, copy first line to one below to avoid an anomaly and save it."
 notepad %adobeworkfolder%\compress.txt
 pause
