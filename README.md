@@ -20,14 +20,18 @@ Please, don't use this script for piracy things. I wrote this script for who wan
           - This can be fixed with SQLite DB Browser.
             - Download this program from https://sqlitebrowser.org/dl/
               - Or if that page isn't available, but direct links are accessible:
-                - Download version 3.12.2 32-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
+                - Download version 3.12.2 Windows 32-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi .
                   - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
-                - Download version 3.12.2 32-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
+                - Download version 3.12.2 Windows 32-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip .
                   - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
-                - Download version 3.12.2 64-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
+                - Download version 3.12.2 Windows 64-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi .
                   - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
-                - Download version 3.12.2 64-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
+                - Download version 3.12.2 Windows 64-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip .
                   - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
+                - Download version 3.12.2 macOS Intel from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg if Windows application isn't working.
+                  - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg
+                - Download version 3.12.2 macOS Apple Silicon from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg if Windows application isn't working.
+                  - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg
             - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
             - Than paste these 2 commands to separate lines:
               - update PayloadData **(do not execute command here.)**
@@ -74,7 +78,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - AdobeAfterEffects9FCAll (unpacked version prevents installation phase to be completed and it throws error.)
     - MSXML6.0 (Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
     - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
-      - You can fix this with Orca MSI Editor
+      - You can fix this with Orca MSI Editor.
         - Download Orca MSI editor from https://www.technipages.com/downloads/OrcaMSI.zip
           - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
         - On Orca, search Docs_DistillerS_DEU on Components table.
