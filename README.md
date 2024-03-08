@@ -17,7 +17,17 @@ Please, don't use this script for piracy things. I wrote this script for who wan
         - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
       - If \payloads\Media_db.db\PayloadData\ (any payload id that has higher version than 8.0.0.15) \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example for SpeedGrade CC 2015 with 8.x.x.x engine:
         - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
-          - This can be fixed with DB Browser from https://sqlitebrowser.org/dl.
+          - This can be fixed with SQLite DB Browser.
+            - Download this program from https://sqlitebrowser.org/dl/
+              - Or if that page isn't available, but direct links are accessible:
+                - Download version 3.12.2 32-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
+                  - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
+                - Download version 3.12.2 32-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
+                  - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
+                - Download version 3.12.2 64-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
+                  - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
+                - Download version 3.12.2 64-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
+                  - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
             - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
             - Than paste these 2 commands to separate lines:
               - update PayloadData **(do not execute command here.)**
