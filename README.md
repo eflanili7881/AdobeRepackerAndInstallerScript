@@ -32,3 +32,4 @@ This script compresses all unpacked assets that present on "products" folder to 
       - products\AEFT
       - products\KFNT
       - products\ACR
+    - I think this caused by auto creation by PowerShell script. When I freshly create .txt file from New menu from right click, this bug didn't happen. I don't know what causes this. Probably invisible special ASCII or Unicode character for initiating start of text file by PowerShell.
