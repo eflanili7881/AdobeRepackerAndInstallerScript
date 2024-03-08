@@ -64,6 +64,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - AdobeAfterEffects9FCAll (unpacked version prevents installation phase to be completed and it throws error.)
     - MSXML6.0 (Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
     - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
+      - On Orca, search Docs_DistillerS_DEU on Components table.
+      - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
+      - On unpacked directory, perform replace operation exact opposite directory.
     - AdobeVersionCue4All (Package normally unpackable, but it throws error 1603 while initialization phase.)
     - AdobeAfterEffects9All ((Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed, but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.))
     - AdobeCaptivate4* (Installation fails with error 1603.)
