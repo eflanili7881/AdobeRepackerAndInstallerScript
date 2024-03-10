@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - RIBS (for CS5 - CC 2015)
+# Adobe Repacker and Installer Script - RIBS for Windows (for CS5 - CC 2015)
 A .bat script that compresses unpacked Adobe RIBS assets and installs them.
 
 # CAUTION!
