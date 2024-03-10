@@ -43,14 +43,14 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - These packages are:
-        - AdobeOnLocation5.1ProtectedAll
-        - AdobeOnLocation5ProtectedAll
-        - AdobeOnLocation5RoyaltyAll
-        - AdobePresenter706-AS_PC-mul
         - AdobeAfterEffects10.5ProtectedAll
         - AdobeAfterEffects10ProtectedAll
         - AdobeAfterEffects10RoyaltyAll
         - AdobeEncore5RoyaltyAll
+        - AdobeOnLocation5.1ProtectedAll
+        - AdobeOnLocation5ProtectedAll
+        - AdobeOnLocation5RoyaltyAll
+        - AdobePresenter706-AS_PC-mul
         - AdobePremierePro5ProtectedAll
         - AdobePremierePro5RoyaltyAll
         - AdobeSoundbooth3ProtectedAll
