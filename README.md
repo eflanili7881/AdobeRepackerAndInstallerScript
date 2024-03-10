@@ -45,15 +45,20 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - These packages are:
         - AdobeOnLocation5.1ProtectedAll
         - AdobeOnLocation5ProtectedAll
+        - AdobeOnLocation5RoyaltyAll
         - AdobePresenter706-AS_PC-mul
         - AdobeAfterEffects10.5ProtectedAll
+        - AdobeAfterEffects10ProtectedAll
+        - AdobeAfterEffects10RoyaltyAll
         - AdobeEncore5RoyaltyAll
+        - AdobePremierePro5ProtectedAll
         - AdobePremierePro5RoyaltyAll
+        - AdobeSoundbooth3ProtectedAll
+        - AdobeSoundbooth3RoyaltyAll
         - AMEDolby5All
         - AMEDolby5All_x64
         - AMEPCI5All
         - AMEPCI5All_x64
-        - AdobePremierePro5ProtectedAll 
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with legit RIBS installer engine is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
