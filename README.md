@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - HyperDrive (HD) (for CC 2015 - present)
+# Adobe Repacker and Installer Script - HyperDrive (HD) for Windows (for CC 2015 - present)
 A .bat script that compresses unpacked Adobe HyperDrive (HD) assets and installs them.
 
 # CAUTION!
