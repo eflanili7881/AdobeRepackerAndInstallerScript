@@ -2,7 +2,7 @@
 
 # Adobe Repacker and Installer Script - HyperDrive (HD) for Macintosh (for CC 2015 - present)
 A .sh script that compresses unpacked Adobe HyperDrive (HD) assets and installs them.
-- NOTE: Script will be uploaded sometime.
+- NOTE: Script will be uploaded after sometime.
 
 # CAUTION!
 Please, don't use this script for piracy things. I wrote this script for who wants to store HyperDrive (HD)-based Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
