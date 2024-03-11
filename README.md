@@ -1,6 +1,6 @@
 # REPO WORK IN PROGRESS
 
-# Adobe Repacker and Installer Script - RIBS for Windows (for CS5 - CC 2015)
+# Adobe Repacker and Installer Script - RIBS for Macintosh (for CS5 - CC 2015)
 A .sh script that compresses unpacked Adobe RIBS assets and installs them.
 - NOTE: Script will be uploaded after sometime.
 
@@ -9,3 +9,6 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 
 ## What does this script do?
 This script compresses all unpacked assets that present on "payloads" and "packages" folder to temporary directory set by script, copies RIBS installer engine from installation media with unpacked assets excluded via excludepackages.txt and excludepayloads.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
+
+## Limitations
+- If I correctly know, macOS doesn't have patched AdobePIM.dylib for
