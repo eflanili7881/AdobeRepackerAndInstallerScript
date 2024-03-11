@@ -1,5 +1,3 @@
-# REPO WORK IN PROGRESS
-
 # Adobe Repacker and Installer Script - HyperDrive (HD) for Macintosh (for CC 2015 - present)
 A .sh script that compresses unpacked Adobe HyperDrive (HD) assets and installs them.
 
