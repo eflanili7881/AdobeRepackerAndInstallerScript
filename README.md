@@ -16,3 +16,4 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## Special note
 - With Adobe CC 2013, *.pima format in packages folder changed to ZIP (extension is still .pima) and *.dmg format in payloads folder also changed to ZIP (extension also changed to .zip).
+- With CS5.5 engine, I able to install CS6 product (Engine took from Audition CS5.5 and installed product is SpeedGrade CS6).
