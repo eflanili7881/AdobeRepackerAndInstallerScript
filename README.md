@@ -80,6 +80,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - With more interesting thing, above 2 statements, Adobe Premiere Pro CS4 was installed successfully, with unpacked protected contents. I think this problem was about invalid character problem that Adobe After Effects CS4 Protected Contents' unpacked assets path that contains or this problem was specifically for After Effects. Currently not unpackable assets are:
   - CS4
     - AdobeAfterEffects9ProtectedAll ((Package normally unpackable, but it throws error 1603 while initialization phase.) (Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.))
+      - When I installed After Effects CS4, I guess it's unpackable, but it writes few extra bytes to every file and corrupts them.
     - AdobeAfterEffects9FCAll (unpacked version prevents installation phase to be completed and it throws error.)
     - MSXML6.0 (Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
     - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
