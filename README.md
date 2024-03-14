@@ -843,6 +843,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - Unpacked version prevents installation phase to be completed and it throws error.
     - MSXML6.0
       - Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.
+        - You can rename DLL files by adding their architectures to end.
+          - In example msxml6.ia64.dll for IA-64 version of Microsoft XML Parser. 
     - AdobeContribute-PDistiller-mul\de_DE
       - Throws error 2715 on unpacking.
         - You can fix this with Orca MSI Editor.
