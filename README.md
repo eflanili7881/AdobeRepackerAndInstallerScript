@@ -825,7 +825,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
                             ¦                   ¦       
                             ¦                   +---Processing
                             ¦                           Cross Processing 1.cfpreset
-                           ¦                           
+                            ¦                           
                             +---Format
                                 +---MediaIO
                                     +---(codecs)
