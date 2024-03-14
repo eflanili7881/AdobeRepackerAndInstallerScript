@@ -85,7 +85,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - Package normally unpackable, but it throws error 1603 while initialization phase.
       - Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
         - When I installed After Effects CS4, I guess it's unpackable, but it writes few extra bytes to every file and corrupts them.
-        - I unpacked all files and manually put them in appropiate locations. Here's the complete file list including MSI file:
+        - I unpacked all files and manually put them in appropiate locations. But it still throws error in initialization phase. Here's the complete file list including MSI file:
 ```
 C:.
 ¦   AdobeAfterEffects9ProtectedAll.msi
