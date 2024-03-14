@@ -81,9 +81,11 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase, but on installation phase, it doesn't and it will fail.
 - With more interesting thing, above 2 statements, Adobe Premiere Pro CS4 was installed successfully, with unpacked protected contents. I think this problem was about invalid character problem that Adobe After Effects CS4 Protected Contents' unpacked assets path that contains or this problem was specifically for After Effects. Currently not unpackable assets are:
   - CS4
-    - AdobeAfterEffects9ProtectedAll ((Package normally unpackable, but it throws error 1603 while initialization phase.) (Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.))
-      - When I installed After Effects CS4, I guess it's unpackable, but it writes few extra bytes to every file and corrupts them.
-      - I unpacked all files and manually put them in appropiate locations. Here's the complete file list including MSI file:
+    - AdobeAfterEffects9ProtectedAll
+      - Package normally unpackable, but it throws error 1603 while initialization phase.
+      - Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
+        - When I installed After Effects CS4, I guess it's unpackable, but it writes few extra bytes to every file and corrupts them.
+        - I unpacked all files and manually put them in appropiate locations. Here's the complete file list including MSI file:
 ```
 C:.
 ¦   AdobeAfterEffects9ProtectedAll.msi
@@ -836,37 +838,57 @@ C:.
                             +---(writers)
                                     MCMHMPEGWriter.vwr
 ```
-  - List continues
-    - AdobeAfterEffects9FCAll (unpacked version prevents installation phase to be completed and it throws error.)
-    - MSXML6.0 (Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
-    - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
-      - You can fix this with Orca MSI Editor.
-        - Download Orca MSI editor from https://www.technipages.com/downloads/OrcaMSI.zip
-          - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
-        - On Orca, search Docs_DistillerS_DEU on Components table.
-        - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
-        - On unpacked directory, perform replace operation exact opposite directory.
-    - AdobeVersionCue4All (Package normally unpackable, but it throws error 1603 while initialization phase.)
-    - AdobeAfterEffects9All ((Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed, but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.))
-    - AdobeCaptivate4* (Installation fails with error 1603.)
-    - AdobeDirector11.5* (Package normally unpackable, but it throws error 1603 while initialization phase.)
+  - List continues from here
+    - AdobeAfterEffects9FCAll
+      - Unpacked version prevents installation phase to be completed and it throws error.
+    - MSXML6.0
+      - Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.
+    - AdobeContribute-PDistiller-mul\de_DE
+      - Throws error 2715 on unpacking.
+        - You can fix this with Orca MSI Editor.
+          - Download Orca MSI editor from https://www.technipages.com/downloads/OrcaMSI.zip
+            - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
+          - On Orca, search Docs_DistillerS_DEU on Components table.
+          - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
+          - On unpacked directory, perform replace operation exact opposite directory.
+    - AdobeVersionCue4All
+      - Package normally unpackable, but it throws error 1603 while initialization phase.
+    - AdobeAfterEffects9All
+      - Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed, but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+    - AdobeCaptivate4*
+      - Installation fails with error 1603.
+    - AdobeDirector11.5*
+      - Package normally unpackable, but it throws error 1603 while initialization phase.
   - CS3
-    - AdobeAfterEffects8All (This package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.)
-    - AdobeAfterEffects8FCAll (unpacked version prevents installation phase to be completed and it throws error.)
-    - AdobeAfterEffects8ProtectedAll (Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.)
-    - AdobePremierePro3All (Installation fails with error 1603.)
-    - AdobePhotoshop10* (Installation fails with error 1603.)
-    - AdobeIllustrator13* (Installation fails with error 1603.)
-    - AdobeInDesign5* (Installation fails with error 1603.)
-    - AdobeInCopy5* (Installation fails with error 1603.)
-    - AdobeEncore3All (Installation fails with error 1603.)
-    - AdobeSoundboothAll (Installation fails with error 1603 on Master Collection. I don't have standalone product :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) ) )
+    - AdobeAfterEffects8All
+      - This package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+    - AdobeAfterEffects8FCAll
+      - Unpacked version prevents installation phase to be completed and it throws error.
+    - AdobeAfterEffects8ProtectedAll
+      - Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.
+    - AdobePremierePro3All
+      - Installation fails with error 1603.
+    - AdobePhotoshop10*
+      - Installation fails with error 1603.
+    - AdobeIllustrator13*
+      - Installation fails with error 1603.
+    - AdobeInDesign5*
+      - Installation fails with error 1603.
+    - AdobeInCopy5*
+      - Installation fails with error 1603.
+    - AdobeEncore3All
+      - Installation fails with error 1603.
+    - AdobeSoundboothAll
+      - Installation fails with error 1603 on Master Collection. I don't have standalone product :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )
     - But some CS3 main packs can be unpacked. These are:
       - AdobeDreamweaver9*
       - AdobeFlash9*
       - AdobeFireworks9*
-      - AdobeIllustrator13* (only on Master Collection.)
-      - AdobeInDesign5* (only on Master Collection.)
-      - AdobePhotoshop10* (only on Master Collection.)
+      - AdobeIllustrator13*
+        - Only on Master Collection.
+      - AdobeInDesign5*
+        - Only on Master Collection.
+      - AdobePhotoshop10*
+        - Only on Master Collection.
       - AdobeContribute4.1*
         - On Adobe Acrobat Pro 8 (in suites), they may say C:\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL says missing during install. Specifying \payloads\AdobeAcrobat8de_DE\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL will solves this.
