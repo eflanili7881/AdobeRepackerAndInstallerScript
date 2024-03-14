@@ -836,7 +836,7 @@ C:.
                             +---(writers)
                                     MCMHMPEGWriter.vwr
 ```
-\
+  - List continues
     - AdobeAfterEffects9FCAll (unpacked version prevents installation phase to be completed and it throws error.)
     - MSXML6.0 (Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.)
     - AdobeContribute-PDistiller-mul\de_DE (throws error 2715 on unpacking.)
