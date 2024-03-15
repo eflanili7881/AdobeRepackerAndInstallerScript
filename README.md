@@ -861,8 +861,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - On unpacked directory, perform replace operation exact opposite directory.
     - AdobeVersionCue4All
       - Package normally unpackable, but it throws error 1603 while initialization phase.
-    ~~- AdobeAfterEffects9All~~
-      ~~- On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.~~
+    
+    - ~~AdobeAfterEffects9All~~
+      - ~~On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.~~
         - It looks like it doesn't do anything. I faultly guessed this package. True criminal is **AdobeVersionCue4All**.
     - AdobeCaptivate4*
       - Installation fails with error 1603.
