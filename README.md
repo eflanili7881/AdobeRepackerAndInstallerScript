@@ -860,9 +860,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
           - On unpacked directory, perform replace operation exact opposite directory.
     - AdobeVersionCue4All
-      - Package normally unpackable, but it throws error 1603 while initialization phase.
+      - Package normally unpackable, but it throws error 1603 (Fatal error occured during installation) on log while initialization phase.
     - AdobeAfterEffects9All
-      - On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 and error 1603 on logs.
+      - On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
     - AdobeCaptivate4*
       - Installation fails with error 1603.
     - AdobeDirector11.5*
