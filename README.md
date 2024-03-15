@@ -858,7 +858,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - AdobeVersionCue4All
       - Package normally unpackable, but it throws error 1603 while initialization phase.
     - AdobeAfterEffects9All
-      - Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed, but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+      - Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10-20 minutes or longer depending on selected suite and hardware of PC that suite is going to be installed due to count of files (~150K files alone in LS1 language group of Master Collection CS4), but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+        - For big packages like Master Collection, I suggest to put their install medium to very fast medium like SSD's if you can.
     - AdobeCaptivate4*
       - Installation fails with error 1603.
     - AdobeDirector11.5*
