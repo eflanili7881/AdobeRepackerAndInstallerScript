@@ -846,7 +846,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         ```
   - List continues from here
     - AdobeAfterEffects9FCAll
-      - Unpacked version prevents installation phase to be completed and it throws error.
+      - Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
     - MSXML6.0
       - Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.
         - You can rename DLL files by adding their architectures to end.
