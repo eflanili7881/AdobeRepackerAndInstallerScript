@@ -77,6 +77,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - If original Adobe CC 2015 application is installed with original RIBS engine, use install-admin-existing.bat. You need to run this file as administrator for temporarily replacing OOBE folder on C:\Program Files\Common Files\Adobe. This folder is where the installer engine is. If no Adobe application was installed before, use install-fresh.bat. You can run this file as normal user.
 
 ## About MSI-based RIBS Applications
+- Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10 minutes to 1 hour or longer depending on selected suite and hardware of PC that suite is going to be installed due to count of files (~150K files alone in LS1 language group of Master Collection CS4).
+  - For big packages like Master Collection, I suggest to put their install medium to very fast medium like SSD's if you can.
+  - After that, installation takes much, much less time.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but installer will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase, but on installation phase, it doesn't and it will fail.
   - With more interesting thing, above 2 statements, Adobe Premiere Pro CS4 was installed successfully, with unpacked protected contents. I think this problem was about invalid character problem that Adobe After Effects CS4 Protected Contents' unpacked assets path that contains or this problem was specifically for After Effects. Currently not unpackable assets are:
@@ -858,9 +861,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - AdobeVersionCue4All
       - Package normally unpackable, but it throws error 1603 while initialization phase.
     - AdobeAfterEffects9All
-      - Not on standalone application, but on Master Collection and probably on other suites, from unpacked packages inside on Master Collection suite and others, initialization phase takes about like 10 minutes to 1 hour or longer depending on selected suite and hardware of PC that suite is going to be installed due to count of files (~150K files alone in LS1 language group of Master Collection CS4), but this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
-        - After that, installation takes much, much less time.
-        - For big packages like Master Collection, I suggest to put their install medium to very fast medium like SSD's if you can.
+      - This package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
     - AdobeCaptivate4*
       - Installation fails with error 1603.
     - AdobeDirector11.5*
