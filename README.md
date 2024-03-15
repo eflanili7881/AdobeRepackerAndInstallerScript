@@ -862,7 +862,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - AdobeVersionCue4All
       - Package normally unpackable, but it throws error 1603 while initialization phase.
     - AdobeAfterEffects9All
-      - On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+      - On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 and error 1603 on logs.
     - AdobeCaptivate4*
       - Installation fails with error 1603.
     - AdobeDirector11.5*
