@@ -83,6 +83,12 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## About MSI-based RIBS Applications
 - On very big suites that contains small files or lots of files like Master Collection when MSI packages unpacked, initialization phase takes about like 10 minutes to 1 hour or longer depending on selected suite and hardware of PC that suite is going to be installed due to count of files (i.e. ~150K files alone in LS1 language group of Master Collection CS4).
+  - For me, my system with these specs below, CS4 Design Premium LS1 (~110K files) took ~30 minutes to complete initialization phase:
+    - CPU: Intel Core i5-3570 @ 3.40GHz (3.80GHz /w Turbo Boost)
+    - RAM: 16 GB DDR3-1333MHz
+    - MOBO: ZX-H61C/B75 V2.3
+    - HDDOS: WDC WD10EZEX-08WN4A0
+    - HDDInstallMedia: Same as HDDOS
   - For big packages like Master Collection, I suggest to put their install medium to very fast medium like SSD's if you can.
   - After that, installation takes much, much less time.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
