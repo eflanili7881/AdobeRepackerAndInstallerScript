@@ -22,7 +22,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       | Binary Version   | Binary Path                               | Binary Purpose                                                               |
       | :--------------: | :---------------------------------------: | :--------------------------------------------------------------------------: |
       | version 8.0.0.15 | packages\DECore\DECore.pima\DE6\Setup.dll | Allows custom asset archives to be installed.                                |
-      | version 8.0.0.14 | packages\UWA\UWA.pima\updatercore.dll     | (?) Allows custom asset archives to be installed (only on updates, I guess). |
+      | version 8.0.0.14 | packages\UWA\UWA.pima\updatercore.dll     | Allows custom asset archives to be installed on updates                      |
       | version 8.0.0.73 | resources\AdobePIM.dll                    | Allows repacked *.pima archives from packages folder to be loaded.           |
       - You can only manually patch 8.x.x.x (CC 2014 series) installer engine and above. 7.x.x.x (CC 2013) and below gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
         - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
@@ -44,30 +44,35 @@ This script compresses all unpacked assets that present on "payloads" and "packa
                 - Download version 3.12.2 macOS Apple Silicon from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg if Windows application isn't working.
                   - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg
             - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
+              - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
             - Than paste these 2 commands to separate lines:
               - update PayloadData **(do not execute command here.)**
               - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
             - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
+              - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - These packages are:
-        - AdobeAfterEffects10.5ProtectedAll
-        - AdobeAfterEffects10ProtectedAll
-        - AdobeAfterEffects10RoyaltyAll
-        - AdobeEncore5RoyaltyAll
-        - AdobeOnLocation5.1ProtectedAll
-        - AdobeOnLocation5ProtectedAll
-        - AdobeOnLocation5RoyaltyAll
-        - AdobePresenter706-AS_PC-mul
-        - AdobePremierePro5ProtectedAll
-        - AdobePremierePro5RoyaltyAll
-        - AdobeSoundbooth3ProtectedAll
-        - AdobeSoundbooth3RoyaltyAll
-        - AMEDolby5All
-        - AMEDolby5All_x64
-        - AMEPCI5All
-        - AMEPCI5All_x64
-  - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with legit RIBS installer engine is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
+        - CS5.5
+          - AdobeAfterEffects10.5ProtectedAll
+          - AdobeOnLocation5.1ProtectedAll
+        - CS5
+          - AdobeAfterEffects10ProtectedAll
+          - AdobeAfterEffects10RoyaltyAll
+          - AdobeEncore5RoyaltyAll
+          - AdobeOnLocation5ProtectedAll
+          - AdobeOnLocation5RoyaltyAll
+          - AdobePremierePro5ProtectedAll
+          - AdobePremierePro5RoyaltyAll
+          - AdobeSoundbooth3ProtectedAll
+          - AdobeSoundbooth3RoyaltyAll
+          - AMEDolby5All
+          - AMEDolby5All_x64
+          - AMEPCI5All
+          - AMEPCI5All_x64
+        - Miscellaneous
+          - AdobePresenter706-AS_PC-mul
+  - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit RIBS installer engine is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
     - DECore
@@ -132,7 +137,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobeEncore3All
           - Installation fails with error 1603.
         - AdobeSoundboothAll
-          - Installation fails with error 1603 on Master Collection. I don't have standalone product :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )
+          - Installation fails with error 1603 on Master Collection.
+          - I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )
         - But some CS3 main packs can be unpacked. These are:
           - AdobeDreamweaver9*
           - AdobeFlash9*
