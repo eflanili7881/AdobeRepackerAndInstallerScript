@@ -98,13 +98,13 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content on specific packages. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase. But on installation phase, it doesn't and it will fail.
     - Currently not unpackable assets are:
       - CS4
+        - AdobeAfterEffects9All
+          - On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
+        - AdobeAfterEffects9FCAll
+          - Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
         - AdobeAfterEffects9ProtectedAll
           - Package normally unpackable, but it throws error 1603 while initialization phase.
           - Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
-        - AdobeAfterEffects9FCAll
-          - Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
-        - AdobeAfterEffects9All
-          - On Master Collection and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
         - AdobeCaptivate4*
           - Installation fails with error 1603.
         - AdobeContribute-PDistiller-mul\de_DE
