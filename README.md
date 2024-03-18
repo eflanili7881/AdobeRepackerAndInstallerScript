@@ -134,6 +134,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
             - Even if you somehow unpack this package, it throws error code 1603 on log.
         - AdobePremierePro3All
           - Installation fails with error 1603.
+            - It says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3All\program files\Adobe\Adobe Premiere Pro CS3\Adobe Premiere Pro CS3 ReadMe.html.  Verify that the file exists and that you can access it." on logs.
         - AdobePhotoshop10*
           - Installation fails with error 1603.
         - AdobeIllustrator13*
