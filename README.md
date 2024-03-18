@@ -125,7 +125,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
               - In example, msxml6.ia64.dll for IA-64 version of Microsoft XML Parser.
       - CS3
         - AdobeAfterEffects8All
-          - This package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+          - This package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets (Error 1310.Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\5d83aea83f5009a0d267d337e3f55fe\payloads\AdobeAfterEffects8All\program files\Adobe\Adobe After Effects CS3\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects8ProtectedAll\AdobeAfterEffects8ProtectedAll.proxy.xml. Verify that you have access to that directory.) and throws error 1603 on logs.
             - It's almost like CS4.
         - AdobeAfterEffects8FCAll
           - Unpacked version prevents installation phase to be completed and it throws error.
