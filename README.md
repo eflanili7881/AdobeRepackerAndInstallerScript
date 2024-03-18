@@ -135,6 +135,18 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobePremierePro3All
           - Installation fails with error 1603.
             - It says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3All\program files\Adobe\Adobe Premiere Pro CS3\Adobe Premiere Pro CS3 ReadMe.html.  Verify that the file exists and that you can access it." on logs.
+              - For dependent languages they're **_10591_** to **_10596_** files on **AdobePremierePro3All2.cab** cabinet.
+              - Restoring appropiate file solves this issue.
+        - AdobePremierePro3FCAll
+          - On French language, it says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3FCAll\program files\Adobe\Adobe Premiere Pro CS3\Presets\Templates\Corporate\Abstract\Abstrait_entier.prtl. Verify that the file exists and that you can access it."
+            - It's **_19_90f34015afb69c9ddf1b9054039e2d43** file on **AdobePremierePro3FCAll1.cab** cabinet.
+            - Restoring appropiate file solves this issue.
+          - On French language, it says "Error 1308.Source file not found: C:\UP\payloads\AdobePremierePro3FCAll\program files\Adobe\Adobe Premiere Pro CS3\Presets\Templates\Corporate\Abstract\Abstrait_HD_tiersinf.prtl.  Verify that the file exists and that you can access it."
+            - It's **_20_98a9c9210d4a5b1a5ad22de48367e0ea** file on **AdobePremierePro3FCAll1.cab** cabinet.
+            - Restoring appropiate file solves this issue.
+          - On French language, it says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3FCAll\program files\Adobe\Adobe Premiere Pro CS3\Presets\Templates\Corporate\Abstract\Abstrait_entier.prtl. Verify that the file exists and that you can access it."
+            - It's **_21_cbca3abd12d93d150e4556833b84a962** file on **AdobePremierePro3FCAll1.cab** cabinet.
+            - Restoring appropiate file solves this issue.
         - AdobePhotoshop10*
           - Installation fails with error 1603.
         - AdobeIllustrator13*
