@@ -126,6 +126,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - CS3
         - AdobeAfterEffects8All
           - This package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets and throws error 1603 on logs.
+            - It's almost like CS4.
         - AdobeAfterEffects8FCAll
           - Unpacked version prevents installation phase to be completed and it throws error.
         - AdobeAfterEffects8ProtectedAll
