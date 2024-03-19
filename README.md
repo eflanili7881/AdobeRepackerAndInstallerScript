@@ -91,6 +91,11 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - HDDInstallMedia: Same as HDDOS
   - For big packages like Master Collection, I suggest to put their install medium to very fast medium like SSD's if you can.
   - After that, installation takes much, much less time.
+- MSI-based assets need to be unpacked with *.mst file if it exists.
+  - This is also valid for Adobe Acrobat installers.
+  - To do this, run:
+    - msiexec /a X:\path\to\MSI\file.msi /qb targetdir=X:\path\to\expand transforms=X:\transform\file.mst
+  - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - When protected MSI is unpacked, it writes 16 bytes to every file.
     - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible again.
@@ -134,19 +139,6 @@ This script compresses all unpacked assets that present on "payloads" and "packa
             - Even if you somehow unpack this package, it throws error code 1603 on log.
         - AdobePremierePro3All
           - Installation fails with error 1603.
-            - It says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3All\program files\Adobe\Adobe Premiere Pro CS3\Adobe Premiere Pro CS3 ReadMe.html.  Verify that the file exists and that you can access it." on logs.
-              - For dependent languages they're **_10591_** to **_10596_** files on **AdobePremierePro3All2.cab** cabinet.
-              - Restoring appropiate file solves this issue.
-        - AdobePremierePro3FCAll
-          - On French language, it says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3FCAll\program files\Adobe\Adobe Premiere Pro CS3\Presets\Templates\Corporate\Abstract\Abstrait_entier.prtl. Verify that the file exists and that you can access it."
-            - It's **_19_90f34015afb69c9ddf1b9054039e2d43** file on **AdobePremierePro3FCAll1.cab** cabinet.
-            - Restoring appropiate file solves this issue.
-          - On French language, it says "Error 1308.Source file not found: C:\UP\payloads\AdobePremierePro3FCAll\program files\Adobe\Adobe Premiere Pro CS3\Presets\Templates\Corporate\Abstract\Abstrait_HD_tiersinf.prtl.  Verify that the file exists and that you can access it."
-            - It's **_20_98a9c9210d4a5b1a5ad22de48367e0ea** file on **AdobePremierePro3FCAll1.cab** cabinet.
-            - Restoring appropiate file solves this issue.
-          - On French language, it says "Error 1308. Source file not found: C:\UP\payloads\AdobePremierePro3FCAll\program files\Adobe\Adobe Premiere Pro CS3\Presets\Templates\Corporate\Abstract\Abstrait_entier.prtl. Verify that the file exists and that you can access it."
-            - It's **_21_cbca3abd12d93d150e4556833b84a962** file on **AdobePremierePro3FCAll1.cab** cabinet.
-            - Restoring appropiate file solves this issue.
         - AdobePhotoshop10*
           - Installation fails with error 1603.
         - AdobeIllustrator13*
