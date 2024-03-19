@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - RIBS for Windows (for CS5 - CC 2015)
+# Adobe Repacker and Installer Script - Patched Binaries for ZIP-based RIBS Installers for Windows (for CS6 - CC 2015)
 A .bat script that compresses unpacked Adobe RIBS assets and installs them.
 
 # CAUTION!
@@ -14,4 +14,4 @@ Please, don't use this branch's content for piracy things. I put this patched bi
 Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these files for **LEGITIMATE** users.
 
 # What's this repo contains?
-This repo contains patched binaries for installing unpacked Adobe RIBS installers.
+This repo contains patched binaries for installing unpacked Adobe RIBS applications.
