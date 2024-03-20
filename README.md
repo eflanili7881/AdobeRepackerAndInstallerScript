@@ -5,7 +5,7 @@ A .sh script that compresses unpacked Adobe HyperDrive (HD) assets and installs 
 Please, don't use this script for piracy things. I wrote this script for who wants to store HyperDrive (HD)-based Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 ## What does this script do?
-This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets excluded via exclude.txt that's generated via script and invokes Install.app on temporary directory set by script to install repacked product.
+This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets excluded via folder_exclude.txt that's generated via script and invokes Install.app on temporary directory set by script to install repacked product.
 
 ## Special note
 - Packed assets should be unpacked on macOS due to many symbolic links inside of .app file.
