@@ -4,6 +4,10 @@ A .bat script that compresses unpacked Adobe HyperDrive (HD) assets and installs
 # CAUTION!
 Please, don't use this script for piracy things. I wrote this script for who wants to store HyperDrive (HD)-based Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
+## Credits
+- Me for writing script.
+- Adobe Systems Incorporated for providing applications.
+
 ## Requirements
 - On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip". But you can edit install.bat to change 7-Zip's location currently. I may update script to detect 7-Zip's install location by reading registry.
 - Latest PowerShell for Windows. Without updating PowerShell, it may work but folder scanning may not successful.
