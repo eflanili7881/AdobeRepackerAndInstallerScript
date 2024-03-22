@@ -132,6 +132,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
               - On Orca, search Docs_DistillerS_DEU on Components table.
               - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
               - On unpacked directory, perform replace operation exact opposite directory.
+          - This also happens in CS6 packages that contains this package (also de-DE language).
         - AdobeDirector11.5*
           - Package normally unpackable, but it throws error 1603 while initialization phase.
         - AdobeVersionCue4All
