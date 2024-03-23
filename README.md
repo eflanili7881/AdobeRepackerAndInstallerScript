@@ -15,7 +15,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 
 ## Credits
 - Me for writing script.
-- PainteR for patching specific 3 binaries for installing unpacked Adobe RIBS-based applications.
+- PainteR for patching specific 3 binaries for installing unpacked Adobe RIBS-based applications (veision 8.0.0.15 of RIBS to be precise).
 - Adobe Systems Incorporated for providing original binaries.
 
 ## What's this repo contains?
