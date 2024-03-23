@@ -62,6 +62,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
                 - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
               - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
                 - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
+      - Or manually patch these Adobe dll's, view special note section of https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - These packages are:
