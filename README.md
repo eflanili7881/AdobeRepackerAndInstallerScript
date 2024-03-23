@@ -76,3 +76,4 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/e7314bf4-7ab7-48ec-a7e0-24ccd5d62f8c)
         - When you reload file with same settings, graph will turn into this:
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/465ea6e5-c3b7-440e-9f78-fb23b986a7c6)
+        - As you can see, all checks bypassed.  
