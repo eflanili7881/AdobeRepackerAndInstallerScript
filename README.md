@@ -72,7 +72,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           - If it loads in Graph mode by default, skip to step below.
         - Delete all cases (;-- **case name**:) in this graph.
           - To do that, right click ;-- **case name**:, and click Delete flag.
-        - Then on picture below, right click **ja 0x1006ef1d**, click Edit > Instruction, change **ja** to **jmp** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses perpetual and subscription update check on updatercore.dll.:
+        - Then on picture below, right click **ja 0x1006ef1d**, click Edit > Instruction, change **ja** to **jmp** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses perpetual and subscription update check on updatercore.dll:
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/e7314bf4-7ab7-48ec-a7e0-24ccd5d62f8c)
         - When you reload file with same settings, graph will turn into this:
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/465ea6e5-c3b7-440e-9f78-fb23b986a7c6)
