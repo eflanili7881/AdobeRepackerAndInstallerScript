@@ -15,7 +15,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 
 ## Credits
 - Me for writing script.
-- Rizin.re for Cutter reverse engineering program.
+- https://rizin.re for Cutter reverse engineering program.
 - PainteR for patching specific 6 binaries for installing unpacked Adobe RIBS-based applications (version 8.0.0.15 and 7.0.0.103 of RIBS to be precise).
 - Adobe Systems Incorporated for providing original binaries.
 
