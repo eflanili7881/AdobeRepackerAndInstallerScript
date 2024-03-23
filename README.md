@@ -26,7 +26,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 - I compared all dll's with Cutter and I see what's the PainteR did. PainteR just bypassed verification mechanism. With manual patching, I able to patch 9.x.x.x engine (9.0.0.65 to be precise) and install SpeedGrade CC 2015 with modified assets in both folders without a problem.
   - With this, you don't need modify Media_db.db to allow lower versions of RIBS to install newer packages.
   - To patch dll's:
-    - Download Cutter from https://github.com/rizinorg/cutter
+    - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases
     - Install Cutter.
       - On AdobePIM.dll:
         - Open AdobePIM.dll with experimental (aaaa) mode and in write mode (-w).
