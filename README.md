@@ -35,11 +35,44 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/da6c02ae-7bef-45d1-8513-0542f8066175)
         - Double click to switch to this address.
         - It will load in Disassembly mode. Change it to Graph section.
-        - Then scroll slightly down to find **str.File___s__is_corrupted._OCEError:__d**
+          - If it loads in Graph mode by default, skip to step below.
+        - Then scroll slightly up to find **str.File___s__is_corrupted._OCEError:__d**'s connected box.
         - **str.File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/19eb7cf7-6b08-4de5-8919-ad0722fa4e2c)
-        - Above picture, click right **0x1000f58c** to open menu and then click Edit > Instruction.
+        - Above picture, click right **jne 0x1000f58c** to open menu and then click Edit > Instruction.
         - Change **0x1000f58c** to **0x1000f588** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses *.pima archive verification in AdobePIM.dll.
         - When you reload file with same settings, graph will turn into this:
           ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/074fd6d7-8367-4dc3-8f8f-534f813c1a2b)
         - As you can see, **str.File___s__is_corrupted._OCEError:__d** is not visible in graph.
+      - On Setup.dll:
+        - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
+        - When it's loaded switch to Search tab and search **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** with these settings:
+          - Search for: 32-bit value
+          - Search in: All mapped sections
+        - This will return only 1 value like this:
+          ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/fca8448f-bd55-4c03-bfd9-5f7f0030337e)
+        - It will load in Disassembly mode. Change it to Graph section.
+          - If it loads in Graph mode by default, skip to step below.
+        - Then scroll slightly up to find **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d**'s connected box.
+        - **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
+          ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/4da12adf-072e-498a-a579-efd64380cf55)
+        - Above picture, click right **jne 0x100bcae6** to open menu and then click Edit > Instruction.
+        - Change **0x100bcae6** to **0x1000f588** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses signature check of assets in Setup.dll.
+        - When you reload file with same settings, graph will turn into this:
+          ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/b4ffefe1-24cb-458d-a630-b593e5458d7a)
+        - As you can see, **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** is not visible in graph.
+      - On updatercore.dll:
+        - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
+        - When it's loaded switch to Search tab and search **str.CFU_Webfeed_:_Patch_is_meant_only_for_subscription_licenses__but_client_doesn_t_have_a_valid_subscription_license.** with these settings:
+          - Search for: 32-bit value
+          - Search in: All mapped sections
+        - This will return only 1 value like this:
+          ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/74bfaa30-c957-4cee-89ea-e4d48617b199)
+        - It will load in Disassembly mode. Change it to Graph section.
+          - If it loads in Graph mode by default, skip to step below.
+        - Delete all cases (;-- **case name**:) in this graph.
+          - To do that, right click ;-- **case name**:, and click Delete flag.
+        - Then on picture below, right click **ja 0x1006ef1d**, click Edit > Instruction, change **ja** to **jmp** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses perpetual and subscription update check on updatercore.dll.:
+          ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/e7314bf4-7ab7-48ec-a7e0-24ccd5d62f8c)
+        - When you reload file with same settings, graph will turn into this:
+          ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/465ea6e5-c3b7-440e-9f78-fb23b986a7c6)
