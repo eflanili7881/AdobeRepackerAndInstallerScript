@@ -44,7 +44,7 @@ do
   "$sevenzip_bin" a -bd -snh -snl -tzip "$adobetempinstaller/products/$folder_compress.zip" -mx5 -r "$source_directory/products/$folder_compress/*"
 done < $adobeworkfolder/folder_compress.txt
 
-echo "==> Copying Installer"
+echo "==> Copying Installer ..."
 echo "Edit file"
 echo "Leave only <AdobeSAPCode>/<FolderThat'sGonnaBeExcluded>/"
 echo "Each line should like this:"
