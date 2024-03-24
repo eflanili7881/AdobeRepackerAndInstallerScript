@@ -25,6 +25,12 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 ## Special note
 - I compared all dll's with Cutter and I see what's the PainteR did. PainteR just bypassed verification mechanism. With manual patching, I able to patch 9.x.x.x engine (9.0.0.65 to be precise) and install SpeedGrade CC 2015 with modified assets in both folders without a problem.
   - With this, you don't need modify Media_db.db to allow lower versions of RIBS to install newer packages.
+  - When I traced functions, function invoking works like this:
+    - On AdobePIM.dll (version 8.0.0.73, patched binary):
+      ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/88c48ba9-bfd3-49c9-9111-8b7add550790)
+      - 1st, AdobePIM.dll invokes **sym.AdobePIM.dll_pim_installAdobeApplicationManager**. Then, inside this function, it invokes **call fcn.10010300** on address **0x10012414**.
+      - 2nd, on **fcn.10010300**, it invokes **call fcn.1000f690** on address **0x10010394**. When you look up, you understand that this function is for validating AAM packages.
+      - Lastly, on **fcn.1000f690**, main magic happens on **0x100100ff**; rerouting **jne 0x10010101** to **jne 0x10010105** bypasses archive integrity check.
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases
     - Install Cutter.
