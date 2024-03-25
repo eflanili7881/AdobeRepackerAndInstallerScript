@@ -43,18 +43,14 @@ This script compresses all unpacked assets that present on "payloads" and "packa
             - This can be fixed with SQLite DB Browser.
               - Download this program from https://sqlitebrowser.org/dl/
                 - Or if that page isn't available, but direct links are accessible:
-                  - Download version 3.12.2 Windows 32-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi .
-                    - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
-                  - Download version 3.12.2 Windows 32-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip .
-                    - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
-                  - Download version 3.12.2 Windows 64-bit MSI installer from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi .
-                    - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
-                  - Download version 3.12.2 Windows 64-bit portable from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip .
-                    - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
-                  - Download version 3.12.2 macOS Intel from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg if Windows application isn't working.
-                    - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg
-                  - Download version 3.12.2 macOS Apple Silicon from https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg if Windows application isn't working.
-                    - If this link is deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg
+                  | Version & Platform | Link | Wayback Machine Link
+                  | :-: | :-: | :-: |
+                  | 3.12.2 Windows 32-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi | https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi |
+                  | 3.12.2 Windows 32-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip | https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip |
+                  | 3.12.2 Windows 64-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi | https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi |
+                  | 3.12.2 Windows 64-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip | https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip |
+                  | 3.12.2 macOS Intel | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg | https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg |
+                  | 3.12.2 macOS Apple Silicon | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg | https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg |
               - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
                 - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
               - Than paste these 2 commands to separate lines:
