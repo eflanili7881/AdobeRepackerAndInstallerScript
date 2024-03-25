@@ -87,7 +87,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - AMEPCI5All
           - AMEPCI5All_x64
         - Miscellaneous
-          - AdobePresenter706-AS_PC-mul
+          - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite)
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit RIBS installer engine is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
