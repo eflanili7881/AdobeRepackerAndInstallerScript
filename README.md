@@ -22,7 +22,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## Special note
 - Unlike HyperDrive-based installers, with patched AdobePIM.dll, *.pima archives under "packages" folder can be repacked on CS6 - CC 2015 installer engines.
-  - With original AdobePIM.dll and repacked *.pima archive, it throws error on initializing setup phase on very beginning about Adobe Genuine Software Validation failure.
+  - With original AdobePIM.dll and repacked *.pima archive, it throws error Adobe Genuine Software Validation Failure on initializing setup phase.
   
     ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
