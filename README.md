@@ -21,7 +21,10 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - If original Adobe CC 2015 application is installed with original RIBS engine, use install-admin-existing.bat. You need to run this file as administrator for temporarily replacing OOBE folder on C:\Program Files\Common Files\Adobe. This folder is where the installer engine is. If no Adobe application was installed before, use install-fresh.bat. You can run this file as normal user.
 
 ## Special note
-- Unlike HyperDrive-based installers, with patched AdobePIM.dll, *.pima archives under "packages" folder can be repacked on CS6 - CC 2015 installer engines. With original AdobePIM.dll and repacked *.pima archive, it throws error on initializing setup phase on very beginning about Adobe Genuine Software Verification failure.
+- Unlike HyperDrive-based installers, with patched AdobePIM.dll, *.pima archives under "packages" folder can be repacked on CS6 - CC 2015 installer engines.
+  - With original AdobePIM.dll and repacked *.pima archive, it throws error on initializing setup phase on very beginning about Adobe Genuine Software Validation failure.
+  
+    ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
     - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
       - CC 2014-era
@@ -40,6 +43,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
         - If \payloads\Media_db.db\PayloadData\ *(any payload id that has higher version than **8.0.0.15** on **value** column)* \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example for SpeedGrade CC 2015 with 8.x.x.x engine:
           - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
+
+            ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
             - This can be fixed with SQLite DB Browser.
               - Download this program from https://sqlitebrowser.org/dl/
                 - Or if that page isn't available, but direct links are accessible:
