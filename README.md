@@ -43,7 +43,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
             - This can be fixed with SQLite DB Browser.
               - Download this program from https://sqlitebrowser.org/dl/
                 - Or if that page isn't available, but direct links are accessible:
-                  | Version & Platform | Link | Wayback Machine Link
+                  | Version, Platform & Install Method | Link | Wayback Machine Link
                   | :-: | :-: | :-: |
                   | 3.12.2 Windows 32-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi | https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi |
                   | 3.12.2 Windows 32-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip | https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip |
