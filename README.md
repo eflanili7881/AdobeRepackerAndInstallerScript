@@ -18,7 +18,7 @@ https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/HyperDrive
 https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac
 ## For RIBS-based installers on Windows platform
 https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/RIBS-win
-## For RIBS-based installers on Macintosh platform
+## For RIBS-based installers on Macintosh platform (script not uploaded)
 https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/RIBS-mac
 ## For patched RIBS binaries on Windows platform
 https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
