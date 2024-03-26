@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - (for CC 2015 - present)
+# Adobe Repacker and Installer Script - (for CS5 - present)
 A .bat/.sh script that compresses unpacked assets of Adobe products and installs them.
 
 # CAUTION!
