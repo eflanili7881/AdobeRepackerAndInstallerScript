@@ -114,6 +114,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - To do this, run:
     - msiexec /a X:\path\to\MSI\file.msi /qb targetdir=X:\path\to\expand transforms=X:\transform\file.mst
       - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
+      - This may also fix bunch of CS3 packages.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - When protected MSI is unpacked, it writes 16 bytes to every file.
     - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
