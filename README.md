@@ -71,10 +71,10 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - These packages are:
-        - CS5.5
+        - Creative Suite 5.5 (CS5.5)
           - AdobeAfterEffects10.5ProtectedAll
           - AdobeOnLocation5.1ProtectedAll
-        - CS5
+        - Creative Suite 5 (CS5)
           - AdobeAfterEffects10ProtectedAll
           - AdobeAfterEffects10RoyaltyAll
           - AdobeEncore5RoyaltyAll
@@ -89,8 +89,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - AMEPCI5All
           - AMEPCI5All_x64
         - Miscellaneous
-          - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite)
-  - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit RIBS installer engine is this (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
+          - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite, I don't know other suite's reaction.)
+  - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit packed RIBS installer engine is this package set (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
     - DECore
@@ -116,8 +116,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - When protected MSI is unpacked, it writes 16 bytes to every file.
-    - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible again.
-      - I think that 16 bytes is for protecting that file.
+    - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
+      - I think that 16 bytes is for protecting that file (maybe some sort of encrypted header or something).
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content on specific packages. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase. But on installation phase, it doesn't and it will fail.
     - Currently not unpackable assets are:
       - Creative Suite 4 (CS4)
