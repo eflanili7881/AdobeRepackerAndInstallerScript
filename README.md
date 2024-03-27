@@ -39,8 +39,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         | version 7.0.0.103 | packages\DECore\DECore.pima\DE6\Setup.dll | Allows repacked asset archives to be installed. |
         | version 7.0.0.27 (from slightly older engine) | packages\UWA\UWA.pima\updatercore.dll | Allows installing subscription updates on perpetual packages or vice versa. |
         | version 7.0.0.324 | resources\AdobePIM.dll | Allows repacked *.pima archives from packages folder to be loaded. | 
-        - You can only manually patch 8.x.x.x (CC 2014 series) installer engine and above. 7.x.x.x (CC 2013) and below gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
-          - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
+        - When you try to replace these files with higher version on lower version RIBS engines, installation gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
+        - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
         - If \payloads\Media_db.db\PayloadData\ *(any payload id that has higher version than **8.0.0.15** on **value** column)* \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example for SpeedGrade CC 2015 with 8.x.x.x engine:
           - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
 
