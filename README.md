@@ -67,7 +67,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
                 - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
             - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
               - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
-      - Or manually patch these Adobe dll's, view special note section of https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+      - Or to manually patch these Adobe DLL's, view special note section of https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - These packages are:
