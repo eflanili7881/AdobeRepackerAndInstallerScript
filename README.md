@@ -12,11 +12,12 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## Limitations
 - If I correctly know, macOS doesn't have patched AdobePIM.dylib for installing custom assets for Adobe CS6 - CC 2015
-  - But like in Windows, Adobe CS5.5 and Adobe CS5 doesn't have signature verification for .pima archives (actually, they're just .dmg files) and .dmg archives.
+  - I tried to patch engine like in Windows, but it's almost impossible, but it isn't impossible, it takes too much time as they're almost no comments to parse packages.
+  - But like in Windows, Adobe CS5.5 and below doesn't have signature verification for .pima archives (actually, they're just .dmg files with .pima extension) and .dmg archives.
 
 ## Special note
 - With Adobe CC 2013, *.pima format in packages folder changed to ZIP (extension is still .pima) and *.dmg format in payloads folder also changed to ZIP (extension also changed to .zip).
-  - DMG-based installers uses **Apple partition map-partitioned HFS+-formatted UDIF read-only compressed (zlib)** disk images:
+  - DMG-based installers uses **single Apple partition map-partitioned HFS+-formatted UDIF read-only compressed (zlib)** disk images:
   
     ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/8040cb7d-4bd2-4ddd-a5e0-6939a43ad97e)
     
