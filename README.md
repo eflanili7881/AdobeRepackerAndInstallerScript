@@ -16,3 +16,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## Special note
 - With Adobe CC 2013, *.pima format in packages folder changed to ZIP (extension is still .pima) and *.dmg format in payloads folder also changed to ZIP (extension also changed to .zip).
+  - DMG-based installers uses **Apple partition map-partitioned HFS+-formatted UDIF read-only compressed (zlib)** disk images:
+  
+    ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/8040cb7d-4bd2-4ddd-a5e0-6939a43ad97e)
+    
+    ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/93bed0fd-400b-490e-bdab-cada5dfc775d)
