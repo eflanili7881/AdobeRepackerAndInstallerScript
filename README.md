@@ -11,6 +11,7 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 This script compresses all unpacked assets that present on "payloads" and "packages" folder to temporary directory set by script, copies RIBS installer engine from installation media with unpacked assets excluded via excludepackages.txt and excludepayloads.txt that's generated via script and invokes Install.app on temporary directory set by script to install repacked product.
   - I think this approach only valid for CS5 and CS5.5 if I not able to patch AdobePIM.dylib.
   - But **maybe** I can write small installer that puts necassary files into necassary locations for CS6 - CC 2015 with **no install** support provided by Adobe's self installer.
+    - Because Macintosh versions of RIBS installers have MUCH MORE clean file structure compared to Windows.
 
 ## Limitations
 - If I correctly know, macOS doesn't have patched AdobePIM.dylib for installing custom assets for Adobe CS6 - CC 2015
