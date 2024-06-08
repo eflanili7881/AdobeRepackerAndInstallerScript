@@ -139,7 +139,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
             - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
           - On Orca, search Docs_DistillerS_DEU on Components table.
           - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
-          - On unpacked directory, perform replace operation exact opposite directory.
+          - On unpacked directory, perform replace operation exact opposite direction.
         - This also happens in CS6 packages that contains this package (also de-DE language).
         
         For `` MSXML6.0 ``:
