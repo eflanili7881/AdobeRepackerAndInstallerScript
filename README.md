@@ -24,7 +24,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - Unlike HyperDrive-based installers, with patched AdobePIM.dll, *.pima archives under "packages" folder can be repacked on CS6 - CC 2015 installer engines.
   - With original AdobePIM.dll and repacked *.pima archive, it throws error Adobe Genuine Software Validation Failure on initializing setup phase.
   
-    ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
+    ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
     - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
       - CC 2014-era
@@ -44,7 +44,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - If \payloads\Media_db.db\PayloadData\ *(any payload id that has higher version than **8.0.0.15** on **value** column)* \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example for SpeedGrade CC 2015 with 8.x.x.x engine:
           - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
 
-            ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
+            ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
             - This can be fixed with SQLite DB Browser.
               - Download this program from https://sqlitebrowser.org/dl/
                 - Or if that page isn't available, but direct links are accessible:
@@ -65,9 +65,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
                 - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
               - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
                 - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
-            - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+            - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
               - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
-      - Or to manually patch these Adobe DLL's, view special note section of https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+      - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - These packages are:
