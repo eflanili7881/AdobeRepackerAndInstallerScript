@@ -37,7 +37,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - On AdobePIM.dylib:
       - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
       - On IDA Pro, search for string **aSignaturePimaC**.
-      - 3 box later connected on box that contains aSignaturePimaC, look for value **jnz short loc_12DC1** (on address 0x12D46).
+      - 3 box later connected on box that contains aSignaturePimaC (in case, sub_12D34 on version 8.0.0.73), look for value **jnz short loc_12DC1** (on address 0x12D46).
         ![image](https://github.com/user-attachments/assets/515d364e-4cf4-498e-ade5-bd23411d4a57)
       - Now, you got the necessary address for changing 0x12DC1 to 0x12D48. Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
       - Jump to address 0x12D46 on Cutter.
