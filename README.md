@@ -63,7 +63,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/8d56c799-bf31-42fe-9622-36819acf4548)
         - 2 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
           ![image](https://github.com/user-attachments/assets/0ed0e81f-441f-450a-b15c-43a82453bcb6)
-        - Now you got the necessary address (in case, it's 0x956D) for changing **mov [esp], eax** (on IDA Pro) to jne 0x95D8.
+        - Now you got the necessary address (in case, it's 0x956D) for changing **mov [esp], eax** (on IDA Pro) to **jne 0x95D8**.
         - Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
         - Jump to address 0x956D on Cutter.
           ![image](https://github.com/user-attachments/assets/cea7f628-20a9-4f73-8473-9a09e7ff01bd)
@@ -71,4 +71,20 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         - Changing will invalidate function on address 0x9576 but it's not going to be a problem.
         - When you reload the file on Cutter, graph will turn into this:
           ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+    - On Setup.dylib (version 6.0.98.0)
+      - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
+        - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
+        - On IDA Pro, search for string **aSIsCorruptedFi_0**
+        - It should contain 1 __text and 1 __cstring results.
+          ![image](https://github.com/user-attachments/assets/68a4bd77-e17f-489e-ba18-ab8bc37e010d)
+        - 1 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
+        - Now you got the necessary address (in case, it's 0xD7CB9) for changing **mov [esp], esi** (on IDA Pro) to **jne 0xD7DC4** (on Cutter by Rizin).
+          ![image](https://github.com/user-attachments/assets/fdae10d6-3b94-418a-ad1b-1fb82dd82a08)
+        - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0xD7CB9 on Cutter.
+        - Change **mov dword [esp], esi** to **jne 0xD7DC4** with disabling *Fill all remaining bytes with NOP opcodes*.
+        - Changing will invalidate function on address 0xD7CD5 but it's not going to be a problem.
+        - When you reload the file on Cutter, graph will turn into this:
+          ![image](https://github.com/user-attachments/assets/f229aaf5-549f-475f-a22e-4cb200760c37)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
