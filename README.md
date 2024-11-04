@@ -22,5 +22,5 @@ https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac
 ## For patched RIBS binaries on Windows platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
-## For patched RIBS binaries on Macintosh platform (currently only contains patch method for AdobePIM.dylib version 8.0.0.73)
+## For patched RIBS binaries on Macintosh platform (currently only contains patch method for AdobePIM.dylib version 8.0.0.73 and 6.0.335.0)
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac-patchedbins
