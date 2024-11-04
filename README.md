@@ -83,6 +83,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/fdae10d6-3b94-418a-ad1b-1fb82dd82a08)
         - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
         - Jump to address 0xD7CB9 on Cutter.
+          ![image](https://github.com/user-attachments/assets/bf0607bb-48ba-4cee-95f4-21fc2ca298cd)
         - Change **mov dword [esp], esi** to **jne 0xD7DC4** with disabling *Fill all remaining bytes with NOP opcodes*.
         - Changing will invalidate function on address 0xD7CD5 but it's not going to be a problem.
         - When you reload the file on Cutter, graph will turn into this:
