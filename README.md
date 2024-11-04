@@ -26,15 +26,21 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 ## Special note
 - When I examined AdobePIM.dylib version 8.0.0.73 (got it from Adobe Premiere Pro CC 2014's Install.app file) on IDA Pro 6.5, it revealed more clues:
   ![image](https://github.com/user-attachments/assets/b9b2e84e-1555-41aa-8c9f-88b4678c11c5)
-  - When I looked script invoke path from IDA Pro 6.5, it follows this path:
+  - When I looked script invoke path from IDA Pro 6.5, it follows this path (on AdobePIM.dylib version 8.0.0.73):
     - _pim_installAdobeApplication
     - sub_130CA (on IDA Pro 6.5)
     - sub_124CB (on IDA Pro 6.5)
-      - On sub_124CB, magic happens on 0x12D46; rerouting **jne 0x12DC1** to **jne 0x12D48** (on Cutter by Rizin) bypasses verification on *.pima archives.
+      - On sub_124CB, magic happens on 0x12D46; rerouting **jne 0x12DC1** to **jne 0x12D48** (on Cutter by Rizin) bypasses verification on ZIP-based *.pima archives.
+  ![image](https://github.com/user-attachments/assets/49e3f6b3-6bde-46a1-a188-1cbcd6c392a0)
+  - When I looked script invoke path from IDA Pro 9.0, it follows this path (on AdobePIM.dylib version 6.0.335.0):
+    - _pim_installPackage
+    - sub_161FE
+    - sub_8D28
+      - On sub_8D28, magic happens on 0x956D; changing **mov [esp], eax** (on IDA Pro) to **jne 0x95D8** (on Cutter by Rizin) bypasses verification on DMG-based *.pima archives.
   - To patch dylibs:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
-    - On AdobePIM.dylib:
+    - On AdobePIM.dylib (version 8.0.0.73):
       - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
       - On IDA Pro, search for string **aSignaturePimaC**.
       - 3 box later connected on box that contains aSignaturePimaC (in case, sub_12D34 on version 8.0.0.73), look for value **jnz short loc_12DC1** (on address 0x12D46).
@@ -46,3 +52,22 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
       - When you reload the file on Cutter, graph will turn into this:
         ![image](https://github.com/user-attachments/assets/129f8628-dc64-4229-a8a4-fca4b5834bee)
       - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+    - On AdobePIM.dylib (version 6.0.335.0)
+      - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
+        - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
+        - On IDA Pro, search for string **corrupted**
+        - Search results should be contain 4 __text and 3 __cstring addresses.
+          ![image](https://github.com/user-attachments/assets/715bf2d1-b930-4ac6-87b6-174170b87978)
+        - Click the result that's on __text:0x9597
+          ![image](https://github.com/user-attachments/assets/8d56c799-bf31-42fe-9622-36819acf4548)
+        - 2 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
+          ![image](https://github.com/user-attachments/assets/0ed0e81f-441f-450a-b15c-43a82453bcb6)
+        - Now you got the necessary address (in case, it's 0x956D) for changing **mov [esp], eax** (on IDA Pro) to jne 0x95D8.
+        - Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0x956D on Cutter.
+          ![image](https://github.com/user-attachments/assets/cea7f628-20a9-4f73-8473-9a09e7ff01bd)
+        - Change **mov dword [esp], eax** to **jne 0x95D8** with disabling *Fill all remaining bytes with NOP opcodes*.
+        - Changing will invalidate function on address 0x9576 but it's not going to be a problem.
+        - When you reload the file on Cutter, graph will turn into this:
+          ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
