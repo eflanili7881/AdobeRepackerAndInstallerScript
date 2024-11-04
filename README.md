@@ -31,8 +31,8 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - sub_130CA (on IDA Pro 6.5)
     - sub_124CB (on IDA Pro 6.5)
       - On sub_124CB, magic happens on 0x12D46; rerouting **jne 0x12DC1** to **jne 0x12D48** (on Cutter by Rizin) bypasses verification on ZIP-based *.pima archives.
+- When I looked script invoke path from IDA Pro 9.0, it follows this path (on AdobePIM.dylib version 6.0.335.0):
   ![image](https://github.com/user-attachments/assets/49e3f6b3-6bde-46a1-a188-1cbcd6c392a0)
-  - When I looked script invoke path from IDA Pro 9.0, it follows this path (on AdobePIM.dylib version 6.0.335.0):
     - _pim_installPackage
     - sub_161FE
     - sub_8D28
@@ -41,17 +41,18 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
     - On AdobePIM.dylib (version 8.0.0.73):
-      - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
-      - On IDA Pro, search for string **aSignaturePimaC**.
-      - 3 box later connected on box that contains aSignaturePimaC (in case, sub_12D34 on version 8.0.0.73), look for value **jnz short loc_12DC1** (on address 0x12D46).
-        ![image](https://github.com/user-attachments/assets/515d364e-4cf4-498e-ade5-bd23411d4a57)
-      - Now, you got the necessary address for changing 0x12DC1 to 0x12D48. Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
-      - Jump to address 0x12D46 on Cutter.
-        ![image](https://github.com/user-attachments/assets/0a9efae9-5f09-40e1-af35-d9ed1a6e43eb)
-      - Change 0x12DC1 to 0x12D48 with disabling *Fill all remaining bytes with NOP opcodes*.
-      - When you reload the file on Cutter, graph will turn into this:
+      - You need to use this version for ZIP-based installers (versions down to 7.x.x.x should be fine) (CC 2013 and above) as CS6 and below will use DMG-based installers.
+        - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
+        - On IDA Pro, search for string **aSignaturePimaC**.
+        - 3 box later connected on box that contains aSignaturePimaC (in case, sub_12D34 on version 8.0.0.73), look for value **jnz short loc_12DC1** (on address 0x12D46).
+          ![image](https://github.com/user-attachments/assets/515d364e-4cf4-498e-ade5-bd23411d4a57)
+        - Now, you got the necessary address for changing 0x12DC1 to 0x12D48. Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0x12D46 on Cutter.
+          ![image](https://github.com/user-attachments/assets/0a9efae9-5f09-40e1-af35-d9ed1a6e43eb)
+        - Change 0x12DC1 to 0x12D48 with disabling *Fill all remaining bytes with NOP opcodes*.
+        - When you reload the file on Cutter, graph will turn into this:
         ![image](https://github.com/user-attachments/assets/129f8628-dc64-4229-a8a4-fca4b5834bee)
-      - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On AdobePIM.dylib (version 6.0.335.0)
       - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
