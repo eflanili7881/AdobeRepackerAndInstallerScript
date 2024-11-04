@@ -13,12 +13,14 @@ This script compresses all unpacked assets that present on install media folder 
 
 # Branches
 ## For HyperDrive (HD)-based installers on Windows platform
-https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
 ## For HyperDrive (HD)-based installers on Macintosh platform
-https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac
 ## For RIBS-based installers on Windows platform
-https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/RIBS-win
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win
 ## For RIBS-based installers on Macintosh platform (script not uploaded)
-https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/RIBS-mac
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac
 ## For patched RIBS binaries on Windows platform
-https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
+## For patched RIBS binaries on Macintosh platform (currently only contains patch method for AdobePIM.dylib version 8.0.0.73)
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac-patchedbins
