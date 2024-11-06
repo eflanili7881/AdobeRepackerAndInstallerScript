@@ -42,6 +42,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - Install Cutter and IDA Pro 6.5 or newer.
     - On AdobePIM.dylib (version 8.0.0.73):
       - You need to use this version for ZIP-based installers (versions down to 7.x.x.x should be fine) (CC 2013 and above) as CS6 and below will use DMG-based installers.
+      - CC 2015's AdobePIM.dylib (9.x.x.x) is a bit different. I'm inspecting it.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **aSignaturePimaC**.
         - 3 box later connected on box that contains aSignaturePimaC (in case, sub_12D34 on version 8.0.0.73), look for value **jnz short loc_12DC1** (on address 0x12D46).
