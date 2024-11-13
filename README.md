@@ -81,7 +81,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/68a4bd77-e17f-489e-ba18-ab8bc37e010d)
         - 1 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
         - Now you got the necessary address (in case, it's 0xD7CB9) for changing **mov [esp], esi** (on IDA Pro) to **jne 0xD7DC4** (on Cutter by Rizin).
-          ![image](https://github.com/user-attachments/assets/fdae10d6-3b94-418a-ad1b-1fb82dd82a08)
+          ![image](https://github.com/user-attachments/assets/178383df-7989-4e38-a9f5-93804de17a30)
         - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
         - Jump to address 0xD7CB9 on Cutter.
           ![image](https://github.com/user-attachments/assets/bf0607bb-48ba-4cee-95f4-21fc2ca298cd)
