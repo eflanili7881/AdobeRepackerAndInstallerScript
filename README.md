@@ -23,8 +23,14 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## Special note
 - With Adobe CC 2013 (7.x.x.x), *.dmg format with *.pima extension in packages folder and *.dmg format in payloads folder changed to *.zip format (On *payloads* folder, extension is changed to *.zip, but in *packages* folder, extension is still *.pima).
-  - DMG-based installers uses **single Apple partition map-partitioned HFS+-formatted UDIF read-only compressed (zlib)** disk images:
+  - DMG-based installers uses:
+    - APM (Apple partition map) partition map
+    - single partition
+    - HFS+ format
+    - UDIF read-only compressed (zlib) disk images.
   
     ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/8040cb7d-4bd2-4ddd-a5e0-6939a43ad97e)
-    
+  - On packages folder, partition labels will be equal to package folder name (i.e. DECore uses DECore).
+    - To clear confusion, \packages\core\PDApp.pima uses **core** partition label.
+
     ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/93bed0fd-400b-490e-bdab-cada5dfc775d)
