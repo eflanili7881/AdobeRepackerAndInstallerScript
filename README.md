@@ -34,3 +34,6 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - To clear confusion, \packages\core\PDApp.pima uses **core** partition label.
 
     ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/93bed0fd-400b-490e-bdab-cada5dfc775d)
+  - On payloads folder, partition labels will be some random? generated 16 character label.
+
+    ![image](https://github.com/user-attachments/assets/4226b0f2-8cf3-4bd3-87c6-397b2ffa6e15)
