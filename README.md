@@ -1,4 +1,4 @@
-# REPO WORK IN PROGRESS
+# !!! SCRIPT NOT UPLOADED !!!
 
 # Adobe Repacker and Installer Script - RIBS for Macintosh (currently for CS5 and CS5.5)
 A .sh script that compresses unpacked Adobe RIBS assets and installs them.
