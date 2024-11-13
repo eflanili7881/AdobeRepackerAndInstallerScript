@@ -74,7 +74,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On Setup.dylib (version 6.0.98.0)
-      - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
+      - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
         - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **aSIsCorruptedFi_0**
         - It should contain 1 __text and 1 __cstring results.
