@@ -76,7 +76,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - On Setup.dylib (version 6.0.98.0)
       - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
         - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
-        - On IDA Pro, search for string **aSIsCorruptedFi_0**
+        - On IDA Pro, search for string **aSIsCorruptedFi_0**.
         - It should contain 1 __text and 1 __cstring results.
           ![image](https://github.com/user-attachments/assets/68a4bd77-e17f-489e-ba18-ab8bc37e010d)
         - 1 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
@@ -90,3 +90,24 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         - When you reload the file on Cutter, graph will turn into this:
           ![image](https://github.com/user-attachments/assets/f229aaf5-549f-475f-a22e-4cb200760c37)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+    - On Setup.dylib (version 9.0.0.65 (from Adobe Application Manager 10.0.0.47, got from Adobe Premiere Elements 15 install media))
+      - You need to use this version for ZIP-based installers (CC 2013 and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
+        - Adobe Application Manager version 9.0.0.72 has Setup.dylib version 9.0.0.10 but required sections location was not mentioned in file.
+          ![image](https://github.com/user-attachments/assets/b2ec2538-bf79-4d55-88a6-385a80ec0f8b)
+        - But Adobe Application Manager version 10.0.0.47 has Setup.dylib version 9.0.0.65 and it mentions the required address to patch the file.
+          - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
+          - On IDA Pro, search for string **corrupted**
+          - Click on result that contains **aSIsCorruptedFi_0**.
+            ![image](https://github.com/user-attachments/assets/828b572b-2e6d-4b2b-a6d9-be6fdb2b4692)
+          - Locate the largest function that's connected to box that contains result from previous step. It's usually spans some of it's content to box that contains result from previous step.
+          - Locate the largest function's start address (On version 9.0.0.65, it's 0xBDAD6).
+            ![image](https://github.com/user-attachments/assets/be045a2a-9b35-49e5-8eb3-9b77cf5625d3)
+          - You got the necessary location to change on Cutter.
+          - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+          - Jump to address 0xBDAD6 on Cutter.
+            ![image](https://github.com/user-attachments/assets/1be8a822-2d45-4c31-913d-d92b57404528)
+          - Change **mov dword [esp], ebx** to **jne 0xBDC9E**.
+          - Changing will invalidate function on address 0xBDAEC but it's not going to be a problem.
+          - When you reload the file on Cutter, graph will turn into this:
+            ![image](https://github.com/user-attachments/assets/0c9351a7-c9f5-44cb-8a2d-1e8e2f188be7)
+          - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
