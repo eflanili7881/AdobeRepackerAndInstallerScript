@@ -30,6 +30,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - UDIF read-only compressed (zlib) disk images.
   
     ![image](https://github.com/user-attachments/assets/4371811e-0cf9-4f91-b454-110e71412736)
+
+    ![image](https://github.com/user-attachments/assets/2787a77f-5d57-4507-84cf-6d74497eb0c4)
   - On packages folder, partition labels will be equal to package folder name (i.e. DECore uses DECore).
     - To clear confusion, \packages\core\PDApp.pima uses **core** partition label.
 
