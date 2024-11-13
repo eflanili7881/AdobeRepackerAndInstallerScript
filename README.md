@@ -17,7 +17,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 - [Me](https://github.com/eflanili7881) for writing script.
 - [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program .
 - [Hex-Rays](https://hex-rays.com/) for [IDA Pro 6.5](https://hex-rays.com/ida-pro) reverse engineering program .
-- PainteR for patched binaries for Windows to understand verification on macOS binary.
+- PainteR for patched binaries for Windows to understand verification mechanism on macOS binaries.
 - Adobe Systems Incorporated for providing original binaries.
 
 ## What's this repo contains?
