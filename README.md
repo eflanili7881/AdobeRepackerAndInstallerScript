@@ -55,7 +55,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](https://github.com/user-attachments/assets/129f8628-dc64-4229-a8a4-fca4b5834bee)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On AdobePIM.dylib (version 6.0.335.0)
-      - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
+      - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **corrupted**
         - Search results should be contain 4 __text and 3 __cstring addresses.
