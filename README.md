@@ -14,14 +14,15 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - Because Macintosh versions of RIBS installers have MUCH MORE clean file structure compared to Windows.
 
 ## Limitations
-- If I correctly know, macOS doesn't have patched AdobePIM.dylib for installing custom assets for Adobe CS6 - CC 2015
-  - I tried to patch engine like in Windows, but it's almost impossible, but it isn't impossible, it takes too much time as they're almost no comments to parse packages.
+~~- If I correctly know, macOS doesn't have patched AdobePIM.dylib for installing custom assets for Adobe CS6 - CC 2015~~
+  ~~- I tried to patch engine like in Windows, but it's almost impossible, but it isn't impossible, it takes too much time as they're almost no comments to parse packages.~~
+      - With my recent researches, it will now possible to install repacked assets. More information on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-mac-patchedbins/README.md
   - But like in Windows, Adobe CS5.5 and below doesn't have signature verification for .pima archives (actually, they're just .dmg files with .pima extension) and .dmg archives.
 
 ## Special note
 - With Adobe CC 2013, *.pima format in packages folder changed to ZIP (extension is still .pima) and *.dmg format in payloads folder also changed to ZIP (extension also changed to .zip).
   - DMG-based installers uses **single Apple partition map-partitioned HFS+-formatted UDIF read-only compressed (zlib)** disk images:
   
-    ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/8040cb7d-4bd2-4ddd-a5e0-6939a43ad97e)
+    ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/8040cb7d-4bd2-4ddd-a5e0-6939a43ad97e)
     
-    ![image](https://github.com/osmankovan123/AdobeRepackerAndInstallerScript/assets/44976117/93bed0fd-400b-490e-bdab-cada5dfc775d)
+    ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/93bed0fd-400b-490e-bdab-cada5dfc775d)
