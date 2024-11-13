@@ -26,13 +26,18 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 - I compared all dll's with Cutter and I see what's the PainteR did. PainteR just bypassed verification mechanism. With manual patching, I able to patch 9.x.x.x engine (9.0.0.65 to be precise) and install SpeedGrade CC 2015 with modified assets in both folders without a problem.
   - With this, you don't need modify Media_db.db to allow lower versions of RIBS to install newer packages.
   - When I traced functions, function invoking works like this:
-    - On AdobePIM.dll (version 8.0.0.73, patched binary):
-      ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/0239b8bd-eee4-41e8-b90f-7afa1de43d83)
-      - 1st, AdobePIM.dll invokes **sym.AdobePIM.dll_pim_installAdobeApplicationManager**. Then, inside this function, it invokes **call fcn.10010300** on address **0x10012414**.
+    - On AdobePIM.dll (version 8.0.0.73, patched binary, on IDA Pro 9.0):
+      ![image](https://github.com/user-attachments/assets/c338e0e5-cdb3-470d-bbcd-5c5a163186c1)
+      - 1st, AdobePIM.dll invokes **_pim_installAdobeApplicationManager**. Then, inside this function, it invokes **call fcn.10010300** on address **0x10012414**.
+        ![image](https://github.com/user-attachments/assets/9acbe58d-7e63-43fc-948e-417dbb620990)
       - 2nd, on **fcn.10010300**, it invokes **call fcn.1000f690** on address **0x10010394**. When you look up, you understand that this function is for validating AAM packages.
-      - Lastly, on **fcn.1000f690**, main magic happens on **0x100100ff**; rerouting **jne 0x10010105** to **jne 0x10010101** bypasses archive integrity check.
+        ![image](https://github.com/user-attachments/assets/63cbd7f8-9d64-4115-b63c-02f72901197e)
+      - Lastly, on **fcn.1000f690**, main magic happens on **0x100100ff**; rerouting **jne 0x10010105 (original position)** to **jne 0x10010101 (position to bypass verification mechanism)** bypasses *.pima archive integrity check.
+        ![image](https://github.com/user-attachments/assets/d954489b-378f-4eca-b235-fc2e536ff87a)
+
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases
+      - macOS users also need IDA Pro 6.5 or newer to disassemble *.dylib files much more. Cutter is great tool, but it disassembles *.dylib files less good than IDA Pro. More details on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-mac-patchedbins
     - Install Cutter.
       - On AdobePIM.dll:
         - Open AdobePIM.dll with experimental (aaaa) mode and in write mode (-w).
