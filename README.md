@@ -22,7 +22,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - But like in Windows, Adobe CS5.5 and below doesn't have signature verification for *.pima (actually, they're just .dmg files with .pima extension) and *.dmg archives.
 
 ## Special note
-- With Adobe CC 2013 (7.x.x.x), *.dmg format with *.pima extension in packages folder and *.dmg format in payloads folder changed to *.zip format (On packages folder, extension is still *.pima).
+- With Adobe CC 2013 (7.x.x.x), *.dmg format with *.pima extension in packages folder and *.dmg format in payloads folder changed to *.zip format (On *payloads* folder, extension is changed to *.zip, but in *packages* folder, extension is still *.pima).
   - DMG-based installers uses **single Apple partition map-partitioned HFS+-formatted UDIF read-only compressed (zlib)** disk images:
   
     ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/8040cb7d-4bd2-4ddd-a5e0-6939a43ad97e)
