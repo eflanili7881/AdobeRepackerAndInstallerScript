@@ -41,7 +41,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
     - On AdobePIM.dylib (version 8.0.0.73):
-      - You need to use this version for ZIP-based installers (versions down to 7.x.x.x should be fine) (CC 2013 and above) as CS6 and below will use DMG-based installers.
+      - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
       - CC 2015's AdobePIM.dylib (9.x.x.x) is a bit different. I'm inspecting it.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **aSignaturePimaC**.
@@ -55,7 +55,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](https://github.com/user-attachments/assets/129f8628-dc64-4229-a8a4-fca4b5834bee)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On AdobePIM.dylib (version 6.0.335.0)
-      - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
+      - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and CC 2017? (RIBS-based ones, 10.x.x.x) will use ZIP-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **corrupted**
         - Search results should be contain 4 __text and 3 __cstring addresses.
@@ -74,7 +74,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On Setup.dylib (version 6.0.98.0)
-      - You need to use this version for DMG-based installers (CS6 and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
+      - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
         - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **aSIsCorruptedFi_0**.
         - It should contain 1 __text and 1 __cstring results.
@@ -91,10 +91,11 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/f229aaf5-549f-475f-a22e-4cb200760c37)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On Setup.dylib (version 9.0.0.65 (from Adobe Application Manager 10.0.0.47, got from Adobe Premiere Elements 15 install media))
-      - You need to use this version for ZIP-based installers (CC 2013 and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
+      - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
         - Adobe Application Manager version 9.0.0.72 has Setup.dylib version 9.0.0.10 but required sections location was not mentioned in file.
           ![image](https://github.com/user-attachments/assets/b2ec2538-bf79-4d55-88a6-385a80ec0f8b)
         - But Adobe Application Manager version 10.0.0.47 has Setup.dylib version 9.0.0.65 and it mentions the required address to patch the file.
+          ![image](https://github.com/user-attachments/assets/6e2b8fcf-2c72-4dbf-9348-77a146584196)
           - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
           - On IDA Pro, search for string **corrupted**
           - Click on result that contains **aSIsCorruptedFi_0**.
