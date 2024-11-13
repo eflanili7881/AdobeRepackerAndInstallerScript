@@ -41,17 +41,19 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - On Setup.dll (version 8.0.0.15, original binary, on IDA Pro 9.0):
 
       ![image](https://github.com/user-attachments/assets/5e41fbd5-d2d0-4d6d-a436-ed427607e155)
-      - 1st, **fcn.100a2080** invokes **fcn.100a9050** on **0x100a301e** or **fcn.10066d90** on **0x100a63bf**.
+      - Verification function called via 2 ways:
         |1st way|2nd way|
         |:-:|:-:|
+        |**fcn.100a2080** invokes **fcn.100a9050** on **0x100a301e**|**fcn.100a2080** invokes **fcn.10066d90** on **0x100a63bf**|
+        |![image](https://github.com/user-attachments/assets/40cc8e2d-f857-42d6-99ae-0fa0ed330a3a)|![image](https://github.com/user-attachments/assets/8f84c89f-58c2-4aa8-9ad7-3874a5a76167)|
         |**fcn.100a9050** invokes **fcn.10065b00** on **0x100a91b2** or **0x100a932a**|**fcn.10066d90** invokes **fcn.100667a0** on **0x1006781f**|
         |![image](https://github.com/user-attachments/assets/a42b72ab-3c50-4be8-892f-801f18d9610a)|![image](https://github.com/user-attachments/assets/e037507f-0509-4a88-9bdb-d99aa43db317)|
         |![image](https://github.com/user-attachments/assets/32794df1-8a1c-49cc-9f0f-baf20f5e21fb)|**fcn.100667a0** invokes **fcn.10065b00** on **0x10066b92**|
         |II|![image](https://github.com/user-attachments/assets/17532291-822d-443a-9d7e-320cf6cfeb89)|
         |V|V|
-      - Lastly, on **fcn.10065b00**, main magic happens on **0x1006660c**; rerouting **jne 0x10066617** to **jne 0x1006660c** bypasses *.zip archive integrity check.
+        - Lastly, on **fcn.10065b00**, main magic happens on **0x1006660c**; rerouting **jne 0x10066617** to **jne 0x1006660c** bypasses *.zip archive integrity check.
 
-        ![image](https://github.com/user-attachments/assets/06a9f799-568f-45ea-bd6e-9370cc9a8e22)
+          ![image](https://github.com/user-attachments/assets/06a9f799-568f-45ea-bd6e-9370cc9a8e22)
         
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases
