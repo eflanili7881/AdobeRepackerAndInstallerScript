@@ -42,7 +42,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
   - To patch dylibs:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
-    # On AdobePIM.dylib (version 6.0.335.0)
+    # - On AdobePIM.dylib (version 6.0.335.0)
       - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **corrupted**
@@ -66,7 +66,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 
           ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
-    # On AdobePIM.dylib (version 8.0.0.73):
+    # -  On AdobePIM.dylib (version 8.0.0.73):
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **aSignaturePimaC**.
@@ -82,7 +82,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         
           ![image](https://github.com/user-attachments/assets/129f8628-dc64-4229-a8a4-fca4b5834bee)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
-    # On AdobePIM.dylib (version 9.0.0.72)
+    # - On AdobePIM.dylib (version 9.0.0.72)
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **corrupted**.
@@ -101,7 +101,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
        
           ![image](https://github.com/user-attachments/assets/0acb5b01-07f6-4e46-ab03-efc3db6afd4c)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
-    # On Setup.dylib (version 6.0.98.0)
+    # - On Setup.dylib (version 6.0.98.0)
       - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
         - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
         - On IDA Pro, search for string **aSIsCorruptedFi_0**.
@@ -122,7 +122,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 
           ![image](https://github.com/user-attachments/assets/f229aaf5-549f-475f-a22e-4cb200760c37)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
-    # On Setup.dylib (version 9.0.0.10 (from Adobe Application Manager 9.0.0.72, got from Adobe Premiere Pro CC 2015))
+    # - On Setup.dylib (version 9.0.0.10 (from Adobe Application Manager 9.0.0.72, got from Adobe Premiere Pro CC 2015))
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
       - Also, this one is pretty hard because of absence of comments (they exist in __cstring section, but not exist in __text section). But if you understand the basics, you can perform this steps on other versions of Setup.dylib with proper hexadecimal addresses for specific versions.
         - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
@@ -161,7 +161,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
  
           ![image](https://github.com/user-attachments/assets/6877cf80-4bf2-4344-b184-bbd2e3b659cd)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
-    # On Setup.dylib (version 9.0.0.65 (from Adobe Application Manager 10.0.0.47, got from Adobe Premiere Elements 15 install media))
+    # - On Setup.dylib (version 9.0.0.65 (from Adobe Application Manager 10.0.0.47, got from Adobe Premiere Elements 15 install media))
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
         - Adobe Application Manager version 9.0.0.72 has Setup.dylib version 9.0.0.10 but required sections location was not mentioned in file.
 
