@@ -25,6 +25,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - With original AdobePIM.dll and repacked *.pima archive, it throws error Adobe Genuine Software Validation Failure on initializing setup phase.
   
     ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
+    
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
     - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
       - CC 2014-era
@@ -41,10 +42,11 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         | version 7.0.0.324 | resources\AdobePIM.dll | Allows repacked *.pima archives from packages folder to be loaded. | 
         - When you try to replace these files with higher version on lower version RIBS engines, installation gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
         - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
-        - If \payloads\Media_db.db\PayloadData\ *(any payload id that has higher version than **8.0.0.15** on **value** column)* \PayloadInfo is greater than 8.0.0.15, installer throws this error on logs in example for SpeedGrade CC 2015 with 8.x.x.x engine:
+        - If \payloads\Media_db.db\PayloadData\ *(any payload ID that has higher version than current RIBS engine on **value** column)* \PayloadInfo is greater than current RIBS engine, installer throws this error on logs (i.e. for SpeedGrade CC 2015 with 8.0.0.15 engine:
           - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
 
             ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
+            
             - This can be fixed with SQLite DB Browser.
               - Download this program from https://sqlitebrowser.org/dl/
                 - Or if that page isn't available, but direct links are accessible:
