@@ -86,10 +86,10 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](https://github.com/user-attachments/assets/715bf2d1-b930-4ac6-87b6-174170b87978)
         - Click the result that's on __text:0x9597
 
-          ![image](https://github.com/user-attachments/assets/8d56c799-bf31-42fe-9622-36819acf4548)
+          ![image](https://github.com/user-attachments/assets/b002b72c-53fe-452a-a540-f3b98df298d5)
         - 2 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
 
-          ![image](https://github.com/user-attachments/assets/0ed0e81f-441f-450a-b15c-43a82453bcb6)
+          ![image](https://github.com/user-attachments/assets/7891c001-d64f-4a7a-a07e-133b6736824e)
         - Now you got the necessary address (in case, it's 0x956D) for changing **mov [esp], eax** (on IDA Pro) to **jne 0x95D8**.
         - Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
         - Jump to address 0x956D on Cutter.
