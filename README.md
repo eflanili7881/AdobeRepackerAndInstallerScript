@@ -42,6 +42,30 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
   - To patch dylibs:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
+    - On AdobePIM.dylib (version 6.0.335.0)
+      - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
+        - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
+        - On IDA Pro, search for string **corrupted**
+        - Search results should be contain 4 __text and 3 __cstring addresses.
+
+          ![image](https://github.com/user-attachments/assets/715bf2d1-b930-4ac6-87b6-174170b87978)
+        - Click the result that's on __text:0x9597
+
+          ![image](https://github.com/user-attachments/assets/b002b72c-53fe-452a-a540-f3b98df298d5)
+        - 2 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
+
+          ![image](https://github.com/user-attachments/assets/7891c001-d64f-4a7a-a07e-133b6736824e)
+        - Now you got the necessary address (in case, it's 0x956D) for changing **mov [esp], eax** (on IDA Pro) to **jne 0x95D8**.
+        - Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0x956D on Cutter.
+
+          ![image](https://github.com/user-attachments/assets/cea7f628-20a9-4f73-8473-9a09e7ff01bd)
+        - Change **mov dword [esp], eax** to **jne 0x95D8** with disabling *Fill all remaining bytes with NOP opcodes*.
+        - Changing will invalidate function on address 0x9576 but it's not going to be a problem.
+        - When you reload the file on Cutter, graph will turn into this:
+
+          ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On AdobePIM.dylib (version 8.0.0.73):
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
         - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
@@ -76,30 +100,6 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         - When you reload the file on Cutter, graph will turn into this:
        
           ![image](https://github.com/user-attachments/assets/0acb5b01-07f6-4e46-ab03-efc3db6afd4c)
-        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
-    - On AdobePIM.dylib (version 6.0.335.0)
-      - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
-        - Open AdobePIM.dylib on IDA Pro and open it with Mach-O decompiler.
-        - On IDA Pro, search for string **corrupted**
-        - Search results should be contain 4 __text and 3 __cstring addresses.
-
-          ![image](https://github.com/user-attachments/assets/715bf2d1-b930-4ac6-87b6-174170b87978)
-        - Click the result that's on __text:0x9597
-
-          ![image](https://github.com/user-attachments/assets/b002b72c-53fe-452a-a540-f3b98df298d5)
-        - 2 box before connected on box that contains the result from previous step, look for string that before on **; try {**.
-
-          ![image](https://github.com/user-attachments/assets/7891c001-d64f-4a7a-a07e-133b6736824e)
-        - Now you got the necessary address (in case, it's 0x956D) for changing **mov [esp], eax** (on IDA Pro) to **jne 0x95D8**.
-        - Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
-        - Jump to address 0x956D on Cutter.
-
-          ![image](https://github.com/user-attachments/assets/cea7f628-20a9-4f73-8473-9a09e7ff01bd)
-        - Change **mov dword [esp], eax** to **jne 0x95D8** with disabling *Fill all remaining bytes with NOP opcodes*.
-        - Changing will invalidate function on address 0x9576 but it's not going to be a problem.
-        - When you reload the file on Cutter, graph will turn into this:
-
-          ![image](https://github.com/user-attachments/assets/15f588f8-8a6a-4bcc-be63-c1cfebe691e9)
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     - On Setup.dylib (version 6.0.98.0)
       - You need to use this version for DMG-based installers (CS6 (6.x.x.x) and below) as CC 2013 (7.x.x.x) and above will use ZIP-based installers.
