@@ -125,42 +125,42 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     # On Setup.dylib (version 9.0.0.10 (from Adobe Application Manager 9.0.0.72, got from Adobe Premiere Pro CC 2015))
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
       - Also, this one is pretty hard because of absence of comments (they exist in __cstring section, but not exist in __text section). But if you understand the basics, you can perform this steps on other versions of Setup.dylib with proper hexadecimal addresses for specific versions.
-          - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
-          - On IDA Pro, search for string **verifying**
-          - Click the result on address 0xACB51
+        - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
+        - On IDA Pro, search for string **verifying**
+        - Click the result on address 0xACB51
  
-            ![image](https://github.com/user-attachments/assets/e1434b32-9169-4a99-957f-fb5dd4a1cd85)
-          - Go to address 0xACE93.
+          ![image](https://github.com/user-attachments/assets/e1434b32-9169-4a99-957f-fb5dd4a1cd85)
+        - Go to address 0xACE93.
  
-            ![image](https://github.com/user-attachments/assets/fa431d89-de79-4176-9429-72bd5b9b94b4)
-            - Setup.dylib binaries on macOS most probably have verification mechanism on function that contains result from previous step. On versions that doesn't contain strings, that's the location you should look.
-              - On IDA Pro, here's the required visual location to call verification mechanism. On other versions, it's generally same. 
+          ![image](https://github.com/user-attachments/assets/fa431d89-de79-4176-9429-72bd5b9b94b4)
+          - Setup.dylib binaries on macOS most probably have verification mechanism on function that contains result from previous step. On versions that doesn't contain strings, that's the location you should look.
+            - On IDA Pro, here's the required visual location to call verification mechanism. On other versions, it's generally same. 
    
-                ![image](https://github.com/user-attachments/assets/c09c5502-f7ad-45a5-84c8-72e3d7c72873)
-              - Required location to go is last call function on the box that viewed from previous step (in case, it's 0xAC182).
-          - On function 0xAC182, go to this visual location.
+              ![image](https://github.com/user-attachments/assets/c09c5502-f7ad-45a5-84c8-72e3d7c72873)
+            - Required location to go is last call function on the box that viewed from previous step (in case, it's 0xAC182).
+        - On function 0xAC182, go to this visual location.
  
-            ![image](https://github.com/user-attachments/assets/25c86f99-1d2a-4800-a097-955df8e3415e)
-          - Locate the call function that has CryptoPP in it (in case, it's 0x201B26)
+          ![image](https://github.com/user-attachments/assets/25c86f99-1d2a-4800-a097-955df8e3415e)
+        - Locate the call function that has CryptoPP in it (in case, it's 0x201B26)
  
-            ![image](https://github.com/user-attachments/assets/7480b045-19d2-49f6-a68c-5e0be898df66)
-            - Here's the visual location:
+          ![image](https://github.com/user-attachments/assets/7480b045-19d2-49f6-a68c-5e0be898df66)
+          - Here's the visual location:
  
-              ![image](https://github.com/user-attachments/assets/9d3bf77b-746a-452e-9e30-229ee01018c7)
-          - Locate the start address of function that contains function that has CryptoPP in it (in case, it's 0xAC537).
+            ![image](https://github.com/user-attachments/assets/9d3bf77b-746a-452e-9e30-229ee01018c7)
+        - Locate the start address of function that contains function that has CryptoPP in it (in case, it's 0xAC537).
  
-            ![image](https://github.com/user-attachments/assets/d909fc63-572d-441a-a966-2e3de12f47e9)
-          - You got the necessary location to change on Cutter from **mov [esp], ebx** to **jne 0xAC5F4**.
-          - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
-          - Jump to address 0xAC537 on Cutter.
+          ![image](https://github.com/user-attachments/assets/d909fc63-572d-441a-a966-2e3de12f47e9)
+        - You got the necessary location to change on Cutter from **mov [esp], ebx** to **jne 0xAC5F4**.
+        - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0xAC537 on Cutter.
  
-            ![image](https://github.com/user-attachments/assets/1b1d6dc0-4035-49c7-853a-b0ab2adcac7a)
-          - Change **mov [esp], ebx** to **jne 0xAC5F4** with disabling *Fill all remaining bytes with NOP opcodes*.
-          - Changing will invalidate function on address 0xAC54D but it's not going to be a problem.
-          - When you reload the file on Cutter, graph will turn into this:
+          ![image](https://github.com/user-attachments/assets/1b1d6dc0-4035-49c7-853a-b0ab2adcac7a)
+        - Change **mov [esp], ebx** to **jne 0xAC5F4** with disabling *Fill all remaining bytes with NOP opcodes*.
+        - Changing will invalidate function on address 0xAC54D but it's not going to be a problem.
+        - When you reload the file on Cutter, graph will turn into this:
  
-            ![image](https://github.com/user-attachments/assets/6877cf80-4bf2-4344-b184-bbd2e3b659cd)
-          - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+          ![image](https://github.com/user-attachments/assets/6877cf80-4bf2-4344-b184-bbd2e3b659cd)
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     # On Setup.dylib (version 9.0.0.65 (from Adobe Application Manager 10.0.0.47, got from Adobe Premiere Elements 15 install media))
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
         - Adobe Application Manager version 9.0.0.72 has Setup.dylib version 9.0.0.10 but required sections location was not mentioned in file.
