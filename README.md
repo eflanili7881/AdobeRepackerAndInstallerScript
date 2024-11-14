@@ -40,4 +40,5 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
     ![1](https://github.com/user-attachments/assets/2756cf10-3dba-4592-a33c-268dd5d5541b)
     - But partition labels and sizes can be what you want as I tested DECore.pima and AdobePremierePro6.0AllTrial.dmg for the unpack test.
+
       ![image](https://github.com/user-attachments/assets/ad538934-5426-4bda-b9c1-01fd15feefa6)
