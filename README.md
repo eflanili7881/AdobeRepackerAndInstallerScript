@@ -49,7 +49,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         ![image](https://github.com/user-attachments/assets/45cd4fe6-8446-4c4e-b3bb-e7e02ee04945)
 
         ![image](https://github.com/user-attachments/assets/34cb2c68-cd6a-4987-84bb-e7ab589b4933)
-    - On CC 2013:
+
+    - On CC 2013 and above:
 
       ![image](https://github.com/user-attachments/assets/e8861475-be5d-4996-8f1d-7afbdaabe904)
 
