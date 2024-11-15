@@ -42,7 +42,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         | version 7.0.0.324 | resources\AdobePIM.dll | Allows repacked *.pima archives from packages folder to be loaded. | 
         - When you try to replace these files with higher version on lower version RIBS engines, installation gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
         - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
-        - If \payloads\Media_db.db\PayloadData\ *(any payload ID that has higher version than current RIBS engine on **value** column)* \PayloadInfo is greater than current RIBS engine, installer throws this error on logs (i.e. for SpeedGrade CC 2015 with 8.0.0.15 engine:
+        - If \payloads\Media_db.db\PayloadData\ *(any payload ID that has higher version than current RIBS engine on **value** column)* \PayloadInfo is greater than current RIBS engine, installer throws this error on logs (i.e. for SpeedGrade CC 2015 with 8.0.0.15 engine):
           - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
 
             ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
