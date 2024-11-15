@@ -18,14 +18,51 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
 ## Limitations
 - ZIP file must not exceed 2 GB. I tested this with HyperDrive installer engine and it throwed error. But I didn't tested this with RIBS engine. May it supports 2 GB+ files or not. Proceed with caution.
-- If original Adobe CC 2015 application is installed with original RIBS engine, use install-admin-existing.bat. You need to run this file as administrator for temporarily replacing OOBE folder on C:\Program Files\Common Files\Adobe. This folder is where the installer engine is. If no Adobe application was installed before, use install-fresh.bat. You can run this file as normal user.
+- If original Adobe application is installed with original RIBS engine, use install-admin-existing.bat. You need to run this file as administrator for temporarily replacing OOBE folder on C:\Program Files\Common Files\Adobe. This folder is where the installer engine is. If no Adobe application was installed before, use install-fresh.bat. You can run this file as normal user.
 
 ## Special note
 - Unlike HyperDrive-based installers, with patched AdobePIM.dll, *.pima archives under "packages" folder can be repacked on CS6 - CC 2015 installer engines.
-  - With original AdobePIM.dll and repacked *.pima archive, it throws error Adobe Genuine Software Validation Failure on initializing setup phase.
-  
-    ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
-    
+  - With original AdobePIM.dll and repacked *.pima archive, it throws error about Adobe Genuine Software Validation Failure on initializing setup phase.
+    - On CS6:
+
+      ![image](https://github.com/user-attachments/assets/f1ea4320-e6b3-4504-bbc7-7f5832f0151a)
+
+      - It throws error about Adobe Genuine Validation Failed at temporary folder (on my case, it's **C:/Users/Administrator/AppData/Local/Temp/PDApp.log**).
+
+        ![image](https://github.com/user-attachments/assets/4f4368eb-9ea6-47b5-8024-817f8c0f1b53)
+
+    - On CC 2013 and above:
+
+      ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
+
+      - It throws error about Adobe Genuine Validation Failed at temporary folder (on my case, it's **C:/Users/Administrator/AppData/Local/Temp/PDApp.log**).
+
+        ![image](https://github.com/user-attachments/assets/e2008a23-8af4-490f-b8f1-066154801ca9)
+
+  - With original Setup.dll and repacked *.zip archive, it throws error about Adobe Genuine Software Verification Failure on install phase.
+    - On CS6:
+ 
+      ![image](https://github.com/user-attachments/assets/a869a951-288e-42dc-8a6f-96c4be51c450)
+
+      - It throws error 37 and DW050 error on summary.html located in temporary folder (on my case, it's **C:/Users/Administrator/AppData/Local/Temp/{A4B00265-D898-42D4-AAC8-6C1DE7868025}/summary.htm**) and another log file located in **C:\Program Files (x86)\Common Files\Adobe\Installers\Adobe SpeedGrade CS6 6.0.0 11-15-2024.log.gz\Adobe SpeedGrade CS6 6.0.0 11-15-2024.log**.
+
+        ![image](https://github.com/user-attachments/assets/45cd4fe6-8446-4c4e-b3bb-e7e02ee04945)
+
+        ![image](https://github.com/user-attachments/assets/34cb2c68-cd6a-4987-84bb-e7ab589b4933)
+    - On CC 2013:
+
+      ![image](https://github.com/user-attachments/assets/e8861475-be5d-4996-8f1d-7afbdaabe904)
+
+      - It throws error 37 on summary.html located in temporary folder (on my case, it's (**C:/Users/Administrator/AppData/Local/Temp/{B634FCA3-9EA6-46BB-86C8-DBBF5E305319}/summary.htm**) and another log file located in **C:\Program Files (x86)\Common Files\Adobe\Installers\Adobe SpeedGrade CC 7.0.0 11-15-2024.log.gz\Adobe SpeedGrade CC 7.0.0 11-15-2024.log**.
+
+        ![image](https://github.com/user-attachments/assets/0ad9dde5-ce75-4488-a794-fe5cf085d93e)
+
+        ![image](https://github.com/user-attachments/assets/21fc6c3c-3c50-4270-8aa8-7af0b3137070)
+   
+        - On log file, it also reports DW050 error.
+
+          ![image](https://github.com/user-attachments/assets/ea3c1967-a447-4922-9df8-7b835cf6cb79)
+
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
     - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
       - CC 2014-era
