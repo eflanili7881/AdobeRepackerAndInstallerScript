@@ -85,35 +85,31 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
             ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
             
-            - This can be fixed with SQLite DB Browser.
-              - Download this program from https://sqlitebrowser.org/dl/
-                - Or if that page isn't available, but direct links are accessible:
-                  | Version, Platform & Install Method | Link | Wayback Machine Link
-                  | :-: | :-: | :-: |
-                  | 3.12.2 Windows 32-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi | https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi |
-                  | 3.12.2 Windows 32-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip | https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip |
-                  | 3.12.2 Windows 64-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi | https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi |
-                  | 3.12.2 Windows 64-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip | https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip |
-                  | 3.12.2 macOS Intel | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg | https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg |
-                  | 3.12.2 macOS Apple Silicon | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg | https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg |
-              - Install SQLite Browser or directly open SQLite Browser if you downloaded portable version.
-              - Open **(InstallMediaRoot)**\payloads\Media_db.db.
-              - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
-                - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
-              - Than paste these 2 commands to separate lines:
-                - update PayloadData **(do not execute command here.)**
-                - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
-              - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
-                - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
-            - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
-              - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
-      - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+          - This can be fixed with SQLite DB Browser.
+            - Download this program from https://sqlitebrowser.org/dl/
+              - Or if that page isn't available, but direct links are accessible:
+                | Version, Platform & Install Method | Link | Wayback Machine Link
+                | :-: | :-: | :-: |
+                | 3.12.2 Windows 32-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi | https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi |
+                | 3.12.2 Windows 32-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip | https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip |
+                | 3.12.2 Windows 64-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi | https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi |
+                | 3.12.2 Windows 64-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip | https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip |
+                | 3.12.2 macOS Intel | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg | https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg |
+                | 3.12.2 macOS Apple Silicon | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg | https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg |
+            - Install SQLite Browser or directly open SQLite Browser if you downloaded portable version.
+            - Open **(InstallMediaRoot)**\payloads\Media_db.db.
+            - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
+              - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
+            - Than paste these 2 commands to separate lines:
+              - update PayloadData **(do not execute command here.)**
+              - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
+            - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
+              - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
+          - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+            - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
+    - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
-      - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
-     
-        ![image](https://github.com/user-attachments/assets/3ba256d0-5cd5-43ad-8fc1-8034345a46dc)
-
       - These packages are:
         - Creative Suite 5.5 (CS5.5)
           - AdobeAfterEffects10.5ProtectedAll
@@ -134,6 +130,10 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - AMEPCI5All_x64
         - Miscellaneous
           - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite, I don't know other suite's reaction.)
+      - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
+     
+        ![image](https://github.com/user-attachments/assets/3ba256d0-5cd5-43ad-8fc1-8034345a46dc)
+
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit packed RIBS installer engine is this package set (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
