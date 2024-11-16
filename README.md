@@ -110,6 +110,10 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
+      - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
+     
+        ![image](https://github.com/user-attachments/assets/3ba256d0-5cd5-43ad-8fc1-8034345a46dc)
+
       - These packages are:
         - Creative Suite 5.5 (CS5.5)
           - AdobeAfterEffects10.5ProtectedAll
