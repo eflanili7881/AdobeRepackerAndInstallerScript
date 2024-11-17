@@ -29,7 +29,7 @@ This script compresses all unpacked assets that present on "products" folder to 
  
     ![image](https://github.com/user-attachments/assets/1c714316-1c2e-42ad-baf0-2dfcf780f29c)
 
-I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory. But on HyperDrive installer engine (KpoJIuK repacks), some *.pima archives were different sizes (i.e. \packages\ADC\Runtime\Runtime.pima because KpoJIuK installers have separate Microsoft Visual Studio C++ Redistributable installer). Maybe ADC folder was excluded from signature verification or KpoJIuK may patched installer to force installing his edited *.pima assets, I don't know.
+I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory.
   - If I try to patch AdobePIM.dll with any patching method, error 42 occurs.
 
     ![image](https://github.com/user-attachments/assets/d2ca655d-8dfb-4f5e-aec5-b1cc7936876a)
@@ -50,7 +50,8 @@ I think HyperDrive install engine doesn't enforces signatures to be valid on "pr
     ![image](https://github.com/user-attachments/assets/8da7a518-d97d-46be-8324-54fd3544a298)
 
     - It also mentions error 42 below.
-  - I looked into ApplicationInfo.xml and I see all packages for ACC but HDCore and some other packages were disabled. You can disable every package, except HDCore on ACC and HDBox on ADC package set in ApplicationInfo.xml. Then, all of the packages assets can be deleted, again except HDCore and HDBox. That's maybe not unpacking but you can reduce footprint of installer with this way. This is exactly what AntiCC does. Installing bare minimum packages for installing HyperDrive-based applications.
+  - But on HyperDrive installer engine on KpoJIuK repacks, some *.pima archives were different sizes (i.e. \packages\ADC\Runtime\Runtime.pima because KpoJIuK installers have separate Microsoft Visual Studio C++ Redistributable installer). Maybe ADC folder was excluded from signature verification or KpoJIuK may patched installer to force installing his edited *.pima assets, I don't know.
+  - Also on KpoJIuK repacks, I looked into ApplicationInfo.xml and I see all packages for ACC but HDCore and some other packages were disabled. You can disable every package, except HDCore on ACC and HDBox on ADC package set in ApplicationInfo.xml. Then, all of the packages assets can be deleted, again except HDCore and HDBox. That's maybe not unpacking but you can reduce footprint of installer with this way. This is exactly what AntiCC does. Installing bare minimum packages for installing HyperDrive-based applications.
     - Uninstalling application may stuck on %100 after you want to uninstall even if uninstallation was completed. Killing Set-up.exe processes works.
       - Or you can just install full Creative Cloud desktop after installing product just to be sure the product was %100 successfully uninstalled.
 - ZIP file must not exceed 2 GB. I tested Premiere Pro with -mx0 flag on 7z command line and HyperDrive installer engine throws error. Maybe it's with CompressionType on Application.json or something.
