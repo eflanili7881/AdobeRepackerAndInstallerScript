@@ -11,7 +11,7 @@ Please, don't use this branch's content for piracy things. I put this patched bi
 Please, don't use this branch's content for piracy things. I put this patched binaries for who wants to install their unpacked RIBS-based Adobe application installers for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs.
 
 ## Why I repeated above thing 3 times?
-Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these files for **LEGITIMATE** users.
+Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these instructions for **LEGITIMATE** users.
 
 ## Credits
 - [Me](https://github.com/eflanili7881) for writing script.
