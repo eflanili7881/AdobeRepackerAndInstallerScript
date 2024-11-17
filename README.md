@@ -35,6 +35,7 @@ I think HyperDrive install engine doesn't enforces signatures to be valid on "pr
 
     ![image](https://github.com/user-attachments/assets/fe724632-9ed8-41e5-98f9-b5432f30eea9)
 
+    - Both errors suggests it's signature validation error.
   - I looked into ApplicationInfo.xml and I see all packages for ACC but HDCore and some other packages were disabled. You can disable every package, except HDCore on ACC and HDBox on ADC package set in ApplicationInfo.xml. Then, all of the packages assets can be deleted, again except HDCore and HDBox. That's maybe not unpacking but you can reduce footprint of installer with this way. This is exactly what AntiCC does. Installing bare minimum packages for installing HyperDrive-based applications.
     - Uninstalling application may stuck on %100 after you want to uninstall even if uninstallation was completed. Killing Set-up.exe processes works.
       - Or you can just install full Creative Cloud desktop after installing product just to be sure the product was %100 successfully uninstalled.
