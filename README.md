@@ -21,7 +21,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 - Adobe Systems Incorporated for providing original binaries.
 
 ## What's this repo contains?
-This repo contains patched binaries for installing unpacked Adobe RIBS applications (currently contains patch method only for AdobePIM.dylib version 8.0.0.73).
+This repo contains patched binaries for installing unpacked Adobe RIBS applications.
 
 ## Special note
 - When I examined AdobePIM.dylib version 8.0.0.73 (got it from Adobe Premiere Pro CC 2014's Install.app file) on IDA Pro 6.5, it revealed more clues:
