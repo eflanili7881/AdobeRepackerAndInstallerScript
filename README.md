@@ -21,6 +21,9 @@ This script compresses all unpacked assets that present on "products" folder to 
   ![image](https://github.com/user-attachments/assets/de7aa0d0-dabf-412c-95a6-fcd584fb8ac2)
 
   - I can't find error code on website.
+  - It mentions Adobe Genuine Validation failed with error 4 on **C:\Users\Administrator\AppData\Local\Temp\CreativeCloud\ACC\ACC.log**
+ 
+    ![image](https://github.com/user-attachments/assets/1c714316-1c2e-42ad-baf0-2dfcf780f29c)
 
 I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory. But on HyperDrive installer engine (KpoJIuK repacks), some *.pima archives were different sizes (i.e. \packages\ADC\Runtime\Runtime.pima because KpoJIuK installers have separate Microsoft Visual Studio C++ Redistributable installer). Maybe ADC folder was excluded from signature verification or KpoJIuK may patched installer to force installing his edited *.pima assets, I don't know.
   - If I try to patch AdobePIM.dll with any patching method, error 42 occurs.
