@@ -16,7 +16,25 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets excluded via exclude.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
 
 ## Limitations
-- *.pima archives under "packages" directory (for Creative Cloud itself) cannot be unpacked and repacked because Creative Cloud installer throws error 4. I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory. But on HyperDrive installer engine (KpoJIuK repacks), some *.pima archives were different sizes (i.e. \packages\ADC\Runtime\Runtime.pima because KpoJIuK installers have separate Microsoft Visual Studio C++ Redistributable installer). Maybe ADC folder was excluded from signature verification or KpoJIuK may patched installer to force installing his edited *.pima assets, I don't know.
+- *.pima archives under "packages" directory (for Creative Cloud itself) cannot be unpacked and repacked because Creative Cloud installer throws error 4 with original AdobePIM.dll and modified *.pima archive.
+
+  ![image](https://github.com/user-attachments/assets/de7aa0d0-dabf-412c-95a6-fcd584fb8ac2)
+
+  - I can't find error code on website.
+
+I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory. But on HyperDrive installer engine (KpoJIuK repacks), some *.pima archives were different sizes (i.e. \packages\ADC\Runtime\Runtime.pima because KpoJIuK installers have separate Microsoft Visual Studio C++ Redistributable installer). Maybe ADC folder was excluded from signature verification or KpoJIuK may patched installer to force installing his edited *.pima assets, I don't know.
+  - If I try to patch AdobePIM.dll with any patching method, error 42 occurs.
+
+    ![image](https://github.com/user-attachments/assets/d2ca655d-8dfb-4f5e-aec5-b1cc7936876a)
+
+    ![image](https://github.com/user-attachments/assets/c87e9c58-7a65-4e80-af32-073bc53daede)
+
+  - When I try to launch installer via **\packages\ACC\Utils\Utils.pima\CreativeCloudSet-Up.exe (copied it Creative Cloud's install root)**, error 72 appears.
+
+    ![image](https://github.com/user-attachments/assets/8e640756-e212-4ac5-ae6d-6667ebcd25c5)
+
+    ![image](https://github.com/user-attachments/assets/fe724632-9ed8-41e5-98f9-b5432f30eea9)
+
   - I looked into ApplicationInfo.xml and I see all packages for ACC but HDCore and some other packages were disabled. You can disable every package, except HDCore on ACC and HDBox on ADC package set in ApplicationInfo.xml. Then, all of the packages assets can be deleted, again except HDCore and HDBox. That's maybe not unpacking but you can reduce footprint of installer with this way. This is exactly what AntiCC does. Installing bare minimum packages for installing HyperDrive-based applications.
     - Uninstalling application may stuck on %100 after you want to uninstall even if uninstallation was completed. Killing Set-up.exe processes works.
       - Or you can just install full Creative Cloud desktop after installing product just to be sure the product was %100 successfully uninstalled.
