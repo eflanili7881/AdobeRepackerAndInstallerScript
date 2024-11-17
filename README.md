@@ -21,6 +21,10 @@ This script compresses all unpacked assets that present on "products" folder to 
   ![image](https://github.com/user-attachments/assets/de7aa0d0-dabf-412c-95a6-fcd584fb8ac2)
 
   - I can't find error code on website.
+  - When I try to launch installer via **\packages\ACC\Utils\Utils.pima\CreativeCloudSet-Up.exe (copied it Creative Cloud's install root)**, error 4 appears.
+ 
+    ![image](https://github.com/user-attachments/assets/4bcfa62c-e899-48c7-a3d8-c63bb9f053d9)
+
   - It mentions Adobe Genuine Validation failed with error 4 on **C:\Users\Administrator\AppData\Local\Temp\CreativeCloud\ACC\ACC.log**
  
     ![image](https://github.com/user-attachments/assets/1c714316-1c2e-42ad-baf0-2dfcf780f29c)
@@ -38,6 +42,8 @@ I think HyperDrive install engine doesn't enforces signatures to be valid on "pr
 
     ![image](https://github.com/user-attachments/assets/fe724632-9ed8-41e5-98f9-b5432f30eea9)
 
+    ![image](https://github.com/user-attachments/assets/2b87eb48-ac29-446e-8517-233158b0704d)
+    
     - Both errors suggests it's signature validation error.
   - When I examined **C:\Users\Administrator\AppData\Local\Temp\CreativeCloud\ACC\WAM.log**, it shows error about CANameChain.
 
