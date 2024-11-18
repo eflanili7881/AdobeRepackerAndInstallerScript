@@ -77,13 +77,13 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
         ![image](https://github.com/user-attachments/assets/595b1811-ba74-465b-8e14-3c3de1b5e5ef)
         - x86 section:
        
-          ![image](https://github.com/user-attachments/assets/0ee37a52-d18d-4106-ba4f-e45bb9ebdd56)
+          ![image](https://github.com/user-attachments/assets/a985bbd4-fc55-4dd9-b60f-6adbf68d4f12)
 
           ![image](https://github.com/user-attachments/assets/cdd91ce3-6857-4071-8533-9fe5be172a30)
  
         - x64 section:
        
-          ![image](https://github.com/user-attachments/assets/83e277e3-204a-45d7-a395-2d97fb051544)
+          ![image](https://github.com/user-attachments/assets/b92f2fcd-78d1-45be-9e1e-3ae5541919f2)
 
           ![image](https://github.com/user-attachments/assets/36c19be8-cf79-4696-aa47-78dc927df0da)
 
