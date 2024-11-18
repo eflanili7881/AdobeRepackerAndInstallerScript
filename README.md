@@ -98,7 +98,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
     - Install Cutter and IDA Pro 6.5 or newer.
     # - On AdobePIM.dll (on 6.3.1.470):
       - Probably you can use this method for all versions.
-        - Open AdobePIM.dll with IDA Pro 6.5 or newer with Portable executable for 80386 (PE) (pe64.dll).
+        - Open AdobePIM.dll with IDA Pro 6.5 or newer with Portable executable for 80386 (PE) (pe64.dll) decompiler.
         - On IDA Pro, search for string **corrupt**.
         - Select **aFileSIsCorrupted_0** that's on bottom (In case, it's 0x100265DD)
        
