@@ -136,7 +136,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
    
       ![image](https://github.com/user-attachments/assets/ce8b39f4-7f7c-409a-8a26-f65a61a7ae2b)
 
-    - Change **lea rdi, [rbp+var_258]** to **jne 0x13c6ce** with *Fill all remaining bytes with NOP opcodes*.
+    - Change **lea rdi, [rbp+var_258]** to **jne 0x13c6ce** with disabling *Fill all remaining bytes with NOP opcodes*.
     - It will invalidate function on **0x13d079** but it's not going to be a problem.
     - When you reload file with same settings, graph will turn into this:
    
