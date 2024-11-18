@@ -87,9 +87,12 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
         ![image](https://github.com/user-attachments/assets/88cf4369-8422-4214-a7a0-1a92a388630a)
 
       - But if you install Creative Cloud first, reverting patch on AdobePIM.dll that I'm gonna mention on "To patch dll's" section or restoring original AdobePIM.dll and then running Set-up.exe  from **\packages\ACCC\HDCore\HDCore.pima\Set-up.exe (x<=4.3.0.256)** or **\packages\ADC\HDBox\HDBox.pima\Set-up.exe (x>=4.4.0.294)** will work as HyperDrive installer will skip already installed Adobe Creative Cloud packages.
-        - You must disconnect from internet if you get "Update your browser" notification.
-       
-          
+        - You must disconnect from internet if you:
+          - Get "Update your browser" notification,
+         
+            ![image](https://github.com/user-attachments/assets/92fe8d91-3c12-41e8-9208-c9cbef705392)
+            
+          - Don't wan't to use Adobe account.
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
@@ -132,3 +135,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
 - Put **products** folder to where you **ACCCx(version_numer_you_want).zip** is extracted.
 - Get Set-up.exe from **ACCCx(version_numer_you_want).zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx(version_numer_you_want).zip**.
 - Rename Set-up.exe to anything you want (i.e. Set-up_HD.exe (for installing Adobe HyperDrive-based applications)).
+- Move your original AdobePIM.dll to AdobePIM_original.dll.
+- Make backup of your AdobePIM.dll.
+- Patch the AdobePIM.dll.
+- Move your patched AdobePIM.dll to AdobePIM_patched.dll.
