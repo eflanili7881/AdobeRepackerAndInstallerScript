@@ -1,28 +1,162 @@
-# Adobe Repacker and Installer Script - (for CS5 - present)
-A .bat/.sh script that compresses unpacked assets of Adobe products and installs them.
+# Adobe Repacker and Installer Script - Patched Binaries for ZIP-based HyperDrive Installers for Macintosh (for CC 2015.5 - present)
+A repo that contains patched binaries for installing unpacked Adobe Creative Cloud *.pima assets.
 
 # CAUTION!
-Please, don't use this script for piracy things. I wrote this script for who wants to store Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
+Please, don't use this branch's content for piracy things. I put this patched binaries for who wants to install their unpacked RIBS-based Adobe application installers for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs.
+
+# CAUTION!
+Please, don't use this branch's content for piracy things. I put this patched binaries for who wants to install their unpacked RIBS-based Adobe application installers for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs.
+
+# CAUTION!
+Please, don't use this branch's content for piracy things. I put this patched binaries for who wants to install their unpacked RIBS-based Adobe application installers for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs.
+
+## Why I repeated above thing 3 times?
+Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these instructions for **LEGITIMATE** users.
 
 ## Credits
-- Me for writing script.
-- Adobe Systems Incorporated for providing applications.
+- [Me](https://github.com/eflanili7881) for writing script.
+- [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program .
+- [Hex-Rays](https://hex-rays.com/) for [IDA Pro 6.5](https://hex-rays.com/ida-pro) reverse engineering program.
+- PainteR for patching AdobePIM.dll (RIBS-based installers) for understanding verification algorithm on HyperDrive-based installers.
+- Adobe Systems Incorporated for providing original binaries.
 
-## What does this script do?
-This script compresses all unpacked assets that present on install media folder to temporary directory set by script, copies installer engine from installation media with unpacked assets excluded via text file that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
+## What's this repo contains?
+This repo contains patched binaries for installing unpacked Adobe Creative Cloud *.pima assets.
 
-# Branches
-## For HyperDrive (HD)-based installers on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
-## For HyperDrive (HD)-based installers on Macintosh platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac
-## For RIBS-based installers on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win
-## For RIBS-based installers on Macintosh platform (script not uploaded)
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac
-## Fot patched HyperDrive binaries on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win-patchedbins
-## For patched RIBS binaries on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
-## For patched RIBS binaries on Macintosh platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac-patchedbins
+## Special note
+- Normally, HyperDrive-based installers doesn't have any verification mechanism for "products" folder. But on "packages" folder, HyperDrive-based installers enforce signature to be valid.
+  - If you try patch AdobePIM.dll with Set-up.exe version **x>=4.6.0.391**, it gives error 42 or 72.
+ 
+    ![image](https://github.com/user-attachments/assets/0f3ec424-7801-453f-aca2-fca67bb1670a)
+
+    ![image](https://github.com/user-attachments/assets/5bf21b48-9e83-4613-9c7e-65ce2500bf82)
+
+    - When I try to launch installer via **\packages\ACC\Utils\Utils.pima\Creative Cloud Installer.app (copied it Creative Cloud's install root (version x>=4.6.0.391))**, error 72 appears.
+
+      ![image](https://github.com/user-attachments/assets/98d0d297-275c-4ae9-8cbe-b24b09e3f83f)
+
+      ![image](https://github.com/user-attachments/assets/1947741b-269e-4beb-bbf1-3d467efb699b)
+
+      ![image](https://github.com/user-attachments/assets/8e24bb89-8a32-45bf-bfd8-1905d1ea544c)
+
+      - Both errors suggests it's signature validation error.
+    - Because version **x>=4.6.0.391**, it enforces Adobe account login and file signatures to be valid.
+
+      ![image](https://github.com/user-attachments/assets/82e06465-e77a-41cd-898b-ad815e6b8a5c)
+
+      - If you try to install Adobe Creative Cloud with Install.app version **x>=4.6.0.391** above errors will occur.
+        - **/Install.app** and **/packages/ACCC/Utils/Utils.pima/Creative Cloud Installer.app**'s file sizes and hashes will be different for version **x>=4.6.0.391**.
+  - But Install.app version **x<=4.5.0.331** doesn't enforces user to login Adobe account and file signature to be valid. With this, you can patch AdobePIM.dylib and use Install.app version **x<=4.5.0.331**, you can install repacked *.pima archives with no issue.
+ 
+    ![image](https://github.com/user-attachments/assets/2ed16f8b-b14d-49ff-bf93-5bc8aa8ed15c)
+
+    - **/Install.app** and **/packages/ACCC/Utils/Utils.pima/Creative Cloud Installer.app**'s file sizes and hashes will be same for version x<=4.5.0.331.
+    - But if you try to install HyperDrive-based apps with patched AdobePIM.dylib and Install.app from **/packages/ACCC/HDCore/HDCore.pima/Install.app (x<=4.5.0.331)** or **/packages/ADC/HDBox/HDBox.pima/Install.app (x>=4.4.0.294)**, it gives error about installer file maybe damaged.
+      - x<=4.3.0.256:
+     
+        ![Untitled](https://github.com/user-attachments/assets/7073cd88-f50d-4e20-8903-b6d767ab2110)
+
+      - x>=4.4.0.294:
+
+        ![Untitled](https://github.com/user-attachments/assets/de960058-472d-4d47-95c6-8816e3cefd77)
+
+      - But if you install Creative Cloud first, reverting patch on AdobePIM.dylib that I'm gonna mention on "To patch dylib's" section or restoring original AdobePIM.dylib and then running Install.app from **\packages\ACCC\HDCore\HDCore.pima\Install.app (x<=4.3.0.256)** or **\packages\ADC\HDBox\HDBox.pima\Install.app (x>=4.4.0.294)** will work as HyperDrive installer will skip already installed Adobe Creative Cloud packages.
+        - You must disconnect from internet if you:
+          - Get "Update your browser" notification,
+          - Don't wan't to use Adobe account.
+  - To patch dylibs:
+    - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
+    - Install Cutter and IDA Pro 6.5 or newer.
+    # - On AdobePIM.dylib (version 5.1.0.407)
+      - Probably you can use this method for all versions.
+        - I don't know much about dual architecture dylibs.
+      - AdobePIM.dylib version x<=5.0.0.354 uses dual architecture design.
+   
+        ![image](https://github.com/user-attachments/assets/af86035e-c5f6-4a4c-b74a-0765e47c7da8)
+ 
+        ![image](https://github.com/user-attachments/assets/595b1811-ba74-465b-8e14-3c3de1b5e5ef)
+        - x86 section:
+       
+          ![image](https://github.com/user-attachments/assets/0ee37a52-d18d-4106-ba4f-e45bb9ebdd56)
+
+          ![image](https://github.com/user-attachments/assets/cdd91ce3-6857-4071-8533-9fe5be172a30)
+ 
+        - x64 section:
+       
+          ![image](https://github.com/user-attachments/assets/83e277e3-204a-45d7-a395-2d97fb051544)
+
+          ![image](https://github.com/user-attachments/assets/36c19be8-cf79-4696-aa47-78dc927df0da)
+
+        - ARM builds of Creative Cloud also uses dual architecture design.
+       
+          ![image](https://github.com/user-attachments/assets/080d6140-0a8e-4ed9-8a7b-7f6cbbe65980)
+ 
+          ![image](https://github.com/user-attachments/assets/966b9df4-4e3a-4bbd-a7f2-ebb9af626d8e)
+ 
+          - ARM64 section:
+         
+            ![image](https://github.com/user-attachments/assets/94ecdcea-d43f-40ab-94e7-9a398f4577da)
+
+            ![image](https://github.com/user-attachments/assets/924b86ca-bfa1-4ef5-bc21-80d9b31ef739)
+ 
+          - x64 section:
+         
+            ![image](https://github.com/user-attachments/assets/45e64e13-4ca9-47eb-bc8e-4afd79801617)
+            
+            ![image](https://github.com/user-attachments/assets/31d13198-509d-49d7-b3bb-08ab7362299b)
+
+      - Version x>=5.1.0.407 uses only x64 architecture.
+   
+        ![image](https://github.com/user-attachments/assets/01ec40a8-c655-4d67-b1d0-00e5ac57371d)
+
+        ![image](https://github.com/user-attachments/assets/7b626afa-ea4a-4819-8531-d8ce0060da50)
+
+        - ARM builds of Creative Cloud also uses dual architecture design.
+          - But x64 builds of Creative Cloud still uses only x64 architecture.
+         
+            ![image](https://github.com/user-attachments/assets/bf195807-7289-486d-9e82-f36922b710a5)
+
+            ![image](https://github.com/user-attachments/assets/46c62ca1-4516-49a4-adb0-7080c13ecf5d)
+
+      - Because of that, currently only version x>=5.1.0.407 can be patched.
+    - Open AdobePIM.dll with IDA Pro 6.5 or newer with MachO compiler.
+    - On IDA Pro, search for string **corrupt**.
+    - Select **aFileSIsCorrupted_0** that's on bottom (In case, it's 0x13D0A7)
+   
+      ![image](https://github.com/user-attachments/assets/7ad433c7-db1d-4fc2-ab2f-8094b9ac77fa)
+
+      ![image](https://github.com/user-attachments/assets/ed6966c4-3b01-4b67-aa55-9fc495768759)
+    - Locate the beginning of a function that contains result from previous step (in case, it's 0x13D073).
+   
+      ![image](https://github.com/user-attachments/assets/248d2115-87da-466f-9fb5-60f2bdbb2d0b)
+
+    - You've got necessary address to change on Cutter.
+    - Open AdobePIM.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+    - Jump to address 0x13D073.
+   
+      ![image](https://github.com/user-attachments/assets/ce8b39f4-7f7c-409a-8a26-f65a61a7ae2b)
+
+    - Change **lea rdi, [rbp+var_258]** to **jne 0x13c6ce** with *Fill all remaining bytes with NOP opcodes*.
+    - It will invalidate function on **0x13d079** but it's not going to be a problem.
+    - When you reload file with same settings, graph will turn into this:
+   
+      ![image](https://github.com/user-attachments/assets/bc00f9bc-12a6-4bc4-8a20-59fd81c748fa)
+
+    - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+
+## How to build unpacked HyperDrive app installer?
+- I assume you got:
+  - **ACCCx4_5_0_331.dmg** (If you're gonna use Adobe Creative Cloud version **x>=4.6.0.384**),
+  - **ACCCx(version_numer_you_want).dmg** (You can use only this version if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**),
+  - and **products** folder for your app.
+- Extract **ACCCx(version_numer_you_want).dmg** to a directory.
+- Delete Install.app and replace Install.app from **ACCCx4_5_0_331.dmg**.
+  - Or **ACCCx(version_numer_you_want).dmg** if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**.
+- Then, rename Install.app to anything you want (i.e. Install_CC.app (for installing Adobe Creative Cloud)).
+- Put **products** folder to where you **ACCCx(version_numer_you_want).dmg** is extracted.
+- Get Install.app from **ACCCx(version_numer_you_want).dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx(version_numer_you_want).dmg**.
+- Rename Install.app to anything you want (i.e. Install_HD.app (for installing Adobe HyperDrive-based applications)).
+- Move your original AdobePIM.dylib to AdobePIM_original.dylib.
+- Make backup of your AdobePIM.dylib.
+- Patch the AdobePIM.dylib.
+- Move your patched AdobePIM.dylib to AdobePIM_patched.dylib.
