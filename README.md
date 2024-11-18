@@ -99,3 +99,20 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
           ![image](https://github.com/user-attachments/assets/b2b8a848-0936-4e65-a376-fc7f8092bb41)
 
           ![image](https://github.com/user-attachments/assets/11829fba-0ba5-4221-b276-19a7a7a38369)
+
+        - Locate the end of the box that's connected before (In case, it's 0x100265BC).
+       
+          ![image](https://github.com/user-attachments/assets/7e2ba34c-9b96-4c9e-882d-e29aaa2f7530)
+
+        - You've got necessary address to change on Cutter.
+        - Open AdobePIM.dll on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0x100265BC.
+       
+          ![image](https://github.com/user-attachments/assets/40006cde-48f1-40b2-96a1-f6cd1ef4b506)
+
+        - Change **jne 0x100265c7** to **jne 0x100265be** with disabling *Fill all remaining bytes with NOP opcodes*.
+        - When you reload file with same settings, graph will turn into this:
+       
+          ![image](https://github.com/user-attachments/assets/2ede9f05-90fd-4166-bbe6-64df6ff70e14)
+
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
