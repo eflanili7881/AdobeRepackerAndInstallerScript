@@ -87,6 +87,9 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
         ![image](https://github.com/user-attachments/assets/88cf4369-8422-4214-a7a0-1a92a388630a)
 
       - But if you install Creative Cloud first, reverting patch on AdobePIM.dll that I'm gonna mention on "To patch dll's" section or restoring original AdobePIM.dll and then running Set-up.exe  from **\packages\ACCC\HDCore\HDCore.pima\Set-up.exe (x<=4.3.0.256)** or **\packages\ADC\HDBox\HDBox.pima\Set-up.exe (x>=4.4.0.294)** will work as HyperDrive installer will skip already installed Adobe Creative Cloud packages.
+        - You must disconnect from internet if you get "Update your browser" notification.
+       
+          
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
@@ -116,3 +119,16 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
           ![image](https://github.com/user-attachments/assets/2ede9f05-90fd-4166-bbe6-64df6ff70e14)
 
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+
+## How to build unpacked HyperDrive app installer?
+- I assume you got:
+  - **ACCCx4_5_0_331.zip** (If you're gonna use Adobe Creative Cloud version **x>=4.6.0.384**),
+  - **ACCCx(version_numer_you_want).zip** (You can use only this version if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**),
+  - and **products** folder for your app.
+- Extract **ACCCx(version_numer_you_want).zip** to a directory.
+- Delete Set-up.exe and replace Set-up.exe from **ACCCx4_5_0_331.zip**.
+  - Or **ACCCx(version_numer_you_want).zip** if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**.
+- Then, rename Set-up.exe to anything you want (i.e. Set-up_CC.exe (for installing Adobe Creative Cloud)).
+- Put **products** folder to where you **ACCCx(version_numer_you_want).zip** is extracted.
+- Get Set-up.exe from **ACCCx(version_numer_you_want).zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx(version_numer_you_want).zip**.
+- Rename Set-up.exe to anything you want (i.e. Set-up_HD.exe (for installing Adobe HyperDrive-based applications)).
