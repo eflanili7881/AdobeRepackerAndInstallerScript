@@ -12,19 +12,19 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 This script compresses all unpacked assets that present on install media folder to temporary directory set by script, copies installer engine from installation media with unpacked assets excluded via text file that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
 
 # Branches
-## For HyperDrive (HD)-based installers on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
 ## For HyperDrive (HD)-based installers on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac
-## For RIBS-based installers on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win
-## For RIBS-based installers on Macintosh platform (script not uploaded)
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac
-## Fot patched HyperDrive binaries on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win-patchedbins
 ## Fot patched HyperDrive binaries on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac-patchedbins
-## For patched RIBS binaries on Windows platform
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
+## For HyperDrive (HD)-based installers on Windows platform
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
+## Fot patched HyperDrive binaries on Windows platform
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win-patchedbins
+## For RIBS-based installers on Macintosh platform (script not uploaded)
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac
 ## For patched RIBS binaries on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac-patchedbins
+## For RIBS-based installers on Windows platform
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win
+## For patched RIBS binaries on Windows platform
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-win-patchedbins
