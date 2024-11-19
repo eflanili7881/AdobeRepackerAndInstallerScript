@@ -46,7 +46,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
 
       - If you try to install Adobe Creative Cloud with Install.app version **x>=4.6.0.391** above errors will occur.
         - **/Install.app** and **/packages/ACCC/Utils/Utils.pima/Creative Cloud Installer.app**'s file sizes and hashes will be different for version **x>=4.6.0.391**.
-  - But Install.app version **x<=4.5.0.331** doesn't enforces user to login Adobe account and file signature to be valid. With this, you can patch AdobePIM.dylib and use Install.app version **x<=4.5.0.331**, you can install repacked *.pima archives with no issue.
+  - But Install.app version **x<=4.5.0.331** doesn't enforces user to login with Adobe account and file signature to be valid. With this, you can patch AdobePIM.dylib and use Install.app version **x<=4.5.0.331**, you can install repacked *.pima archives with no issue.
  
     ![image](https://github.com/user-attachments/assets/2ed16f8b-b14d-49ff-bf93-5bc8aa8ed15c)
 
