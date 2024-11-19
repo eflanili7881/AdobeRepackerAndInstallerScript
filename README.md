@@ -50,7 +50,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
  
     ![image](https://github.com/user-attachments/assets/2ed16f8b-b14d-49ff-bf93-5bc8aa8ed15c)
 
-    - **/Install.app** and **/packages/ACCC/Utils/Utils.pima/Creative Cloud Installer.app**'s file sizes and hashes will be same for version x<=4.5.0.331.
+    - **/Install.app** and **/packages/ACCC/Utils/Utils.pima/Creative Cloud Installer.app**'s file sizes and hashes will be same for version **x<=4.5.0.331**.
     - But if you try to install HyperDrive-based apps with patched AdobePIM.dylib and Install.app from **/packages/ACCC/HDCore/HDCore.pima/Install.app (x<=4.5.0.331)** or **/packages/ADC/HDBox/HDBox.pima/Install.app (x>=4.4.0.294)**, it gives error about installer file maybe damaged.
       - x<=4.3.0.256:
      
