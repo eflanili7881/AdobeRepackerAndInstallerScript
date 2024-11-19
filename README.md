@@ -77,7 +77,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
 
         ![image](https://github.com/user-attachments/assets/8791d289-58e0-4c83-a6e0-144586058189)
 
-    - But if you try to install HyperDrive-based apps with patched AdobePIM.dll and Set-up.exe from **\packages\ACCC\HDCore\HDCore.pima\Set-up.exe (x<=4.5.0.331)** or **\packages\ADC\HDBox\HDBox.pima\Set-up.exe (x>=4.4.0.294)**, it gives error about installer file maybe damaged.
+    - But if you try to install HyperDrive-based apps with patched AdobePIM.dll and Set-up.exe from **\packages\ACCC\HDCore\HDCore.pima\Set-up.exe (x<=4.3.0.256)** or **\packages\ADC\HDBox\HDBox.pima\Set-up.exe (x>=4.4.0.294)**, it gives error about installer file maybe damaged.
       - x<=4.3.0.256:
      
         ![image](https://github.com/user-attachments/assets/803a867c-3ed5-4319-9a9e-1432323765ad)
