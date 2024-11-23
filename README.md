@@ -119,7 +119,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
             ![image](https://github.com/user-attachments/assets/46c62ca1-4516-49a4-adb0-7080c13ecf5d)
 
       - Because of that, currently only version x>=5.1.0.407 can be patched.
-    - Open AdobePIM.dll with IDA Pro 6.5 or newer with MachO compiler.
+    - Open AdobePIM.dylib with IDA Pro 6.5 or newer with MachO compiler.
     - On IDA Pro, search for string **corrupt**.
     - Select **aFileSIsCorrupted_0** that's on bottom (In case, it's 0x13D0A7)
    
