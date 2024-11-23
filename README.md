@@ -54,11 +54,11 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
     - But if you try to install HyperDrive-based apps with patched AdobePIM.dylib and Install.app from **/packages/ACCC/HDCore/HDCore.pima/Install.app (x<=4.5.0.331)** or **/packages/ADC/HDBox/HDBox.pima/Install.app (x>=4.4.0.294)**, it gives error about installer file maybe damaged.
       - x<=4.3.0.256:
      
-        ![Untitled](https://github.com/user-attachments/assets/7073cd88-f50d-4e20-8903-b6d767ab2110)
+        ![image](https://github.com/user-attachments/assets/7073cd88-f50d-4e20-8903-b6d767ab2110)
 
       - x>=4.4.0.294:
 
-        ![Untitled](https://github.com/user-attachments/assets/de960058-472d-4d47-95c6-8816e3cefd77)
+        ![image](https://github.com/user-attachments/assets/de960058-472d-4d47-95c6-8816e3cefd77)
 
       - But if you install Creative Cloud first, reverting patch on AdobePIM.dylib that I'm gonna mention on "To patch dylib's" section or restoring original AdobePIM.dylib and then running Install.app from **\packages\ACCC\HDCore\HDCore.pima\Install.app (x<=4.3.0.256)** or **\packages\ADC\HDBox\HDBox.pima\Install.app (x>=4.4.0.294)** will work as HyperDrive installer will skip already installed Adobe Creative Cloud packages.
         - You must disconnect from internet if you:
