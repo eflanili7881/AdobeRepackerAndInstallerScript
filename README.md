@@ -113,7 +113,15 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
-      - These packages are:
+      - But weird thing is almost all packages has wrapper packages.
+        - In example, AdobeEncore5RoyaltyAll and AdobeEncore5RoyaltyWrapperAll.
+        - AdobePresenter706-AS_PC-mul doesn't have wrapper payload.
+        - Wrapper packages are real protected payload installers.
+          - In example, AdobePremierePro5RoyaltyWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\SetupRoyalty.
+          - In example, AdobePremierePro5ProtectedWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\Setup.
+        - Launching specific application will trigger installing these packages.
+      - But only wrapper packages are installed. Later, launching specific apps will install real protected
+      - Protected packages are below:
         - Creative Suite 5.5 (CS5.5)
           - AdobeAfterEffects10.5ProtectedAll
           - AdobeOnLocation5.1ProtectedAll
@@ -180,6 +188,12 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         |AdobeOnLocation5ProtectedAll (I don't know if it's exist.)|N/A|
         - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
       - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
+        - You need to launch specific application to install protected payload.
+       
+          ![image](https://github.com/user-attachments/assets/0bc51da5-d6cb-4131-9ee9-665f609eca94)
+
+          ![image](https://github.com/user-attachments/assets/2cbf4992-329c-4b64-af24-1a8c3050069d)
+
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit packed RIBS installer engine is this package set (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
