@@ -7,7 +7,10 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 ## Credits
 - [Me](https://github.com/eflanili7881) for writing script.
 - Adobe Systems Incorporated for providing applications.
+- [bkcrack](https://github.com/kimci86/bkcrack) by [kimci86](https://github.com/kimci86) for ZipCrypto cracking software.
 - PainteR for providing patched binaries for installing unpacked Adobe RIBS-based applications.
+- [DB Browser for SQLite](https://sqlitebrowser.org) for editing and viewing various *.db databases.
+- [HxD Hex Editor](https://mh-nexus.de/en/hxd) for hexadecimal viewing files.
 
 ## What does this script do?
 This script compresses all unpacked assets that present on "payloads" and "packages" folder to temporary directory set by script, copies RIBS installer engine from installation media with unpacked assets excluded via excludepackages.txt and excludepayloads.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
@@ -118,7 +121,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - AdobeAfterEffects10ProtectedAll
           - AdobeAfterEffects10RoyaltyAll
           - AdobeEncore5RoyaltyAll
-          - AdobeOnLocation5ProtectedAll
+          - AdobeOnLocation5ProtectedAll (I don't know if it's exist.)
           - AdobeOnLocation5RoyaltyAll
           - AdobePremierePro5ProtectedAll
           - AdobePremierePro5RoyaltyAll
@@ -130,10 +133,52 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - AMEPCI5All_x64
         - Miscellaneous
           - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite, I don't know other suite's reaction.)
+        - Total packages: 16 (15 if AdobeOnLocation5ProtectedAll doesn't exist and I added this package as an error).
       - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
      
         ![image](https://github.com/user-attachments/assets/3ba256d0-5cd5-43ad-8fc1-8034345a46dc)
 
+      - But almost all packages has stored some *.png files as uncompressed (Stored as "Store" method on *.zip file). Only AdobePresenter706-AS_PC-mul, AdobeOnLocation5RoyaltyAll and AdobeOnLocation5.1ProtectedAll doesn't have file that stored as "Store" method; they're all stored as "Deflate" method.
+      - Example output from AdobeEncore5RoyaltyAll\Assets2_1.zip (with bkcrack 1.7.0 x64):
+     
+        ![image](https://github.com/user-attachments/assets/fa556027-7db8-467f-a0ef-63af79553b0f)
+
+      - If you examine _30_c542f7a7e42c7dbfca89edd858695fe5 on SQLite DB Browser, this file is actually **[AdobeCommon]\Keyfiles\Encore\en_ribs_bgd.png**
+     
+        ![image](https://github.com/user-attachments/assets/b57753f2-a1cd-46e4-b70f-8874353086c0)
+
+      - Almost all PNG files has header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** (16 byte hex value) (example from one PNG image).
+     
+        ![image](https://github.com/user-attachments/assets/eae6054f-bff8-481d-841e-95e676d1ee43)
+
+      - Saving header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** to a empty file (I assume it saved as png.txt) and then running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -c _30_c542f7a7e42c7dbfca89edd858695fe5 -p C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\png.txt** gives us needed 3 keys to decrypt the files:
+     
+        ![image](https://github.com/user-attachments/assets/f81b7f1b-4b44-4d24-8dad-2b80e8330544)
+
+      - With running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -k bc6747e7 90ef9eb3 c8ccfc8c -D C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1_nopass.zip**, you can save a copy of archive without password.
+        - All files in same archive has same encryption key.
+        - All Assets*_*.zip files in same payload have same 3 encryption keys.
+          - In example, AdobeEncore5RoyaltyAll\Assets2_1.zip's encryption keys will work for AdobeEncore5RoyaltyAll\Assets1_1.zip, but not for AdobePremierePro5ProtectedAll\Assets2_1.zip.
+      - Here the needed keys for decrypting archives via bkcrypt:
+        |Payload|Decryption Keys|
+        |:-:|:-:|
+        |AdobeAfterEffects10ProtectedAll|8360d7ed abb8460f 16dd4c7c|
+        |AdobeAfterEffects10RoyaltyAll|5d6d59df 7bdd9a85 db7a93a3|
+        |AdobeAfterEffects10.5ProtectedAll|8baf81d1 b7f4483b 7965f5ac|
+        |AMEDolby5All|719284df 2a03ccd8 0a1b1d7e|
+        |AMEDolby5All_x64|ff3c28e8 f5b04927 00d32e37|
+        |AMEPCI5All|8b9141e5 0b8a8f65 9faece7e|
+        |AMEPCI5All_x64|672e3ca6 954708e3 9c061f76|
+        |AdobeEncore5RoyaltyAll|bc6747e7 90ef9eb3 c8ccfc8c|
+        |AdobePremierePro5ProtectedAll|e3980dd5 17605728 f475cf83|
+        |AdobePremierePro5RoyaltyAll|5d756a2e 780657c6 22073806|
+        |AdobeSoundbooth3ProtectedAll|db0f3efe dbed56a4 475bc8b7|
+        |AdobeSoundbooth3RoyaltyAll|a918e87e 52daf956 c1a4cfe4|
+        |AdobePresenter706-AS_PC-mul|N/A|
+        |AdobeOnLocation5RoyaltyAll|N/A|
+        |AdobeOnLocation5.1ProtectedAll|N/A|
+        |AdobeOnLocation5ProtectedAll (I don't know if it's exist.)|N/A|
+        - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit packed RIBS installer engine is this package set (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
