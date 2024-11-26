@@ -118,13 +118,14 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
     - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
       - But weird thing is almost all packages has wrapper packages.
-        - In example, AdobeEncore5RoyaltyAll and AdobeEncore5RoyaltyWrapperAll.
         - AdobePresenter706-AS_PC-mul doesn't have wrapper payload.
+        - In example, AdobeEncore5RoyaltyAll and AdobeEncore5RoyaltyWrapperAll.
         - Wrapper packages are real protected payload installers.
           - In example, AdobePremierePro5RoyaltyWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\SetupRoyalty.
           - In example, AdobePremierePro5ProtectedWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\Setup.
-        - Launching specific application will trigger installing these packages.
-      - But only wrapper packages are installed. Later, launching specific apps will install real protected
+        - Launching specific application will trigger of installation of these packages.
+        - Probable standalone protected payloads used for repairing already installed protected payload.
+      - But only wrapper packages are installed. Later, launching specific apps will install real protected payload.
       - Protected packages are below:
         - Creative Suite 5.5 (CS5.5)
           - AdobeAfterEffects10.5ProtectedAll
