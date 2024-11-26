@@ -105,9 +105,13 @@ This script compresses all unpacked assets that present on "payloads" and "packa
               - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
             - Than paste these 2 commands to separate lines:
               - update PayloadData **(do not execute command here.)**
-              - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here.)**
-            - This will replace any 9.0.0.6 with 8.0.0.15. You may change these versions depending on product you're gonna installing.
-              - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
+              - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here by pressing F5.)**
+              - This will replace any 9.0.0.6 with 8.0.0.15.
+             
+                ![image](https://github.com/user-attachments/assets/43dbe18b-d813-49d2-a42f-9b49257a41a7)
+
+              - You may change these versions depending on product you're gonna installing.
+                - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
           - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
             - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
     - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
