@@ -20,7 +20,7 @@ https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
 ## Fot patched HyperDrive binaries on Windows platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win-patchedbins
-## For RIBS-based installers on Macintosh platform (Script for DMG-based installers was uploaded)
+## For RIBS-based installers on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac
 ## For patched RIBS binaries on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/RIBS-mac-patchedbins
