@@ -14,7 +14,7 @@ This script compresses all unpacked assets that present on install media folder 
 # Branches
 ## For HyperDrive (HD)-based installers on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac
-## Fot patched HyperDrive binaries on Macintosh platform
+## For patched HyperDrive binaries on Macintosh platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-mac-patchedbins
 ## For HyperDrive (HD)-based installers on Windows platform
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win
