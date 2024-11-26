@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - RIBS for Macintosh (currently for CS5 and CS5.5)
+# Adobe Repacker and Installer Script - RIBS for Macintosh (for CS3? - CC 2017 (RIBS-based ones))
 A .sh script that compresses unpacked Adobe RIBS assets and installs them.
 - ~~NOTE: Script will be uploaded after sometime.~~
   - With my recent researches, it will now possible to install repacked assets. I will write a script in a near future. More information on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-mac-patchedbins/README.md
