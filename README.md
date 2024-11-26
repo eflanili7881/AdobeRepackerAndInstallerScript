@@ -1,5 +1,3 @@
-# !!! Script for DMG-based installers was uploaded !!!
-
 # Adobe Repacker and Installer Script - RIBS for Macintosh (currently for CS5 and CS5.5)
 A .sh script that compresses unpacked Adobe RIBS assets and installs them.
 - ~~NOTE: Script will be uploaded after sometime.~~
