@@ -173,25 +173,32 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - All Assets*_*.zip files in same payload have same 3 encryption keys.
           - In example, AdobeEncore5RoyaltyAll\Assets2_1.zip's encryption keys will work for AdobeEncore5RoyaltyAll\Assets1_1.zip, but not for AdobePremierePro5ProtectedAll\Assets2_1.zip.
       - Here the needed keys for decrypting archives via bkcrypt:
-        |Payload|Decryption Keys|
-        |:-:|:-:|
-        |AdobeAfterEffects10ProtectedAll|8360d7ed abb8460f 16dd4c7c|
-        |AdobeAfterEffects10RoyaltyAll|5d6d59df 7bdd9a85 db7a93a3|
-        |AdobeAfterEffects10.5ProtectedAll|8baf81d1 b7f4483b 7965f5ac|
-        |AMEDolby5All|719284df 2a03ccd8 0a1b1d7e|
-        |AMEDolby5All_x64|ff3c28e8 f5b04927 00d32e37|
-        |AMEPCI5All|8b9141e5 0b8a8f65 9faece7e|
-        |AMEPCI5All_x64|672e3ca6 954708e3 9c061f76|
-        |AdobeEncore5RoyaltyAll|bc6747e7 90ef9eb3 c8ccfc8c|
-        |AdobePremierePro5ProtectedAll|e3980dd5 17605728 f475cf83|
-        |AdobePremierePro5RoyaltyAll|5d756a2e 780657c6 22073806|
-        |AdobeSoundbooth3ProtectedAll|db0f3efe dbed56a4 475bc8b7|
-        |AdobeSoundbooth3RoyaltyAll|a918e87e 52daf956 c1a4cfe4|
-        |AdobePresenter706-AS_PC-mul|N/A|
-        |AdobeOnLocation5RoyaltyAll|N/A|
-        |AdobeOnLocation5.1ProtectedAll|N/A|
-        |AdobeOnLocation5ProtectedAll (I don't know if it's exist.)|N/A|
-        - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
+        - Creative Suite 5.5 (CS5.5)
+          |Payload|Decryption Keys|
+          |:-:|:-:|
+          |AdobeAfterEffects10.5ProtectedAll|8baf81d1 b7f4483b 7965f5ac|
+          |AdobeOnLocation5.1ProtectedAll|N/A|
+        - Creative Suite 5 (CS5)
+          |Payload|Decryption Keys|
+          |:-:|:-:|
+          |AdobeAfterEffects10ProtectedAll|8360d7ed abb8460f 16dd4c7c|
+          |AdobeAfterEffects10RoyaltyAll|5d6d59df 7bdd9a85 db7a93a3|
+          |AdobeEncore5RoyaltyAll|bc6747e7 90ef9eb3 c8ccfc8c|
+          |AdobeOnLocation5RoyaltyAll|N/A|
+          |AdobeOnLocation5ProtectedAll (I don't know if it's exist.)|N/A|
+          |AdobePremierePro5ProtectedAll|e3980dd5 17605728 f475cf83|
+          |AdobePremierePro5RoyaltyAll|5d756a2e 780657c6 22073806|
+          |AdobeSoundbooth3ProtectedAll|db0f3efe dbed56a4 475bc8b7|
+          |AdobeSoundbooth3RoyaltyAll|a918e87e 52daf956 c1a4cfe4|
+          |AMEDolby5All|719284df 2a03ccd8 0a1b1d7e|
+          |AMEDolby5All_x64|ff3c28e8 f5b04927 00d32e37|
+          |AMEPCI5All|8b9141e5 0b8a8f65 9faece7e|
+          |AMEPCI5All_x64|672e3ca6 954708e3 9c061f76|
+        - Miscellenaous
+          |Payload|Decryption Keys|
+          |:-:|:-:|
+          |AdobePresenter706-AS_PC-mul|N/A|
+          - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
       - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
         - You need to launch specific application to install protected payload.
        
