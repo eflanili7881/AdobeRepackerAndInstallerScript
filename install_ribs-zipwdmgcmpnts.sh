@@ -82,8 +82,6 @@ do
 done < $adobeworkfolder/recompress_packages.txt
 while IFS= read -r line
 do
-  filePathPayloads=$(dirname "$line")
-  volumeLabelPayloads=$(basename "$line")
   recompress_payloads=$line
   "$sevenzip_bin" a -bd -snh -snl -tzip "$adobetempinstaller/$recompress_payloads.zip" -mx5 -r "$source_directory/$recompress_payloads/*"
 done < $adobeworkfolder/recompress_payloads.txt
