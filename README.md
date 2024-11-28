@@ -64,7 +64,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
         - You must disconnect from internet if you:
           - Get "Update your browser" notification,
           - Don't want to use Adobe account.
-          - Or preventing Adobe Creative Cloud to auto-update itself.
+          - Or want to prevent Adobe Creative Cloud to auto-update itself at least for installation process.
   - To patch dylibs:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
