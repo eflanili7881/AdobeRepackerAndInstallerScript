@@ -63,7 +63,8 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
       - But if you install Creative Cloud first, reverting patch on AdobePIM.dylib that I'm gonna mention on "To patch dylib's" section or restoring original AdobePIM.dylib and then running Install.app from **\packages\ACCC\HDCore\HDCore.pima\Install.app (x<=4.3.0.256)** or **\packages\ADC\HDBox\HDBox.pima\Install.app (x>=4.4.0.294)** will work as HyperDrive installer will skip already installed Adobe Creative Cloud packages.
         - You must disconnect from internet if you:
           - Get "Update your browser" notification,
-          - Don't wan't to use Adobe account.
+          - Don't want to use Adobe account.
+          - Or preventing Adobe Creative Cloud to auto-update itself.
   - To patch dylibs:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
