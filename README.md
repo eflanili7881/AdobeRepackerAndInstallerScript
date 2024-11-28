@@ -127,15 +127,35 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
 - I assume you got:
   - **ACCCx4_5_0_331.zip** (If you're gonna use Adobe Creative Cloud version **x>=4.6.0.384**),
   - **ACCCx(version_numer_you_want).zip** (You can use only this version if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**),
-  - and **products** folder for your app.
+  - **ACCCx5_3_1_470.zip** (For installing HyperDrive-based applications with same **packages** structure from Creative Cloud installer if you're gonna use **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that's support ARM64 platforms natively.)**),
+  - **products** folder for your app.
+  - and **resources/content/images/appIcon.png** for your product.
+    - (Optional) and **resources/content/images/appIcon2x.png** for your product.
 - Extract **ACCCx(version_numer_you_want).zip** to a directory.
 - Delete Set-up.exe and replace Set-up.exe from **ACCCx4_5_0_331.zip**.
   - Or **ACCCx(version_numer_you_want).zip** if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**.
 - Then, rename Set-up.exe to anything you want (i.e. Set-up_CC.exe (for installing Adobe Creative Cloud)).
+- On **packages** folder, extract every *.pima archive to same folder where original *.pima archive is located.
+  - Structure should like this:
+    - packages\ADC\HDBox\HDBox
+      - <contentsOfHDBox.pimaArchive>
+    - packages\ADC\HDBox\HDBox.sig
+    - packages\ADC\HDBox\HDBox.pimx
+- Delete original *.pima archives after extraction is done.
 - Put **products** folder to where you **ACCCx(version_numer_you_want).zip** is extracted.
-- Get Set-up.exe from **ACCCx(version_numer_you_want).zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx(version_numer_you_want).zip**.
+- On **products** folder, extract every *.zip archive to same folder where original *.zip archive is located.
+  - Structure should like this:
+    - products\AUDT\AdobeAudition10All
+      - <contentsOfAdobeAudition10All.zipArchive>
+    - products\AUDT\application.json
+- Delete original *.zip archives after extraction is done.
+- Put **resources\content\images\appIcon.png** to where you **ACCCx(version_numer_you_want).zip** is extracted.
+  - (Optional) Put **resources\content\images\appIcon2x.png** to where you **ACCCx(version_numer_you_want).zip** is extracted.
+- Get Set-up.exe from **ACCCx(version_numer_you_want).zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx(version_numer_you_want).zip** if bundled version of Creative Cloud is **x<=5.3.1.470**.
+  - Get Install.app from **ACCCx5_3_1_470.zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx5_3_1_470.zip** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that's support ARM64 platforms natively.)**.
 - Rename Set-up.exe to anything you want (i.e. Set-up_HD.exe (for installing Adobe HyperDrive-based applications)).
 - Move your original AdobePIM.dll to AdobePIM_original.dll.
 - Make backup of your AdobePIM.dll.
 - Patch the AdobePIM.dll.
 - Move your patched AdobePIM.dll to AdobePIM_patched.dll.
+- Copy your unpacked installer to your storage server and run deduplication right after unpacked installer is copied if you want.
