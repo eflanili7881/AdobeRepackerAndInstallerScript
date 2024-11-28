@@ -149,7 +149,7 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
 - Be sure to unpack archives/images on macOS if you don't want to deal with broken symbolic links.
 - I assume you got:
   - **ACCCx4_5_0_331.dmg** (If you're gonna use Adobe Creative Cloud version **x>=4.6.0.384**),
-  - **ACCCx5_3_1_470.dmg** (For installing HyperDrive-based applications with same **packages** structure from Creative Cloud installer if you're gonna use **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that's support ARM64 platforms natively.)**),
+  - **ACCCx5_3_1_470.dmg** (For installing HyperDrive-based applications with same **packages** structure from Creative Cloud installer if you're gonna use **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that supports ARM64 platform natively.)**),
   - **ACCCx(version_numer_you_want).dmg** (You can use only this version if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**),
   - **products** folder for your app.
   - and **resources/content/images/appIcon.png** for your product.
