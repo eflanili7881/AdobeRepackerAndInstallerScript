@@ -145,16 +145,37 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
     - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
 
 ## How to build unpacked HyperDrive app installer?
+Currently script doesn't repack Creative Cloud packages on **packages** folder (*.pima archives). I will update script to repack these packages as well.
+- Be sure to unpack archives/images on macOS if you don't want to deal with broken symbolic links.
 - I assume you got:
   - **ACCCx4_5_0_331.dmg** (If you're gonna use Adobe Creative Cloud version **x>=4.6.0.384**),
+  - **ACCCx5_3_1_470.dmg** (For installing HyperDrive-based applications with same **packages** structure from Creative Cloud installer if you're gonna use **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that's support ARM64 platforms natively.)**),
   - **ACCCx(version_numer_you_want).dmg** (You can use only this version if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**),
-  - and **products** folder for your app.
+  - **products** folder for your app.
+  - and **resources/content/images/appIcon.png** for your product.
+    - (Optional) and **resources/content/images/appIcon2x.png** for your product.
 - Extract **ACCCx(version_numer_you_want).dmg** to a directory.
 - Delete Install.app and replace Install.app from **ACCCx4_5_0_331.dmg**.
   - Or **ACCCx(version_numer_you_want).dmg** if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**.
 - Then, rename Install.app to anything you want (i.e. Install_CC.app (for installing Adobe Creative Cloud)).
+- On **packages** folder, extract every *.pima archive to same folder where original *.pima archive is located.
+  - Structure should like this:
+    - packages/ADC/HDBox/HDBox
+      - <contentsOfHDBox.pimaArchive>
+    - packages/ADC/HDBox/HDBox.sig
+    - packages/ADC/HDBox/HDBox.pimx
+- Delete original *.pima archives after extraction is done.
 - Put **products** folder to where you **ACCCx(version_numer_you_want).dmg** is extracted.
-- Get Install.app from **ACCCx(version_numer_you_want).dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx(version_numer_you_want).dmg**.
+- On **products** folder, extract every *.zip archive to same folder where original *.zip archive is located.
+  - Structure should like this:
+    - products/AUDT/AdobeAudition10All
+      - <contentsOfAdobeAudition10All.zipArchive>
+    - products/AUDT/application.json
+- Delete original *.zip archives after extraction is done.
+- Put **resources/content/images/appIcon.png** to where you **ACCCx(version_numer_you_want).dmg** is extracted.
+  - (Optional) Put **resources/content/images/appIcon2x.png** to where you **ACCCx(version_numer_you_want).dmg** is extracted.
+- Get Install.app from **ACCCx(version_numer_you_want).dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx(version_numer_you_want).dmg** if bundled version of Creative Cloud is **x<=5.3.1.470**.
+  - Get Install.app from **ACCCx5_3_1_470.dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx5_3_1_470.dmg** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that's support ARM64 platforms natively.)**.
 - Rename Install.app to anything you want (i.e. Install_HD.app (for installing Adobe HyperDrive-based applications)).
 - Move your original AdobePIM.dylib to AdobePIM_original.dylib.
 - Make backup of your AdobePIM.dylib.
