@@ -175,7 +175,7 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
 - Put **resources/content/images/appIcon.png** to where you **ACCCx(version_numer_you_want).dmg** is extracted.
   - (Optional) Put **resources/content/images/appIcon2x.png** to where you **ACCCx(version_numer_you_want).dmg** is extracted.
 - Get Install.app from **ACCCx(version_numer_you_want).dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx(version_numer_you_want).dmg** if bundled version of Creative Cloud is **x<=5.3.1.470**.
-  - Get Install.app from **ACCCx5_3_1_470.dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx5_3_1_470.dmg** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that's supports ARM64 platform natively.)**.
+  - Get Install.app from **ACCCx5_3_1_470.dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx5_3_1_470.dmg** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that supports ARM64 platform natively.)**.
 - Rename Install.app to anything you want (i.e. Install_HD.app (for installing Adobe HyperDrive-based applications)).
 - Move your original AdobePIM.dylib to AdobePIM_original.dylib.
 - Make backup of your AdobePIM.dylib.
