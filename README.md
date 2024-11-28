@@ -92,7 +92,8 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
          
             ![image](https://github.com/user-attachments/assets/92fe8d91-3c12-41e8-9208-c9cbef705392)
             
-          - Don't wan't to use Adobe account.
+          - Don't want to use Adobe account.
+          - Or preventing Adobe Creative Cloud to auto-update itself.
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases and IDA Pro 6.5 or newer on https://hex-rays.com/ida-pro
     - Install Cutter and IDA Pro 6.5 or newer.
