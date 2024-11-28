@@ -181,3 +181,4 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
 - Make backup of your AdobePIM.dylib.
 - Patch the AdobePIM.dylib.
 - Move your patched AdobePIM.dylib to AdobePIM_patched.dylib.
+- Copy your unpacked installer to your storage server and run deduplication right after unpacked installer is copied if you want.
