@@ -28,37 +28,37 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
   - When I traced functions, function invoking works like this:
     - On AdobePIM.dll (version 8.0.0.73, patched binary, on IDA Pro 9.0):
 
-      ![image](https://github.com/user-attachments/assets/c338e0e5-cdb3-470d-bbcd-5c5a163186c1)
+      ![image](./pictures/385855320-c338e0e5-cdb3-470d-bbcd-5c5a163186c1.png)
       
       - 1st, AdobePIM.dll invokes **_pim_installAdobeApplicationManager**. Then, inside this function, it invokes **call fcn.10010300** on address **0x10012414**.
 
-        ![image](https://github.com/user-attachments/assets/9acbe58d-7e63-43fc-948e-417dbb620990)
+        ![image](./pictures/385856244-9acbe58d-7e63-43fc-948e-417dbb620990.png)
         
       - 2nd, on **fcn.10010300**, it invokes **call fcn.1000f690** on address **0x10010394**. When you look up, you understand that this function is for validating AAM packages.
 
-        ![image](https://github.com/user-attachments/assets/63cbd7f8-9d64-4115-b63c-02f72901197e)
+        ![image](./pictures/385856485-63cbd7f8-9d64-4115-b63c-02f72901197e.png)
         
       - Lastly, on **fcn.1000f690**, main magic happens on **0x100100ff**; rerouting **jne 0x10010105 (original position)** to **jne 0x10010101 (position to bypass verification mechanism)** bypasses *.pima archive integrity check.
 
-        ![image](https://github.com/user-attachments/assets/d954489b-378f-4eca-b235-fc2e536ff87a)
+        ![image](./pictures/385856974-d954489b-378f-4eca-b235-fc2e536ff87a.png)
         
     - On Setup.dll (version 8.0.0.15, original binary, on IDA Pro 9.0):
 
-      ![image](https://github.com/user-attachments/assets/5e41fbd5-d2d0-4d6d-a436-ed427607e155)
+      ![image](./pictures/385871496-5e41fbd5-d2d0-4d6d-a436-ed427607e155.png)
       
       - Verification function called via 2 ways:
         |1st way|2nd way|
         |:-:|:-:|
         |**fcn.100a2080** invokes **fcn.100a9050** on **0x100a301e**|**fcn.100a2080** invokes **fcn.10066d90** on **0x100a63bf**|
-        |![image](https://github.com/user-attachments/assets/40cc8e2d-f857-42d6-99ae-0fa0ed330a3a)|![image](https://github.com/user-attachments/assets/8f84c89f-58c2-4aa8-9ad7-3874a5a76167)|
+        |![image](./pictures/385889768-40cc8e2d-f857-42d6-99ae-0fa0ed330a3a.png)|![image](./pictures/385889984-8f84c89f-58c2-4aa8-9ad7-3874a5a76167.png)|
         |**fcn.100a9050** invokes **fcn.10065b00** on **0x100a91b2** or **0x100a932a**|**fcn.10066d90** invokes **fcn.100667a0** on **0x1006781f**|
-        |![image](https://github.com/user-attachments/assets/a42b72ab-3c50-4be8-892f-801f18d9610a)|![image](https://github.com/user-attachments/assets/e037507f-0509-4a88-9bdb-d99aa43db317)|
-        |![image](https://github.com/user-attachments/assets/32794df1-8a1c-49cc-9f0f-baf20f5e21fb)|**fcn.100667a0** invokes **fcn.10065b00** on **0x10066b92**|
-        |II|![image](https://github.com/user-attachments/assets/17532291-822d-443a-9d7e-320cf6cfeb89)|
+        |![image](./pictures/385882374-a42b72ab-3c50-4be8-892f-801f18d9610a.png)|![image](./pictures/385883113-e037507f-0509-4a88-9bdb-d99aa43db317.png)|
+        |![image](./pictures/385882818-32794df1-8a1c-49cc-9f0f-baf20f5e21fb.png)|**fcn.100667a0** invokes **fcn.10065b00** on **0x10066b92**|
+        |II|![image](./pictures/385883602-17532291-822d-443a-9d7e-320cf6cfeb89.png)|
         |V|V|
         - Lastly, on **fcn.10065b00**, main magic happens on **0x1006660c**; rerouting **jne 0x10066617** to **jne 0x1006660c** bypasses *.zip archive integrity check.
 
-          ![image](https://github.com/user-attachments/assets/06a9f799-568f-45ea-bd6e-9370cc9a8e22)
+          ![image](./pictures/385871987-06a9f799-568f-45ea-bd6e-9370cc9a8e22.png)
         
   - To patch dll's:
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases
@@ -71,7 +71,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           - Search in: All mapped sections
         - This will return only 1 value like this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/da6c02ae-7bef-45d1-8513-0542f8066175)
+          ![image](./pictures/316227929-da6c02ae-7bef-45d1-8513-0542f8066175.png)
           
         - Double click to switch to this address.
         - It will load in Disassembly mode. Change it to Graph section.
@@ -79,13 +79,13 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         - Then scroll slightly up to find **str.File___s__is_corrupted._OCEError:__d**'s connected box.
         - **str.File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/19eb7cf7-6b08-4de5-8919-ad0722fa4e2c)
+          ![image](./pictures/316228194-19eb7cf7-6b08-4de5-8919-ad0722fa4e2c.png)
           
         - Above picture, click right **jne 0x1000f58c** to open menu and then click Edit > Instruction.
         - Change **0x1000f58c** to **0x1000f588** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses *.pima archive verification in AdobePIM.dll.
         - When you reload file with same settings, graph will turn into this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/074fd6d7-8367-4dc3-8f8f-534f813c1a2b)
+          ![image](./pictures/316228570-074fd6d7-8367-4dc3-8f8f-534f813c1a2b.png)
           
         - As you can see, **str.File___s__is_corrupted._OCEError:__d** is not visible in graph.
       - On Setup.dll:
@@ -95,20 +95,20 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           - Search in: All mapped sections
         - This will return only 1 value like this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/fca8448f-bd55-4c03-bfd9-5f7f0030337e)
+          ![image](./pictures/316228970-fca8448f-bd55-4c03-bfd9-5f7f0030337e.png)
           
         - It will load in Disassembly mode. Change it to Graph section.
           - If it loads in Graph mode by default, skip to step below.
         - Then scroll slightly up to find **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d**'s connected box.
         - **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/4da12adf-072e-498a-a579-efd64380cf55)
+          ![image](./pictures/316229170-4da12adf-072e-498a-a579-efd64380cf55.png)
           
         - Above picture, click right **jne 0x100bcae6** to open menu and then click Edit > Instruction.
         - Change **0x100bcae6** to **0x100bcada** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses signature check of assets in Setup.dll.
         - When you reload file with same settings, graph will turn into this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/b4ffefe1-24cb-458d-a630-b593e5458d7a)
+          ![image](./pictures/316229445-b4ffefe1-24cb-458d-a630-b593e5458d7a.png)
           
         - As you can see, **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** is not visible in graph.
       - On updatercore.dll:
@@ -118,7 +118,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           - Search in: All mapped sections
         - This will return only 1 value like this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/74bfaa30-c957-4cee-89ea-e4d48617b199)
+          ![image](./pictures/316229786-74bfaa30-c957-4cee-89ea-e4d48617b199.png)
           
         - It will load in Disassembly mode. Change it to Graph section.
           - If it loads in Graph mode by default, skip to step below.
@@ -126,11 +126,11 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           - To do that, right click ;-- **case name**:, and click Delete flag.
         - Then on picture below, right click **ja 0x1006ef1d**, click Edit > Instruction, change **ja** to **jmp** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses perpetual and subscription update check on updatercore.dll:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/e7314bf4-7ab7-48ec-a7e0-24ccd5d62f8c)
+          ![image](./pictures/316230204-e7314bf4-7ab7-48ec-a7e0-24ccd5d62f8c.png)
           
         - When you reload file with same settings, graph will turn into this:
 
-          ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/465ea6e5-c3b7-440e-9f78-fb23b986a7c6)
+          ![image](./pictures/316230462-465ea6e5-c3b7-440e-9f78-fb23b986a7c6.png)
           
         - As you can see, all checks for perpetual and subscription updates are bypassed.
     - PainteR versions have other small changes but bypassing only these values does trick. If you curious, you can research it further.
