@@ -134,3 +134,37 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           
         - As you can see, all checks for perpetual and subscription updates are bypassed.
     - PainteR versions have other small changes but bypassing only these values does trick. If you curious, you can research it further.
+## How to build unpacked RIBS app installer?
+- I assume you got:
+  - RIBS-based installer for your Adobe application.
+- Extract your desired app installer to a directory.
+- On **packages** folder, extract every *.pima archive to same folder where original *.pima archive is located.
+  - Structure should like this:
+    - packages\UWA\UWA
+      - <contentsOfUWA.pimaArchive>
+    - packages\UWA\UWA.sig
+    - packages\UWA\UWA.pimx
+- Delete original *.pima archives after extraction is done.
+- On **payloads** folder, extract every *.zip archive to same folder where original *.zip archive is located.
+  - Structure should like this:
+    - payloads\AdobeSpeedGrade9AllTrial\Assetsx_y
+      - <contentsOfAssetsX_Y.zipArchive>
+        - Note that can be multiple AssetsX_Y folder depending on assets archive count.
+        - In example, Assets1_1 and Assets2_1.
+    - payloads\AdobeSpeedGrade9AllTrial\Assetsx_y.sig
+      - Note that can be multiple AssetsX_Y *.sig files depending on assets archives' signature file count.
+      - In example, Assets1_1.sig and Assets2_1.sig.
+    - <otherFilesThatDoesn'tImportant>
+- Move your original AdobePIM.dll to AdobePIM_original.dll.
+- Make backup of your AdobePIM.dll.
+- Patch the AdobePIM.dll.
+- Move your patched AdobePIM.dll to AdobePIM_patched.dll.
+- Move your original packages\DECore\DECore\DE6\Setup.dll to packages\DECore\DECore\DE6\Setup_original.dll.
+- Make backup of your packages\DECore\DECore\DE6\Setup.dll.
+- Patch the packages\DECore\DECore\DE6\Setup.dll.
+- Move your patched packages\DECore\DECore\DE6\Setup.dll to packages\DECore\DECore\DE6\Setup_patched.dll.
+- Move your original packages\UWA\UWA\updatercore.dll to packages\UWA\UWA\updatercore_original.dll.
+- Make backup of your packages\UWA\UWA\updatercore.dll.
+- Patch the packages\UWA\UWA\updatercore.dll.
+- Move your patched packages\UWA\UWA\updatercore.dll to packages\UWA\UWA\updatercore_patched.dll.
+- Copy your unpacked installer to your storage server and run deduplication right after unpacked installer is copied if you want.
