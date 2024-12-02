@@ -224,3 +224,27 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
             ![image](https://github.com/user-attachments/assets/0c9351a7-c9f5-44cb-8a2d-1e8e2f188be7)
             
           - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+    # - On UpdaterCore.framework/Versions/A/UpdaterCore (version 9.0.0.30)
+      - Open UpdaterCore.framework/Versions/A/UpdaterCore on IDA Pro and open it with Mach-O decompiler.
+      - On IDA Pro, search for string **patch is mean**
+      - Click on result that contains **Patch is meant only for (very first 2 results)**.
+   
+        ![image](https://github.com/user-attachments/assets/f80b7b2c-3301-4015-8b45-1243699619c0)
+
+      - Locate the very first box thats connected to result from previous step.
+   
+        ![image](https://github.com/user-attachments/assets/3270015b-6c21-467a-8a84-a0b8c1f8c0ad)
+
+      - Note the address of **call $+5**.
+      - Now you got necessary address to change on Cutter.
+      - Open UpdaterCore.framework/Versions/A/UpdaterCore on Cutter with experimental (aaaa) mode and in write mode (-w).
+      - Jump to address 0x330ff on Cutter.
+   
+        ![image](https://github.com/user-attachments/assets/e16f2a63-1a62-41ba-886a-2f2b2b57bc6c)
+
+      - Change **call 0x33104** to **jmp 0x33275** with disabling *Fill all remaining bytes with NOP opcodes*.
+      - When you reload the file on Cutter, graph will turn into this:
+
+        ![image](https://github.com/user-attachments/assets/a172cf6f-d5fe-48e0-9533-3c4f6113610e)
+
+      - With this, you can install subscription updates on perpetually licensed apps or vice versa.
