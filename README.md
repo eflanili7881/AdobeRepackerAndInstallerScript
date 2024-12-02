@@ -18,36 +18,36 @@ This script compresses all unpacked assets that present on "products" folder to 
 ## Limitations
 - ~~*.pima archives under "packages" directory (for Creative Cloud itself) cannot be unpacked and repacked because Creative Cloud installer throws error 4 with original AdobePIM.dll and modified *.pima archive.~~
 
-  ![image](https://github.com/user-attachments/assets/de7aa0d0-dabf-412c-95a6-fcd584fb8ac2)
+  ![image](./pictures/386966776-de7aa0d0-dabf-412c-95a6-fcd584fb8ac2.png)
 
   - ~~I can't find error code on website.~~
   - ~~When I try to launch installer via **\packages\ACC\Utils\Utils.pima\CreativeCloudSet-Up.exe (copied it Creative Cloud's install root)**, error 4 appears.~~
  
-    ![image](https://github.com/user-attachments/assets/4bcfa62c-e899-48c7-a3d8-c63bb9f053d9)
+    ![image](./pictures/386971286-4bcfa62c-e899-48c7-a3d8-c63bb9f053d9.png)
 
   - ~~It mentions Adobe Genuine Validation failed with error 4 on **C:\Users\Administrator\AppData\Local\Temp\CreativeCloud\ACC\ACC.log**~~
  
-    ![image](https://github.com/user-attachments/assets/1c714316-1c2e-42ad-baf0-2dfcf780f29c)
+    ![image](./pictures/386971013-1c714316-1c2e-42ad-baf0-2dfcf780f29c.png)
 
 ~~I think HyperDrive install engine doesn't enforces signatures to be valid on "products" directory, but enforces signatures to be valid on "packages" directory.~~
   - ~~If I try to patch AdobePIM.dll with any patching method, error 42 occurs.~~
 
-    ![image](https://github.com/user-attachments/assets/d2ca655d-8dfb-4f5e-aec5-b1cc7936876a)
+    ![image](./pictures/386967358-d2ca655d-8dfb-4f5e-aec5-b1cc7936876a.png)
 
-    ![image](https://github.com/user-attachments/assets/c87e9c58-7a65-4e80-af32-073bc53daede)
+    ![image](./pictures/386967428-c87e9c58-7a65-4e80-af32-073bc53daede.png)
 
   - ~~When I try to launch installer via **\packages\ACC\Utils\Utils.pima\CreativeCloudSet-Up.exe (copied it Creative Cloud's install root)**, error 72 appears.~~
 
-    ![image](https://github.com/user-attachments/assets/8e640756-e212-4ac5-ae6d-6667ebcd25c5)
+    ![image](./pictures/386968374-8e640756-e212-4ac5-ae6d-6667ebcd25c5.png)
 
-    ![image](https://github.com/user-attachments/assets/fe724632-9ed8-41e5-98f9-b5432f30eea9)
+    ![image](./pictures/386968562-fe724632-9ed8-41e5-98f9-b5432f30eea9.png)
 
-    ![image](https://github.com/user-attachments/assets/2b87eb48-ac29-446e-8517-233158b0704d)
+    ![image](./pictures/386971529-2b87eb48-ac29-446e-8517-233158b0704d.png)
     
     - ~~Both errors suggests it's signature validation error.~~
   - ~~When I examined **C:\Users\Administrator\AppData\Local\Temp\CreativeCloud\ACC\WAM.log**, it shows error about CANameChain.~~
 
-    ![image](https://github.com/user-attachments/assets/8da7a518-d97d-46be-8324-54fd3544a298)
+    ![image](./pictures/386970518-8da7a518-d97d-46be-8324-54fd3544a298.png)
 
     - ~~It also mentions error 42 below.~~
   - ~~But on HyperDrive installer engine on KpoJIuK repacks, some *.pima archives were different sizes (i.e. \packages\ADC\Runtime\Runtime.pima because KpoJIuK installers have separate Microsoft Visual Studio C++ Redistributable installer). Maybe ADC folder was excluded from signature verification or KpoJIuK may patched installer to force installing his edited *.pima assets, I don't know.~~
