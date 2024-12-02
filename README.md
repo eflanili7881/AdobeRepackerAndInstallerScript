@@ -28,44 +28,44 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - With original AdobePIM.dll and repacked *.pima archive, installer throws error about Adobe Genuine Software Validation Failure on initializing setup phase.
     - On CS6:
 
-      ![image](https://github.com/user-attachments/assets/f1ea4320-e6b3-4504-bbc7-7f5832f0151a)
+      ![image](./pictures/386642286-f1ea4320-e6b3-4504-bbc7-7f5832f0151a.png)
 
       - Installer throws error about Adobe Genuine Validation Failed at temporary folder (on my case, it's **C:/Users/Administrator/AppData/Local/Temp/PDApp.log**).
 
-        ![image](https://github.com/user-attachments/assets/4f4368eb-9ea6-47b5-8024-817f8c0f1b53)
+        ![image](./pictures/386642824-4f4368eb-9ea6-47b5-8024-817f8c0f1b53.png)
 
     - On CC 2013 and above:
 
-      ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/819a77cd-75ae-4e10-8d6b-568375aa6200)
+      ![image](./pictures/316627605-819a77cd-75ae-4e10-8d6b-568375aa6200.png)
 
       - Installer throws error about Adobe Genuine Validation Failed at temporary folder (on my case, it's **C:/Users/Administrator/AppData/Local/Temp/PDApp.log**).
 
-        ![image](https://github.com/user-attachments/assets/e2008a23-8af4-490f-b8f1-066154801ca9)
+        ![image](./pictures/386644935-e2008a23-8af4-490f-b8f1-066154801ca9.png)
 
   - With original Setup.dll and repacked *.zip archive, installer throws error about Adobe Genuine Software Verification Failure on install phase.
     - On CS6:
  
-      ![image](https://github.com/user-attachments/assets/a869a951-288e-42dc-8a6f-96c4be51c450)
+      ![image](./pictures/386638757-a869a951-288e-42dc-8a6f-96c4be51c450.png)
 
       - Installer throws error 37 and DW050 error on summary.html located in temporary folder (on my case, it's **C:/Users/Administrator/AppData/Local/Temp/{A4B00265-D898-42D4-AAC8-6C1DE7868025}/summary.htm**) and another log file located in **C:\Program Files (x86)\Common Files\Adobe\Installers\Adobe SpeedGrade CS6 6.0.0 11-15-2024.log.gz\Adobe SpeedGrade CS6 6.0.0 11-15-2024.log**.
 
-        ![image](https://github.com/user-attachments/assets/45cd4fe6-8446-4c4e-b3bb-e7e02ee04945)
+        ![image](./pictures/386639480-45cd4fe6-8446-4c4e-b3bb-e7e02ee04945.png)
 
-        ![image](https://github.com/user-attachments/assets/25f6180e-7fe6-44f6-89d8-3ebe0a2eaf6b)
+        ![image](./pictures/388018731-25f6180e-7fe6-44f6-89d8-3ebe0a2eaf6b.png)
 
     - On CC 2013 and above:
 
-      ![image](https://github.com/user-attachments/assets/e8861475-be5d-4996-8f1d-7afbdaabe904)
+      ![image](./pictures/386648769-e8861475-be5d-4996-8f1d-7afbdaabe904.png)
 
       - Installer throws error 37 on summary.html located in temporary folder (on my case, it's (**C:/Users/Administrator/AppData/Local/Temp/{B634FCA3-9EA6-46BB-86C8-DBBF5E305319}/summary.htm**) and another log file located in **C:\Program Files (x86)\Common Files\Adobe\Installers\Adobe SpeedGrade CC 7.0.0 11-15-2024.log.gz\Adobe SpeedGrade CC 7.0.0 11-15-2024.log**.
 
-        ![image](https://github.com/user-attachments/assets/0ad9dde5-ce75-4488-a794-fe5cf085d93e)
+        ![image](./pictures/386649316-0ad9dde5-ce75-4488-a794-fe5cf085d93e.png)
 
-        ![image](https://github.com/user-attachments/assets/21fc6c3c-3c50-4270-8aa8-7af0b3137070)
+        ![image](./pictures/386650503-21fc6c3c-3c50-4270-8aa8-7af0b3137070.png)
    
         - On log file, it also reports DW050 error.
 
-          ![image](https://github.com/user-attachments/assets/ea3c1967-a447-4922-9df8-7b835cf6cb79)
+          ![image](./pictures/386654641-ea3c1967-a447-4922-9df8-7b835cf6cb79.png)
 
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
     - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
@@ -86,7 +86,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - If \payloads\Media_db.db\PayloadData\ *(any payload ID that has higher version than current RIBS engine on **value** column)* \PayloadInfo is greater than current RIBS engine, installer throws this error on logs (i.e. for SpeedGrade CC 2015 with 8.0.0.15 engine):
           - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
 
-            ![image](https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/assets/44976117/af3aecbf-3c58-46e4-add8-8e601240010e)
+            ![image](./pictures/316629568-af3aecbf-3c58-46e4-add8-8e601240010e.png)
             
           - This can be fixed with SQLite DB Browser.
             - Download this program from https://sqlitebrowser.org/dl/
@@ -108,7 +108,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
               - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here by pressing F5.)**
               - This will replace any 9.0.0.6 with 8.0.0.15.
              
-                ![image](https://github.com/user-attachments/assets/43dbe18b-d813-49d2-a42f-9b49257a41a7)
+                ![image](./pictures/389949866-43dbe18b-d813-49d2-a42f-9b49257a41a7.png)
 
               - You may change these versions depending on product you're gonna installing.
                 - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
@@ -149,24 +149,24 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - Total packages: 16 (15 if AdobeOnLocation5ProtectedAll doesn't exist and I added this package as an error).
       - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
      
-        ![image](https://github.com/user-attachments/assets/3ba256d0-5cd5-43ad-8fc1-8034345a46dc)
+        ![image](./pictures/386834327-3ba256d0-5cd5-43ad-8fc1-8034345a46dc.png)
 
       - But almost all packages has stored some *.png files as uncompressed (Stored as "Store" method on *.zip file). Only AdobePresenter706-AS_PC-mul, AdobeOnLocation5RoyaltyAll and AdobeOnLocation5.1ProtectedAll doesn't have file that stored as "Store" method; they're all stored as "Deflate" method.
       - Example output from AdobeEncore5RoyaltyAll\Assets2_1.zip (with bkcrack 1.7.0 x64):
      
-        ![image](https://github.com/user-attachments/assets/fa556027-7db8-467f-a0ef-63af79553b0f)
+        ![image](./pictures/389905270-fa556027-7db8-467f-a0ef-63af79553b0f.png)
 
       - If you examine _30_c542f7a7e42c7dbfca89edd858695fe5 on SQLite DB Browser, this file is actually **[AdobeCommon]\Keyfiles\Encore\en_ribs_bgd.png**
      
-        ![image](https://github.com/user-attachments/assets/b57753f2-a1cd-46e4-b70f-8874353086c0)
+        ![image](./pictures/389910154-b57753f2-a1cd-46e4-b70f-8874353086c0.png)
 
       - Almost all PNG files has header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** (16 byte hex value) (example from one PNG image).
      
-        ![image](https://github.com/user-attachments/assets/eae6054f-bff8-481d-841e-95e676d1ee43)
+        ![image](./pictures/389911143-eae6054f-bff8-481d-841e-95e676d1ee43.png)
 
       - Saving header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** to a empty file (I assume it saved as png.txt) and then running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -c _30_c542f7a7e42c7dbfca89edd858695fe5 -p C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\png.txt** gives us needed 3 keys to decrypt the files:
      
-        ![image](https://github.com/user-attachments/assets/f81b7f1b-4b44-4d24-8dad-2b80e8330544)
+        ![image](./pictures/389914790-f81b7f1b-4b44-4d24-8dad-2b80e8330544.png)
 
       - With running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -k bc6747e7 90ef9eb3 c8ccfc8c -D C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1_nopass.zip**, you can save a copy of archive without password.
         - All files in same archive has same encryption key.
@@ -202,9 +202,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
         - You need to launch specific application to install protected payload.
        
-          ![image](https://github.com/user-attachments/assets/0bc51da5-d6cb-4131-9ee9-665f609eca94)
+          ![image](./pictures/389936471-0bc51da5-d6cb-4131-9ee9-665f609eca94.png)
 
-          ![image](https://github.com/user-attachments/assets/2cbf4992-329c-4b64-af24-1a8c3050069d)
+          ![image](./pictures/389937206-2cbf4992-329c-4b64-af24-1a8c3050069d.png)
 
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit packed RIBS installer engine is this package set (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
