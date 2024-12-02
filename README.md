@@ -125,6 +125,7 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
 
 ## How to build unpacked HyperDrive app installer?
+Currently script doesn't repack Creative Cloud packages on **packages** folder (*.pima archives). I will update script to repack these packages as well.
 - I assume you got:
   - **ACCCx4_5_0_331.zip** (If you're gonna use Adobe Creative Cloud version **x>=4.6.0.384**),
   - **ACCCx(version_numer_you_want).zip** (You can use only this version if you're gonna use Adobe Creative Cloud version **x<=4.5.0.331**),
