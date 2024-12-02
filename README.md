@@ -27,16 +27,16 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - HFS+ format
     - UDIF read-only compressed (zlib) disk images.
   
-    ![image](https://github.com/user-attachments/assets/4371811e-0cf9-4f91-b454-110e71412736)
+    ![image](./pictures/385924591-4371811e-0cf9-4f91-b454-110e71412736.png)
 
-    ![image](https://github.com/user-attachments/assets/2787a77f-5d57-4507-84cf-6d74497eb0c4)
+    ![image](./pictures/385922113-2787a77f-5d57-4507-84cf-6d74497eb0c4.png)
   - On packages folder, partition labels will be equal to package folder name (i.e. DECore uses DECore).
     - To clear confusion, \packages\core\PDApp.pima uses **core** partition label.
 
-    ![image](https://github.com/user-attachments/assets/2787a77f-5d57-4507-84cf-6d74497eb0c4)
+    ![image](./pictures/385922113-2787a77f-5d57-4507-84cf-6d74497eb0c4.png)
   - On payloads folder, partition labels will be some random? generated 16 character label.
 
-    ![1](https://github.com/user-attachments/assets/2756cf10-3dba-4592-a33c-268dd5d5541b)
+    ![image](./pictures/385922553-2756cf10-3dba-4592-a33c-268dd5d5541b.png)
     - But partition labels and sizes can be what you want as I tested DECore.pima and AdobePremierePro6.0AllTrial.dmg for the unpack test.
 
-      ![image](https://github.com/user-attachments/assets/ad538934-5426-4bda-b9c1-01fd15feefa6)
+      ![image](./pictures/385924245-ad538934-5426-4bda-b9c1-01fd15feefa6.png)
