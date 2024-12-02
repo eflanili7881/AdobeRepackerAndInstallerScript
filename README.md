@@ -57,7 +57,7 @@ This script compresses all unpacked assets that present on "products" folder to 
     - With my recent searches, it's now possible. More details on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win-patchedbins
 - ZIP file must not exceed 2 GB. I tested Premiere Pro with -mx0 flag on 7z command line and HyperDrive installer engine throws error. Maybe it's with CompressionType on Application.json or something.
 - ~~Currently, LZMA2-compressed ZIP files cannot be unpacked and repacked. They cannot be unpacked with 7-Zip itself. They may obtainable if unpacked version is copied from adobeTemp directory really fast. Because as soon as install finishes, HyperDrive installer engine deletes that files as soon as possible.~~
-  - With script I wrote in https://github.com/osmankovan123/AdobeLZMA2UnpackerScript , they can now be unpacked.
+  - With script I wrote in https://github.com/eflanili7881/AdobeLZMA2UnpackerScript , they can now be unpacked.
 
 ## Known Issues
 - On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, *packages* turns into *´╗┐packages* i.e.). 
