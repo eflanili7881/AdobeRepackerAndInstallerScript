@@ -88,7 +88,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](./pictures/316228570-074fd6d7-8367-4dc3-8f8f-534f813c1a2b.png)
           
       - As you can see, **str.File___s__is_corrupted._OCEError:__d** is not visible in graph.
-    # - On Setup.dll:
+    # - On Setup.dll (version 9.0.0.65):
       - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
       - When it's loaded switch to Search tab and search **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** with these settings:
         - Search for: 32-bit value
@@ -111,7 +111,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](./pictures/316229445-b4ffefe1-24cb-458d-a630-b593e5458d7a.png)
           
       - As you can see, **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** is not visible in graph.
-    # - On updatercore.dll:
+    # - On updatercore.dll (version 9.0.0.30):
       - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
       - When it's loaded switch to Search tab and search **str.CFU_Webfeed_:_Patch_is_meant_only_for_subscription_licenses__but_client_doesn_t_have_a_valid_subscription_license.** with these settings:
         - Search for: 32-bit value
