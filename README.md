@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - Patched Binaries for ZIP-based HyperDrive Installers for Windows (for CC 2015.5 - present)
+# Adobe Repacker and Installer Script - Patched Binaries for ZIP-based HyperDrive Installers for Windows (for CC 2015 - present)
 A repo that contains patched binaries for installing unpacked Adobe Creative Cloud *.pima assets.
 
 # CAUTION!
