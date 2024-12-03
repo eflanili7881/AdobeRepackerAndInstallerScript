@@ -19,7 +19,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - With my recent researches, it will now possible to install repacked assets. More information on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-mac-patchedbins/README.md
   - But like in Windows, Adobe CS5.5 and below doesn't have signature verification for *.pima (actually, they're just .dmg files with .pima extension) and *.dmg archives.
 - CS3 and probably CS4 can't be installed from APFS volume, but CS3 and probably CS4 apps can be installed to APFS volume.
-  - If you try install CS3 and probably CS4 app from APFS volume, installer will throw white empty window titled as "Installer Alert"
+  - If you try install CS3 and probably CS4 app from APFS volume, installer will throw white empty window titled as "Installer Alert". You can't continue installation from now on.
  
     ![image](./pictures/392084739-8acb7210-8847-436b-9e88-20e6184e5dfb.png)
 
