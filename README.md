@@ -64,7 +64,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
     - Download Cutter from https://cutter.re or https://github.com/rizinorg/cutter/releases
       - macOS users also need IDA Pro 6.5 or newer to disassemble *.dylib files much more. Cutter is great tool, but it disassembles *.dylib files less good than IDA Pro. More details on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-mac-patchedbins
     - Install Cutter.
-    # - On AdobePIM.dll:
+    # - On AdobePIM.dll (version 10.0.0.49):
       - Open AdobePIM.dll with experimental (aaaa) mode and in write mode (-w).
       - When it's loaded switch to Search tab and search **str.Signature_pima_CheckSum** with these settings:
         - Search for: 32-bit value
