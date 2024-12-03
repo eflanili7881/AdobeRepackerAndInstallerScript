@@ -233,6 +233,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - This may also fix bunch of CS3 packages.
 - I recommend you to unpack MSI files to very short location (i.e. D:\1) to avoid issues about file path limitation.
 - I recommend you to move unpacked assets via 7-Zip or other archive software after unpack of MSI is done as Windows Explorer may broke up something in our unpacked assets.
+- I recommend you to install MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
+- I recommend you to copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - When protected MSI is unpacked, it writes 16 bytes to every file.
     - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
