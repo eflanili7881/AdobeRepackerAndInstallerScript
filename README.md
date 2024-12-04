@@ -273,17 +273,22 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - Errors are due to searching proxy file (even when proxy file is in root of the payload media, i.e. in payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml, it isn't satisfied unless all subfolders inside of payload media checked).
     - Check for not unpackable packages for more information.
   - When CS3's protected content is unpacked, it'll unpacked identical as original files.
-  - But on CS4, when protected MSI is unpacked, files will be larger variable even (2, 4, 8, 16 or larger) bytes.
+  - But on CS4, when protected MSI is unpacked, files will be larger variable even? (2, 4, 8, 16 or larger) bytes.
     - But if protected packages are installed, they shrunk exactly to their original sizes and they're accessible normally again.
     - Protected files' content are garbled while inside of installation media (i.e. for **C:\Program Files (x86)\Adobe\Adobe After Effects CS4\Mocha\bin\dvsoem.dll** before copied)
    
+      ![image](./pictures/392427097-265a1ed2-8075-41d0-bdbe-8d99dc4da0e4.png)
+
       ![image](./pictures/392404951-9b864579-df20-4510-bbe2-a5fe92718dc4.png)
 
-      - This file is 2 bytes larger than it's original size.
+      - As you can see, file is 2 bytes larger than it's original size.
     - But after protected file copied into it's desired location, it'll shrink to it's original size and it's normally accessible again (i.e. for **C:\Program Files (x86)\Adobe\Adobe After Effects CS4\Mocha\bin\dvsoem.dll** after copied).
-   
+ 
+      ![image](./pictures/392427512-6ca64502-1670-4d03-85ab-d145bc7b178b.png)
+
       ![image](./pictures/392410429-245ca07f-a3a4-4f09-bac6-7ad3656d8da7.png)
 
+      - As you can see, file is more readable with HxD Hex Editor.
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content on specific packages. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase. But on installation phase, it doesn't and it will fail.
     - But when I inspected location, file is copied, but it still gives this error.
       - If possible, enable **Local Computer Policy\Computer Configuration\Administrative Templated\System\Filesystem\Enable Win32 long paths**.
