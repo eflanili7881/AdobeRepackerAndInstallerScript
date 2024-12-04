@@ -277,7 +277,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         | AdobeInDesign5* | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
         | AdobeInCopy5* | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
         | AdobeEncore3All | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobeSoundboothAll | Installation fails with error 1603 on Master Collection. | ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3! | |
+        | AdobeSoundboothAll | Installation fails with error 1603 on Master Collection. | ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3! | Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something. |
         - But some CS3 main packs can be unpacked. These are:
           | Package Name | Note |
           | :-: | :-: |
