@@ -338,7 +338,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobeIllustrator13*
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix:
+          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeInCopy5*
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
