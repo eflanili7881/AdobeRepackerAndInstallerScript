@@ -292,29 +292,40 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - Currently not unpackable assets are:
       - Creative Suite 4 (CS4)
         - AdobeAfterEffects9All
-          - Caused error: On Master Collection, Production Premium and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
-          - Note: I guess it's caused by Windows PATH_MAX limitation.
-          - Fix: Move **program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml** to shorter directory on initialization phase. After initialization phase is done, move AdobeAfterEffects9ProtectedAll.proxy.xml again to it's original directory.
+          - Caused error
+            - On Master Collection, Production Premium and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
+          - Note
+            - I guess it's caused by Windows PATH_MAX limitation.
+          - Fix
+            - Move **program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml** to shorter directory on initialization phase. After initialization phase is done, move AdobeAfterEffects9ProtectedAll.proxy.xml again to it's original directory.
         - AdobeAfterEffects9FCAll
-          - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
-          - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
-          - Fix: Move **program files** folder to root of install media while intialization phase. After initialization phase is done, move **program files** back to it's original location.
+          - Caused error
+            - Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
+          - Note
+            - On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
+          - Fix
+            - Move **program files** folder to root of install media while intialization phase. After initialization phase is done, move **program files** back to it's original location.
         - AdobeAfterEffects9ProtectedAll
-          - Caused error: Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
-          - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
-          - Fix: Move **Common** and **program files** folder to root of install media folder while intialization phase. After initialization phase is done, move **Common** and **program files** back to their original locations.
-            - If you move installer even into root of the filesystem, error 1603 and 1309 still occurs.
-              - But when I inspected location, file is copied, but it still gives this error.
-                - If possible, enable **Local Computer Policy\Computer Configuration\Administrative Templated\System\Filesystem\Enable Win32 long paths**.
-                - So, I guess this error can be ignored if above setting is enabled?
+          - Caused error
+            - Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
+          - Note
+            - On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
+          - Fix
+            - Move **Common** and **program files** folder to root of install media folder while intialization phase. After initialization phase is done, move **Common** and **program files** back to their original locations.
+              - If you move installer even into root of the filesystem, error 1603 and 1309 still occurs.
+                - But when I inspected location, file is copied, but it still gives this error.
+                  - If possible, enable **Local Computer Policy\Computer Configuration\Administrative Templated\System\Filesystem\Enable Win32 long paths**.
+                  - So, I guess this error can be ignored if above setting is enabled?
         - AdobeCaptivate4*
-          - Caused error: Installation fails with error 1603.
-          - Note:
-          - Fix:
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+          - Fix
         - AdobeContribute-PDistiller-mul\de_DE
-          - Caused error: Throws error 2715 on unpacking.
-          - Note:
-          - Fix:
+          - Caused error
+            - Throws error 2715 on unpacking.
+          - Note
+          - Fix
             - You can fix this with Orca MSI Editor.
               - Download Orca MSI editor from https://www.technipages.com/downloads/OrcaMSI.zip
                 - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
@@ -323,60 +334,91 @@ This script compresses all unpacked assets that present on "payloads" and "packa
               - On unpacked directory, perform replace operation exact opposite direction.
             - This also happens in CS6 packages that contains this package (also de-DE language).
         - AdobeDirector11.5*
-          - Caused error: Package normally unpackable, but it throws error 1603 while initialization phase.
-          - Note:
-          - Fix:
+          - Caused error
+            - Package normally unpackable, but it throws error 1603 while initialization phase.
+          - Note
+          - Fix
         - AdobeVersionCue4All
-          - Caused error: Package normally unpackable, but it throws error 1603 (Fatal error occured during installation) on log while initialization phase.
-          - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
-          - Fix: Move **Common** and **Windows** folder to root of install media while intialization phase. After initialization phase is done, move **Common** and **Windows** back to their original locations.
+          - Caused error
+            - Package normally unpackable, but it throws error 1603 (Fatal error occured during installation) on log while initialization phase.
+          - Note
+            - On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
+          - Fix
+            - Move **Common** and **Windows** folder to root of install media while intialization phase. After initialization phase is done, move **Common** and **Windows** back to their original locations.
         - MSXML6.0
-          - Caused error: Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.
-          - Note:
-          - Fix:
+          - Caused error
+            - Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.
+          - Note
+          - Fix
             - You can rename DLL files by adding their architectures to end.
               - In example, msxml6.ia64.dll for IA-64 version of Microsoft XML Parser.
       - Creative Suite 3 (CS3)
         - AdobeAfterEffects8All
-          - Caused error: Normally unpackable but this package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets (Error 1310. Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\5d83aea83f5009a0d267d337e3f55fe\payloads\AdobeAfterEffects8All\program files\Adobe\Adobe After Effects CS3\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects8ProtectedAll\AdobeAfterEffects8ProtectedAll.proxy.xml. Verify that you have access to that directory.) and throws error 1603 on logs.
-          - Note:
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Normally unpackable but this package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets (Error 1310. Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\5d83aea83f5009a0d267d337e3f55fe\payloads\AdobeAfterEffects8All\program files\Adobe\Adobe After Effects CS3\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects8ProtectedAll\AdobeAfterEffects8ProtectedAll.proxy.xml. Verify that you have access to that directory.) and throws error 1603 on logs.
+          - Note
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeAfterEffects8FCAll
-          - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 (Fatal error during installation) on logs.
-          - Note:
-          - Fix:
+          - Caused error
+            - Unpacked version prevents installation phase to be completed and it throws error 1603 (Fatal error during installation) on logs.
+          - Note
+          - Fix
         - AdobeAfterEffects8ProtectedAll
-          - Caused error: Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.
-          - Note: Even if you somehow unpack this package, it throws error code 1603 on log.
-          - Fix:
+          - Caused error
+            - Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.
+          - Note
+            - Even if you somehow unpack this package, it throws error code 1603 on log.
+          - Fix
         - AdobeEncore3All
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+            - It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeIllustrator13*
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+            - It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeInCopy5*
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+            - It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeInDesign5*
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+            - It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobePhotoshop10*
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+            - It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobePremierePro3All
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603.
+          - Note
+            - It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeSoundboothAll
-          - Caused error: Installation fails with error 1603 on Master Collection.
-          - Note: ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3!
-          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+          - Caused error
+            - Installation fails with error 1603 on Master Collection.
+          - Note:
+            - ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3!
+          - Fix:
+            - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - But some CS3 main packs can be unpacked. These are:
           - AdobeDreamweaver9*
           - AdobeFlash9*
