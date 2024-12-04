@@ -272,7 +272,13 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - Errors are due to searching proxy file (even when proxy file is in root of the payload media, i.e. in payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml, it isn't satisfied unless all subfolders inside of payload media checked).
     - Check for not unpackable packages section for more information.
-  - For unpacking protected files, I think main application (i.e. AdobeAfterEffects9ProtectedAll requires? AdobeAfterEffects9All) needs to be installed or protected application needs to be installed before unpacking.
+  - For unpacking protected payloads, I think preventing errors possible when main application (i.e. AdobeAfterEffects9ProtectedAll requires? AdobeAfterEffects9All) needs to be installed first, protected application needs to be installed before unpacking due to Windows's PATH_MAX limit?.
+    - If it's ignored, error 1603 and 2350 likely occurs due to this?
+           
+      ![image](./pictures/392548946-bfe02fe4-4b72-437f-b28e-3b90c57b8f99.png)
+
+      ![image](./pictures/392549109-74adb4d4-82bf-4c80-896d-31650b48666f.png)
+
   - When CS3's protected content is unpacked, it'll unpacked identical as original files.
   - But on CS4, when protected MSI is unpacked, files will be larger variable even? (2, 4, 8, 16 or larger) bytes.
     - But if protected packages are installed, they shrunk exactly to their original sizes and they're accessible normally again.
