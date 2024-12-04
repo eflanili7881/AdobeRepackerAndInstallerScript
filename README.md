@@ -313,6 +313,11 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobeAfterEffects9ProtectedAll
           - Caused error
             - Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
+           
+              ![image](./pictures/392548946-bfe02fe4-4b72-437f-b28e-3b90c57b8f99.png)
+
+              ![image](./pictures/392549109-74adb4d4-82bf-4c80-896d-31650b48666f.png)
+
           - Note
             - On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
           - Fix
