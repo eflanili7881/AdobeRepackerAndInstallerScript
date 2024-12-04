@@ -70,136 +70,170 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - You'll need packages, resources folder and Setup.exe (rename this file later as Set-up.exe, only on d!akov packages.) file from one of the RIBS-based d!akov or m0nkrus (On m0nkrus, take Set-up.exe, this will be same name like original installer unlike d!akov repacks, that has Setup.exe instead of Set-up.exe.). Unfortunately, this is the currently only way to install repacked RIBS assets. Original RIBS install engine throws error about software may counterfeit. Do not take "payloads" folder from d!akov repack because it contains pirated application. But we need the only install engine of d!akov to install our repacked assets.
     - You can manually patch legit Adobe RIBS installer by replacing this files from d!akov or m0nkrus distributions on RIBS-based legit installer engine:
       - CC 2014-era
-        | Binary Version | Binary Path | Binary Purpose |
-        | :-: | :-: | :-: |
-        | version 8.0.0.15 | packages\DECore\DECore.pima\DE6\Setup.dll | Allows repacked asset archives to be installed. |
-        | version 8.0.0.14 | packages\UWA\UWA.pima\updatercore.dll | Allows installing subscription updates on perpetual packages or vice versa. |
-        | version 8.0.0.73 | resources\AdobePIM.dll | Allows repacked *.pima archives from packages folder to be loaded. |
+        - Setup.dll
+          - Binary path: packages\DECore\DECore.pima\DE6\Setup.dll
+          - Binary version: 8.0.0.15
+          - Binary purpose: Allows repacked asset archives to be installed.
+        - updatercore.dll
+          - Binary path: packages\UWA\UWA.pima\updatercore.dll
+          - Binary version: 8.0.0.14
+          - Binary purpose: Allows installing subscription updates on perpetual packages or vice versa.
+        - AdobePIM.dll
+          - Binary path: resources\AdobePIM.dll
+          - Binary version: 8.0.0.73
+          - Binary purpose: Allows repacked *.pima archives from packages folder to be loaded.
       - CC 2013-era
-        | Binary Version | Binary Path | Binary Purpose |
-        | :-: | :-: | :-: |
-        | version 7.0.0.103 | packages\DECore\DECore.pima\DE6\Setup.dll | Allows repacked asset archives to be installed. |
-        | version 7.0.0.27 (from slightly older engine) | packages\UWA\UWA.pima\updatercore.dll | Allows installing subscription updates on perpetual packages or vice versa. |
-        | version 7.0.0.324 | resources\AdobePIM.dll | Allows repacked *.pima archives from packages folder to be loaded. | 
-        - When you try to replace these files with higher version on lower version RIBS engines, installation gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
-        - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
-        - If \payloads\Media_db.db\PayloadData\ *(any payload ID that has higher version than current RIBS engine on **value** column)* \PayloadInfo is greater than current RIBS engine, installer throws this error on logs (i.e. for SpeedGrade CC 2015 with 8.0.0.15 engine):
-          - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
+        - Setup.dll
+          - Binary path: packages\DECore\DECore.pima\DE6\Setup.dll
+          - Binary version: 7.0.0.103
+          - Binary purpose: Allows repacked asset archives to be installed.
+        - updatercore.dll
+          - Binary path: packages\UWA\UWA.pima\updatercore.dll
+          - Binary version: 7.0.0.27 (from slightly older engine)
+          - Binary purpose: Allows installing subscription updates on perpetual packages or vice versa.
+        - AdobePIM.dll
+          - Binary path: resources\AdobePIM.dll
+          - Binary version: 7.0.0.324
+          - Binary purpose: Allows repacked *.pima archives from packages folder to be loaded.
+      - When you try to replace these files with higher version on lower version RIBS engines, installation gives almost instant error and when you open summary.html or htm that installer generated, there is only System Requirements wrote as a link.
+      - For Creative Cloud Packager, only replacing AdobePIM.dll on resources folder is enough and it doesn't throw any error. Replacing Setup.dll and updatercore.dll isn't necessary.
+      - If \payloads\Media_db.db\PayloadData\ *(any payload ID that has higher version than current RIBS engine on **value** column)* \PayloadInfo is greater than current RIBS engine, installer throws this error on logs (i.e. for SpeedGrade CC 2015 with 8.0.0.15 engine):
+        - *ERROR: DW021: Payload {8FD7F1DB-7355-469E-A3F2-2118148D8477} DVA Adobe SpeedGrade CC 2015 9.0.0.0 of version: 9.0.0.6 is not supported by this version: 8.0.0.15 of RIBS.*
 
-            ![image](./pictures/316629568-af3aecbf-3c58-46e4-add8-8e601240010e.png)
+          ![image](./pictures/316629568-af3aecbf-3c58-46e4-add8-8e601240010e.png)
             
-          - This can be fixed with SQLite DB Browser.
-            - Download this program from https://sqlitebrowser.org/dl/
-              - Or if that page isn't available, but direct links are accessible:
-                | Version, Platform & Install Method | Link | Wayback Machine Link
-                | :-: | :-: | :-: |
-                | 3.12.2 Windows 32-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi | https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi |
-                | 3.12.2 Windows 32-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip | https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip |
-                | 3.12.2 Windows 64-bit MSI Installer | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi | https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi |
-                | 3.12.2 Windows 64-bit Portable | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip | https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip |
-                | 3.12.2 macOS Intel | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg | https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg |
-                | 3.12.2 macOS Apple Silicon | https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg | https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg |
-            - Install SQLite Browser or directly open SQLite Browser if you downloaded portable version.
-            - Open **(InstallMediaRoot)**\payloads\Media_db.db.
-            - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
-              - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
-            - Than paste these 2 commands to separate lines:
-              - update PayloadData **(do not execute command here.)**
-              - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here by pressing F5.)**
-              - This will replace any 9.0.0.6 with 8.0.0.15.
+        - This can be fixed with SQLite DB Browser.
+          - Download this program from https://sqlitebrowser.org/dl/
+            - Or if that page isn't available, but direct links are accessible:
+              - 3.12.2 Windows 32-bit MSI Installer
+                - Link: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
+                - Wayback Machine link: https://web.archive.org/web/20240308102559/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.msi
+              - 3.12.2 Windows 32-bit Portable
+                - Link: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
+                - Wayback Machine link: https://web.archive.org/web/20240308102755/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win32.zip
+              - 3.12.2 Windows 64-bit MSI Installer
+                - Link: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
+                - Wayback Machine link: https://web.archive.org/web/20240308102852/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.msi
+              - 3.12.2 Windows 64-bit Portable
+                - Link: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
+                - Wayback Machine link: https://web.archive.org/web/20240308103002/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2-win64.zip
+              - 3.12.2 macOS Intel
+                - Link: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg
+                - Wayback Machine link: https://web.archive.org/web/20240308103609/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-3.12.2.dmg
+              - 3.12.2 macOS Apple Silicon
+                - Link: https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg
+                - Wayback Machine link: https://web.archive.org/web/20240308104038/https://download.sqlitebrowser.org/DB.Browser.for.SQLite-arm64-3.12.2.dmg
+          - Install SQLite Browser or directly open SQLite Browser if you downloaded portable version.
+          - Open **(InstallMediaRoot)**\payloads\Media_db.db.
+          - While payloads\Media_db.db is opened, go to "Execute SQL" tab.
+            - You only need to patch payloads\Media_db.db to install application successfully. You don't need to patch Media_db.db inside \payloads\ * (i.e. AdobeBridge5-mul).
+          - Than paste these 2 commands to separate lines:
+            - update PayloadData **(do not execute command here.)**
+            - set Value = replace(value, '9.0.0.6', '8.0.0.15') **(execute command here by pressing F5.)**
+            - This will replace any 9.0.0.6 with 8.0.0.15.
              
-                ![image](./pictures/389949866-43dbe18b-d813-49d2-a42f-9b49257a41a7.png)
+              ![image](./pictures/389949866-43dbe18b-d813-49d2-a42f-9b49257a41a7.png)
 
-              - You may change these versions depending on product you're gonna installing.
-                - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
-          - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
-            - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
-    - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
-  - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
-    - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
-      - But weird thing is almost all packages has wrapper packages.
-        - AdobePresenter706-AS_PC-mul doesn't have wrapper payload.
-        - In example, AdobeEncore5RoyaltyAll and AdobeEncore5RoyaltyWrapperAll.
-        - Wrapper packages are real protected payload installers.
-          - In example, AdobePremierePro5RoyaltyWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\SetupRoyalty.
-          - In example, AdobePremierePro5ProtectedWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\Setup.
-        - Launching specific application will trigger of installation of these packages.
-        - Probable standalone protected payloads used for repairing already installed protected payload.
-      - But only wrapper packages are installed. Later, launching specific apps will install real protected payload.
-      - Protected packages are below:
-        - Creative Suite 5.5 (CS5.5)
-          - AdobeAfterEffects10.5ProtectedAll
-          - AdobeOnLocation5.1ProtectedAll
-        - Creative Suite 5 (CS5)
-          - AdobeAfterEffects10ProtectedAll
-          - AdobeAfterEffects10RoyaltyAll
-          - AdobeEncore5RoyaltyAll
-          - AdobeOnLocation5ProtectedAll (I don't know if it's exist.)
-          - AdobeOnLocation5RoyaltyAll
-          - AdobePremierePro5ProtectedAll
-          - AdobePremierePro5RoyaltyAll
-          - AdobeSoundbooth3ProtectedAll
-          - AdobeSoundbooth3RoyaltyAll
-          - AMEDolby5All
-          - AMEDolby5All_x64
-          - AMEPCI5All
-          - AMEPCI5All_x64
-        - Miscellaneous
-          - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite, I don't know other suite's reaction.)
-        - Total packages: 16 (15 if AdobeOnLocation5ProtectedAll doesn't exist and I added this package as an error).
-      - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
+            - You may change these versions depending on product you're gonna installing.
+              - In example, you must replace 9.0.0.6 with 9.0.0.7 on Adobe Photoshop CC 2015.
+        - Or you can replace installer engine with patched and newer version from following this guide on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+          - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
+  - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
+- CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
+  - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
+    - But weird thing is almost all packages has wrapper packages.
+      - AdobePresenter706-AS_PC-mul doesn't have wrapper payload.
+      - In example, AdobeEncore5RoyaltyAll and AdobeEncore5RoyaltyWrapperAll.
+      - Wrapper packages are real protected payload installers.
+        - In example, AdobePremierePro5RoyaltyWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\SetupRoyalty.
+        - In example, AdobePremierePro5ProtectedWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\Setup.
+      - Launching specific application will trigger of installation of these packages.
+      - Probable standalone protected payloads used for repairing already installed protected payload.
+    - But only wrapper packages are installed. Later, launching specific apps will install real protected payload.
+    - Protected packages are below:
+      - Creative Suite 5.5 (CS5.5)
+        - AdobeAfterEffects10.5ProtectedAll
+        - AdobeOnLocation5.1ProtectedAll
+       - Creative Suite 5 (CS5)
+        - AdobeAfterEffects10ProtectedAll
+        - AdobeAfterEffects10RoyaltyAll
+        - AdobeEncore5RoyaltyAll
+        - AdobeOnLocation5ProtectedAll (I don't know if it's exist.)
+        - AdobeOnLocation5RoyaltyAll
+        - AdobePremierePro5ProtectedAll
+        - AdobePremierePro5RoyaltyAll
+        - AdobeSoundbooth3ProtectedAll
+        - AdobeSoundbooth3RoyaltyAll
+        - AMEDolby5All
+        - AMEDolby5All_x64
+        - AMEPCI5All
+        - AMEPCI5All_x64
+      - Miscellaneous
+        - AdobePresenter706-AS_PC-mul (from Adobe Acrobat X Suite, I don't know other suite's reaction.)
+      - Total packages: 16 (15 if AdobeOnLocation5ProtectedAll doesn't exist and I added this package as an error).
+    - Example prompt of enter password (from **ASTE_AcrobatSte_10_J.7z\Adobe Acrobat X Suite\payloads\AdobePresenter706-AS_PC-mul\Assets1_1.zip** and **NanaZip 3.1 3.1.1080.0**):
      
-        ![image](./pictures/386834327-3ba256d0-5cd5-43ad-8fc1-8034345a46dc.png)
+      ![image](./pictures/386834327-3ba256d0-5cd5-43ad-8fc1-8034345a46dc.png)
 
-      - But almost all packages has stored some *.png files as uncompressed (Stored as "Store" method on *.zip file). Only AdobePresenter706-AS_PC-mul, AdobeOnLocation5RoyaltyAll and AdobeOnLocation5.1ProtectedAll doesn't have file that stored as "Store" method; they're all stored as "Deflate" method.
-      - Example output from AdobeEncore5RoyaltyAll\Assets2_1.zip (with bkcrack 1.7.0 x64):
+    - But almost all packages has stored some *.png files as uncompressed (Stored as "Store" method on *.zip file). Only AdobePresenter706-AS_PC-mul, AdobeOnLocation5RoyaltyAll and AdobeOnLocation5.1ProtectedAll doesn't have file that stored as "Store" method; they're all stored as "Deflate" method.
+    - Example output from AdobeEncore5RoyaltyAll\Assets2_1.zip (with bkcrack 1.7.0 x64):
      
-        ![image](./pictures/389905270-fa556027-7db8-467f-a0ef-63af79553b0f.png)
+      ![image](./pictures/389905270-fa556027-7db8-467f-a0ef-63af79553b0f.png)
 
-      - If you examine _30_c542f7a7e42c7dbfca89edd858695fe5 on SQLite DB Browser, this file is actually **[AdobeCommon]\Keyfiles\Encore\en_ribs_bgd.png**
+    - If you examine _30_c542f7a7e42c7dbfca89edd858695fe5 on SQLite DB Browser, this file is actually **[AdobeCommon]\Keyfiles\Encore\en_ribs_bgd.png**
      
-        ![image](./pictures/389910154-b57753f2-a1cd-46e4-b70f-8874353086c0.png)
+      ![image](./pictures/389910154-b57753f2-a1cd-46e4-b70f-8874353086c0.png)
 
-      - Almost all PNG files has header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** (16 byte hex value) (example from one PNG image).
+    - Almost all PNG files has header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** (16 byte hex value) (example from one PNG image).
      
-        ![image](./pictures/389911143-eae6054f-bff8-481d-841e-95e676d1ee43.png)
+      ![image](./pictures/389911143-eae6054f-bff8-481d-841e-95e676d1ee43.png)
 
-      - Saving header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** to a empty file (I assume it saved as png.txt) and then running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -c _30_c542f7a7e42c7dbfca89edd858695fe5 -p C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\png.txt** gives us needed 3 keys to decrypt the files:
+    - Saving header **89 50 4E 47 0D 0A 1A 0A 00 00 00 0D 49 48 44 52** to a empty file (I assume it saved as png.txt) and then running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -c _30_c542f7a7e42c7dbfca89edd858695fe5 -p C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\png.txt** gives us needed 3 keys to decrypt the files:
      
-        ![image](./pictures/389914790-f81b7f1b-4b44-4d24-8dad-2b80e8330544.png)
+      ![image](./pictures/389914790-f81b7f1b-4b44-4d24-8dad-2b80e8330544.png)
 
-      - With running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -k bc6747e7 90ef9eb3 c8ccfc8c -D C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1_nopass.zip**, you can save a copy of archive without password.
-        - All files in same archive has same encryption key.
-        - All Assets*_*.zip files in same payload have same 3 encryption keys.
-          - In example, AdobeEncore5RoyaltyAll\Assets2_1.zip's encryption keys will work for AdobeEncore5RoyaltyAll\Assets1_1.zip, but not for AdobePremierePro5ProtectedAll\Assets2_1.zip.
-      - Here the needed keys for decrypting archives via bkcrypt:
-        - Creative Suite 5.5 (CS5.5)
-          |Payload|Decryption Keys|
-          |:-:|:-:|
-          |AdobeAfterEffects10.5ProtectedAll|8baf81d1 b7f4483b 7965f5ac|
-          |AdobeOnLocation5.1ProtectedAll|N/A|
-        - Creative Suite 5 (CS5)
-          |Payload|Decryption Keys|
-          |:-:|:-:|
-          |AdobeAfterEffects10ProtectedAll|8360d7ed abb8460f 16dd4c7c|
-          |AdobeAfterEffects10RoyaltyAll|5d6d59df 7bdd9a85 db7a93a3|
-          |AdobeEncore5RoyaltyAll|bc6747e7 90ef9eb3 c8ccfc8c|
-          |AdobeOnLocation5RoyaltyAll|N/A|
-          |AdobeOnLocation5ProtectedAll (I don't know if it's exist.)|N/A|
-          |AdobePremierePro5ProtectedAll|e3980dd5 17605728 f475cf83|
-          |AdobePremierePro5RoyaltyAll|5d756a2e 780657c6 22073806|
-          |AdobeSoundbooth3ProtectedAll|db0f3efe dbed56a4 475bc8b7|
-          |AdobeSoundbooth3RoyaltyAll|a918e87e 52daf956 c1a4cfe4|
-          |AMEDolby5All|719284df 2a03ccd8 0a1b1d7e|
-          |AMEDolby5All_x64|ff3c28e8 f5b04927 00d32e37|
-          |AMEPCI5All|8b9141e5 0b8a8f65 9faece7e|
-          |AMEPCI5All_x64|672e3ca6 954708e3 9c061f76|
-        - Miscellenaous
-          |Payload|Decryption Keys|
-          |:-:|:-:|
-          |AdobePresenter706-AS_PC-mul|N/A|
-          - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
-      - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
+    - With running **bkcrack -C C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1.zip -k bc6747e7 90ef9eb3 c8ccfc8c -D C:\Users\Administrator\Downloads\Programs\AdobeDownloads\AdobeZIPDecryption\encore5royalty_key_DONE\Assets2_1_nopass.zip**, you can save a copy of archive without password.
+      - All files in same archive has same encryption key.
+      - All Assets*_*.zip files in same payload have same 3 encryption keys.
+        - In example, AdobeEncore5RoyaltyAll\Assets2_1.zip's encryption keys will work for AdobeEncore5RoyaltyAll\Assets1_1.zip, but not for AdobePremierePro5ProtectedAll\Assets2_1.zip.
+    - Here the needed keys for decrypting archives via bkcrypt:
+      - Creative Suite 5.5 (CS5.5)
+        - AdobeAfterEffects10.5ProtectedAll
+          - 8baf81d1 b7f4483b 7965f5ac
+        - AdobeOnLocation5.1ProtectedAll
+          - N/A
+      - Creative Suite 5 (CS5)
+        - AdobeAfterEffects10ProtectedAll
+          - 8360d7ed abb8460f 16dd4c7c
+        - AdobeAfterEffects10RoyaltyAll
+          - 5d6d59df 7bdd9a85 db7a93a3
+        - AdobeEncore5RoyaltyAll
+          - bc6747e7 90ef9eb3 c8ccfc8c
+        - AdobeOnLocation5RoyaltyAll
+          - N/A
+        - AdobeOnLocation5ProtectedAll (I don't know if it's exist.)
+          - N/A
+        - AdobePremierePro5ProtectedAll
+          - e3980dd5 17605728 f475cf83
+        - AdobePremierePro5RoyaltyAll
+          - 5d756a2e 780657c6 22073806
+        - AdobeSoundbooth3ProtectedAll
+          - db0f3efe dbed56a4 475bc8b7
+        - AdobeSoundbooth3RoyaltyAll
+          - a918e87e 52daf956 c1a4cfe4
+        - AMEDolby5All
+          - 719284df 2a03ccd8 0a1b1d7e
+        - AMEDolby5All_x64
+          - ff3c28e8 f5b04927 00d32e37
+        - AMEPCI5All
+          - 8b9141e5 0b8a8f65 9faece7e
+        - AMEPCI5All_x64
+          - 672e3ca6 954708e3 9c061f76
+      - Miscellenaous
+        - AdobePresenter706-AS_PC-mul
+          - N/A
+      - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
+    - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
         - You need to launch specific application to install protected payload.
        
           ![image](./pictures/389936471-0bc51da5-d6cb-4131-9ee9-665f609eca94.png)
@@ -244,47 +278,97 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - Creative Suite 4 (CS4)
         | Package Name | Caused error | Note | Fix |
         | :-: | :-: | :-: | :-: |
-        | AdobeAfterEffects9All | On Master Collection, Production Premium and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs. | | |
-        | AdobeAfterEffects9FCAll | Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation). | | |
-        | AdobeAfterEffects9ProtectedAll | Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails. | | |
-        | AdobeCaptivate4* | Installation fails with error 1603. | | |
-        | AdobeContribute-PDistiller-mul\de_DE | Throws error 2715 on unpacking. | | See note below. | 
-        | AdobeDirector11.5* | Package normally unpackable, but it throws error 1603 while initialization phase. | | |
-        | AdobeVersionCue4All | Package normally unpackable, but it throws error 1603 (Fatal error occured during installation) on log while initialization phase. | | |
-        | MSXML6.0 | Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess. | | See note below. |
-
-        For `` AdobeContribute-PDistiller-mul\de_DE ``:
-        - You can fix this with Orca MSI Editor.
-          - Download Orca MSI editor from https://www.technipages.com/downloads/OrcaMSI.zip
-            - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
-          - On Orca, search Docs_DistillerS_DEU on Components table.
-          - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
-          - On unpacked directory, perform replace operation exact opposite direction.
-        - This also happens in CS6 packages that contains this package (also de-DE language).
-        
-        For `` MSXML6.0 ``:
-        - You can rename DLL files by adding their architectures to end.
-          - In example, msxml6.ia64.dll for IA-64 version of Microsoft XML Parser.
+        - AdobeAfterEffects9All
+          - Caused error: On Master Collection, Production Premium and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
+          - Note:
+          - Fix:
+        - AdobeAfterEffects9FCAll
+          - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
+          - Note:
+          - Fix:
+        - AdobeAfterEffects9ProtectedAll
+          - Caused error: Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
+          - Note:
+          - Fix:
+        - AdobeCaptivate4*
+          - Caused error: Installation fails with error 1603.
+          - Note:
+          - Fix:
+        - AdobeContribute-PDistiller-mul\de_DE
+          - Caused error: Throws error 2715 on unpacking.
+          - Note:
+          - Fix:
+            - You can fix this with Orca MSI Editor.
+              - Download Orca MSI editor from https://www.technipages.com/downloads/OrcaMSI.zip
+                - If it's deleted, you can download this package from Wayback Machine on https://web.archive.org/web/20240308101549/https://www.technipages.com/downloads/OrcaMSI.zip
+              - On Orca, search Docs_DistillerS_DEU on Components table.
+              - When found, replace ACROHELP.DISTS_DEU with ACROHELP_DISTS_DEU.pdf.
+              - On unpacked directory, perform replace operation exact opposite direction.
+            - This also happens in CS6 packages that contains this package (also de-DE language).
+        - AdobeDirector11.5*
+          - Caused error: Package normally unpackable, but it throws error 1603 while initialization phase.
+          - Note:
+          - Fix:
+        - AdobeVersionCue4All
+          - Caused error: Package normally unpackable, but it throws error 1603 (Fatal error occured during installation) on log while initialization phase.
+          - Note:
+          - Fix:
+        - MSXML6.0
+          - Caused error: Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.\
+          - Note:
+          - Fix:
+            - You can rename DLL files by adding their architectures to end.
+              - In example, msxml6.ia64.dll for IA-64 version of Microsoft XML Parser.
       - Creative Suite 3 (CS3)
-        | Package Name | Caused error | Note | Fix |
-        | :-: | :-: | :-: | :-: |
-        | AdobeAfterEffects8All | Normally unpackable but this package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets (Error 1310. Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\5d83aea83f5009a0d267d337e3f55fe\payloads\AdobeAfterEffects8All\program files\Adobe\Adobe After Effects CS3\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects8ProtectedAll\AdobeAfterEffects8ProtectedAll.proxy.xml. Verify that you have access to that directory.) and throws error 1603 on logs. | | Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something. |
-        | AdobeAfterEffects8FCAll | Unpacked version prevents installation phase to be completed and it throws error 1603 (Fatal error during installation) on logs. | | |
-        | AdobeAfterEffects8ProtectedAll | Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails. | Even if you somehow unpack this package, it throws error code 1603 on log. | |
-        | AdobePremierePro3All | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobePhotoshop10* | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobeIllustrator13* | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobeInDesign5* | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobeInCopy5* | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobeEncore3All | Installation fails with error 1603. | It may caused from not unpacking .msi file without .mst transform. I will update here if it's true. | |
-        | AdobeSoundboothAll | Installation fails with error 1603 on Master Collection. | ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3! | Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something. |
+        - AdobeAfterEffects8All
+          - Caused error: Normally unpackable but this package fails and gives permission error about AdobeAfterEffects8ProtectedAll directory inside of unpacked After Effects assets (Error 1310. Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\5d83aea83f5009a0d267d337e3f55fe\payloads\AdobeAfterEffects8All\program files\Adobe\Adobe After Effects CS3\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects8ProtectedAll\AdobeAfterEffects8ProtectedAll.proxy.xml. Verify that you have access to that directory.) and throws error 1603 on logs.
+          - Note:
+          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
+        - AdobeAfterEffects8FCAll
+          - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 (Fatal error during installation) on logs.
+          - Note:
+          - Fix:
+        - AdobeAfterEffects8ProtectedAll -
+          - Caused error: Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.
+          - Note: Even if you somehow unpack this package, it throws error code 1603 on log.
+          - Fix:
+        - AdobePremierePro3All
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobePhotoshop10*
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobeIllustrator13*
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobeInDesign5*
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobeInCopy5*
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobeEncore3All
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobeSoundboothAll
+          - Caused error: Installation fails with error 1603 on Master Collection.
+          - Note: ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3!
+          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - But some CS3 main packs can be unpacked. These are:
-          | Package Name | Note |
-          | :-: | :-: |
-          | AdobeDreamweaver9* | |
-          | AdobeFlash9* | |
-          | AdobeFireworks9* | |
-          | AdobeIllustrator13* | Only on Master Collection. |
-          | AdobeInDesign5* | Only on Master Collection. |
-          | AdobePhotoshop10* | Only on Master Collection. |
-          | AdobeContribute4.1* | On Adobe Acrobat Pro 8 (in suites), they may say **C:\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL** is missing during install. Specifying **\payloads\AdobeAcrobat8de_DE\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL** will solves this. |
+          - AdobeDreamweaver9*
+          - AdobeFlash9*
+          - AdobeFireworks9*
+          - AdobeIllustrator13*
+            - Only on Master Collection.
+          - AdobeInDesign5*
+            - Only on Master Collection.
+          - AdobePhotoshop10*
+            - Only on Master Collection.
+          - AdobeContribute4.1*
+            - On Adobe Acrobat Pro 8 (in suites), they may say **C:\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL** is missing during install. Specifying **\payloads\AdobeAcrobat8de_DE\program files\Adobe\Acrobat 8.0\Acrobat\Xtras\AdobePDF\I386\ADOBEPDF.DLL** will solves this.
