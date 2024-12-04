@@ -327,23 +327,15 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 (Fatal error during installation) on logs.
           - Note:
           - Fix:
-        - AdobeAfterEffects8ProtectedAll -
+        - AdobeAfterEffects8ProtectedAll
           - Caused error: Throws error 1304 about copying file. Even if you try to click "Retry", it throws error 2350 and unpack fails.
           - Note: Even if you somehow unpack this package, it throws error code 1603 on log.
           - Fix:
-        - AdobePremierePro3All
+        - AdobeEncore3All
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
           - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
-        - AdobePhotoshop10*
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix:
         - AdobeIllustrator13*
-          - Caused error: Installation fails with error 1603.
-          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix:
-        - AdobeInDesign5*
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
           - Fix:
@@ -351,10 +343,18 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
           - Fix:
-        - AdobeEncore3All
+        - AdobeInDesign5*
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
           - Fix:
+        - AdobePhotoshop10*
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix:
+        - AdobePremierePro3All
+          - Caused error: Installation fails with error 1603.
+          - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
+          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobeSoundboothAll
           - Caused error: Installation fails with error 1603 on Master Collection.
           - Note: ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3!
