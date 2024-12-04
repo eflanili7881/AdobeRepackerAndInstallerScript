@@ -270,12 +270,24 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - Unpack MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
 - Copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
-  - When protected MSI is unpacked, it writes 16 bytes to every file.
-    - But for some smaller files, it writes 8 bytes instead.
-    - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
-      - Smaller files will shrunk 8 bytes instead.
-      - I think that 16 (8 for smaller files) bytes is for protecting that file (maybe some sort of encrypted header or something).
+  - Errors are due to searching proxy file (even when proxy file is in root of the payload media, i.e. in payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml, it isn't satisfied unless all subfolders inside of payload media checked).
+    - Check for not unpackable packages for more information.
+  - When CS3's protected content is unpacked, it'll unpacked identical as original files.
+  - But on CS4, when protected MSI is unpacked, files will be larger variable even (2, 4, 8, 16 or larger) bytes.
+    - But if protected packages are installed, they shrunk exactly to their original sizes and they're accessible normally again.
+    - Protected files' content are garbled while inside of installation media (i.e. for **C:\Program Files (x86)\Adobe\Adobe After Effects CS4\Mocha\bin\dvsoem.dll** before copied)
+   
+      ![image](./pictures/392404951-9b864579-df20-4510-bbe2-a5fe92718dc4.png)
+
+      - This file is 2 bytes larger than it's original size.
+    - But after protected file copied into it's desired location, it'll shrink to it's original size and it's normally accessible again (i.e. for **C:\Program Files (x86)\Adobe\Adobe After Effects CS4\Mocha\bin\dvsoem.dll** after copied).
+   
+      ![image](./pictures/392410429-245ca07f-a3a4-4f09-bac6-7ad3656d8da7.png)
+
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content on specific packages. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase. But on installation phase, it doesn't and it will fail.
+    - But when I inspected location, file is copied, but it still gives this error.
+      - If possible, enable **Local Computer Policy\Computer Configuration\Administrative Templated\System\Filesystem\Enable Win32 long paths**.
+      - So, I guess this error can be ignored if above setting is enabled?
   - When I tried to unpack AdobePremierePro3ProtectedAll with all *.mst transform files, it unpacked and installed successfully without any error.
     - Currently not unpackable assets are:
       - Creative Suite 4 (CS4)
@@ -293,6 +305,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - Fix: Move **Common** and **program files** folder to root of install media folder while intialization phase. After initialization phase is done, move **Common** and **program files** back to their original locations.
             - If you move installer even into root of the filesystem, error 1603 and 1309 still occurs.
               - But when I inspected location, file is copied, but it still gives this error.
+                - If possible, enable **Local Computer Policy\Computer Configuration\Administrative Templated\System\Filesystem\Enable Win32 long paths**.
+                - So, I guess this error can be ignored if above setting is enabled?
         - AdobeCaptivate4*
           - Caused error: Installation fails with error 1603.
           - Note:
