@@ -283,8 +283,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - Fix: Move **program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml** to shorter directory on initialization phase. After initialization phase is done, move AdobeAfterEffects9ProtectedAll.proxy.xml again to it's original directory.
         - AdobeAfterEffects9FCAll
           - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
-          - Note:
-          - Fix:
+          - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
+          - Fix: Move **program files** folder to payloads folder while intialization phase. After initialization phase is done, move **program files** back to it's original location.
         - AdobeAfterEffects9ProtectedAll
           - Caused error: Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
           - Note:
