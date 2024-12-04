@@ -271,8 +271,10 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 - Copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - When protected MSI is unpacked, it writes 16 bytes to every file.
+    - But for some smaller files, it writes 8 bytes instead.
     - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
-      - I think that 16 bytes is for protecting that file (maybe some sort of encrypted header or something).
+      - Smaller files will shrunk 8 bytes instead.
+      - I think that 16 (8 for smaller files) bytes is for protecting that file (maybe some sort of encrypted header or something).
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content on specific packages. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase. But on installation phase, it doesn't and it will fail.
   - When I tried to unpack AdobePremierePro3ProtectedAll with all *.mst transform files, it unpacked and installed successfully without any error.
     - Currently not unpackable assets are:
@@ -284,11 +286,13 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobeAfterEffects9FCAll
           - Caused error: Unpacked version prevents installation phase to be completed and it throws error 1603 on log (Fatal error occured during installation).
           - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
-          - Fix: Move **program files** folder to payloads folder while intialization phase. After initialization phase is done, move **program files** back to it's original location.
+          - Fix: Move **program files** folder to root of install media while intialization phase. After initialization phase is done, move **program files** back to it's original location.
         - AdobeAfterEffects9ProtectedAll
           - Caused error: Package normally unpackable, but it throws error 1603 while initialization phase. Not on standalone program, but on Master Collection and likely on other suites that contains this package, throws error 1304 about copying file. Even if you try to click "Retry", it throws internal error 2350 and unpack fails.
-          - Note:
-          - Fix:
+          - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
+          - Fix: Move **Common** and **program files** folder to root of install media folder while intialization phase. After initialization phase is done, move **Common** and **program files** back to their original locations.
+            - If you move installer even into root of the filesystem, error 1603 and 1309 still occurs.
+              - But when I inspected location, file is copied, but it still gives this error.
         - AdobeCaptivate4*
           - Caused error: Installation fails with error 1603.
           - Note:
@@ -310,8 +314,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - Fix:
         - AdobeVersionCue4All
           - Caused error: Package normally unpackable, but it throws error 1603 (Fatal error occured during installation) on log while initialization phase.
-          - Note:
-          - Fix:
+          - Note: On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
+          - Fix: Move **Common** and **Windows** folder to root of install media while intialization phase. After initialization phase is done, move **Common** and **Windows** back to their original locations.
         - MSXML6.0
           - Caused error: Normally it's unpackable, but due to conflict between x64 and ia64, I not prefer unpack this payload folder. If you try to separate folder into individual payloads, at initialization phase, nothing happens and installation not starts due to payload ID conflict I guess.
           - Note:
