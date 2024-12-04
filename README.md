@@ -273,7 +273,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - Errors are due to searching proxy file (even when proxy file is in root of the payload media, i.e. in payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml, it isn't satisfied unless all subfolders inside of payload media checked).
     - Check for not unpackable packages section for more information.
   - For unpacking protected payloads, I think preventing errors possible when main application (i.e. AdobeAfterEffects9ProtectedAll requires? AdobeAfterEffects9All) needs to be installed first, protected application needs to be installed before unpacking due to Windows's PATH_MAX limit?.
-    - If it's ignored, error 1603 and 2350 likely occurs due to this?
+    - If it's ignored, error 1304 and 2350 likely occurs due to this?
            
       ![image](./pictures/392548946-bfe02fe4-4b72-437f-b28e-3b90c57b8f99.png)
 
@@ -328,7 +328,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - Note
             - On logs, log file says **CustomAction OEMSupportBlindCopy.E35C3ECB_5FDA_49E1_AB1F_D472B7CB90171 returned actual error code 1603 (note this may not be 100% accurate if translation happened inside sandbox)**
           - Fix
-            - Move **Common** and **program files** folder to root of install media folder while intialization phase. After initialization phase is done, move **Common** and **program files** back to their original locations.
+            - Move **Common** and **program files** folder to root of install media folder while intialization phase. After initialization phase is done, move **Common** and **program files** back to their original locations. I think preventing errors possible when main application (i.e. AdobeAfterEffects9ProtectedAll requires? AdobeAfterEffects9All) needs to be installed first, protected application needs to be installed before unpacking due to Windows's PATH_MAX limit?.
               - If you move installer even into root of the filesystem, error 1603 and 1309 still occurs.
                 - But when I inspected location, file is copied, but it still gives this error.
                   - If possible, enable **Local Computer Policy\Computer Configuration\Administrative Templated\System\Filesystem\Enable Win32 long paths**.
