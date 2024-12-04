@@ -265,10 +265,10 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - msiexec /a X:\path\to\MSI\file.msi /qb targetdir=X:\path\to\expand transforms=X:\transform\file.mst
       - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
       - This may also fix bunch of CS3 packages.
-- I recommend you to unpack MSI files to very short location (i.e. D:\1) to avoid issues about file path limitation.
-- I recommend you to move unpacked assets via 7-Zip or other archive software after unpack of MSI is done as Windows Explorer may broke up something in our unpacked assets.
-- I recommend you to install MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
-- I recommend you to copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
+- Unpack MSI files to very short location (i.e. D:\1) to avoid issues about file path limitation.
+- Move unpacked assets via 7-Zip or other archive software after unpack of MSI is done as Windows Explorer may broke up something in our unpacked assets.
+- Unpack MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
+- Copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - When protected MSI is unpacked, it writes 16 bytes to every file.
     - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
@@ -335,7 +335,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobePremierePro3All
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
-          - Fix:
+          - Fix: Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - AdobePhotoshop10*
           - Caused error: Installation fails with error 1603.
           - Note: It may caused from not unpacking .msi file without .mst transform. I will update here if it's true.
