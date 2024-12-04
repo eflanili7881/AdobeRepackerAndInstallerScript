@@ -274,10 +274,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - But if protected packages are installed, they shrunk 16 bytes exactly and they're accessible normally again.
       - I think that 16 bytes is for protecting that file (maybe some sort of encrypted header or something).
   - Interestingly on my tests with CS4, if protected content's payload path is beyond MAX_PATH variable, initialization phase is continued like nothing happened. But installer will fail gradually when installer tries to install protected unpacked content on specific packages. My theory was installer engine is so old that skips paths that beyond MAX_PATH limit on initialization phase. But on installation phase, it doesn't and it will fail.
+  - When I tried to unpack AdobePremierePro3ProtectedAll with all *.mst transform files, it unpacked and installed successfully without any error.
     - Currently not unpackable assets are:
       - Creative Suite 4 (CS4)
-        | Package Name | Caused error | Note | Fix |
-        | :-: | :-: | :-: | :-: |
         - AdobeAfterEffects9All
           - Caused error: On Master Collection, Production Premium and probably on other suites, this package fails and gives permission error about AdobeAfterEffects9ProtectedAll directory inside of unpacked After Effects assets and throws error 1310 (Error writing to file: C:\Program Files (x86)\Common Files\Adobe\Installers\b2d6abde968e6f277ddbfd501383e02\payloads\AdobeAfterEffects9All\program files\Adobe\Adobe After Effects CS4\Support Files\(PCI)\Setup\payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml. Verify that you have access to that directory.) and error 1603 on logs.
           - Note:
