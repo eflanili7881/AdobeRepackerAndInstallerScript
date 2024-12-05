@@ -432,9 +432,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - AdobeSoundboothAll
           - Caused error
             - Installation fails with error 1603 on Master Collection.
-          - Note:
+          - Note
             - ~~I don't have standalone product to test standalone product's reaction :(( (If somebody have standalone Adobe Soundbooth CS3 installer, you can write me :)) )~~ Thanks to user [bitaliy1500](https://archive.org/details/@vitaliys2005) from archive.org, I got the standalone copy of Adobe Soundbooth CS3!
-          - Fix:
+          - Fix
             - Unpack .msi files with .mst files. Unpacked and installed on Adobe Master Collection CS3. It didn't give any error. Or moving unpacked assets with 7-Zip did something.
         - But some CS3 main packs can be unpacked. These are:
           - AdobeDreamweaver9*
