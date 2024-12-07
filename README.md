@@ -33,11 +33,11 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
 
     - When I try to launch installer via **\packages\ACC\Utils\Utils.pima\Creative Cloud Installer.app (copied it Creative Cloud's install root (version x>=4.6.0.391))**, error 72 appears.
 
-      ![image](,/pictures/387294700-98d0d297-275c-4ae9-8cbe-b24b09e3f83f.png)
+      ![image](./pictures/387294700-98d0d297-275c-4ae9-8cbe-b24b09e3f83f.png)
 
       ![image](./pictures/387295265-1947741b-269e-4beb-bbf1-3d467efb699b.png)
 
-      ![image](,/pictures/387296679-8e24bb89-8a32-45bf-bfd8-1905d1ea544c.png)
+      ![image](./pictures/387296679-8e24bb89-8a32-45bf-bfd8-1905d1ea544c.png)
 
       - Both errors suggests it's signature validation error.
     - Because version **x>=4.6.0.391**, it enforces Adobe account login and file signatures to be valid.
