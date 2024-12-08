@@ -1,11 +1,14 @@
 #!/bin/bash
 
 clear
+echo "==> Adobe Repacker and Installer Script v0.3.0.2-ribs-mac-zipwdmgcmpnts rc"
 echo "==> Setting Variables ..."
 echo Enter Adobe media folder location:
 read source_directory
 echo Enter 7-Zip Console binary path:
 read sevenzip_bin
+echo Enter compression ratio for archive files between 0 and 9:
+read compression_level
 adobetempinstaller=~/adobetempinstaller
 adobeworkfolder=~/adobeworkfolder
 
@@ -78,12 +81,12 @@ read -n 1
 while IFS= read -r line
 do
   recompress_packages=$line
-  "$sevenzip_bin" a -bd -snh -snl -tzip "$adobetempinstaller/$recompress_packages.pima" -mx5 -r "$source_directory/$recompress_packages/*"
+  "$sevenzip_bin" a -bd -snh -snl -tzip "$adobetempinstaller/$recompress_packages.pima" -mx$compression_level -r "$source_directory/$recompress_packages/*"
 done < $adobeworkfolder/recompress_packages.txt
 while IFS= read -r line
 do
   recompress_payloads=$line
-  "$sevenzip_bin" a -bd -snh -snl -tzip "$adobetempinstaller/$recompress_payloads.zip" -mx5 -r "$source_directory/$recompress_payloads/*"
+  "$sevenzip_bin" a -bd -snh -snl -tzip "$adobetempinstaller/$recompress_payloads.zip" -mx$compression_level -r "$source_directory/$recompress_payloads/*"
 done < $adobeworkfolder/recompress_payloads.txt
 while IFS= read -r line
 do
