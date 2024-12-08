@@ -2,60 +2,78 @@
 rem #####################
 rem # Preparation Phase #
 rem #####################
-cd %~dp0
+echo "==> Adobe Repacker and Installer Script v0.3.0-ribs-win rc - for existing installs"
+
 echo "==> Setting Variables ..."
-set adobetempinstaller=%systemdrive%\adobetempinstaller
-set adobeworkfolder=%systemdrive%\adobeworkfolder
+echo "Enter Adobe installer directory that contains packages and payloads folder:"
+set /p source_directory=
+echo "Enter 7-Zip Console binary path:"
+set /p sevenzip_bin=
+set adobetempinstaller=%userprofile%\adobetempinstaller
+set adobeworkfolder=%userprofile%\adobeworkfolder
+cd /d "%source_directory%"
+
 echo "==> Deleting Previously Failed Instance ..."
-rd %adobeworkfolder% /s /q
-rd %adobetempinstaller% /s /q
+rd "%adobeworkfolder%" /s /q
+rd "%adobetempinstaller%" /s /q
+
 echo "==> Creating Directories ..."
-mkdir %adobeworkfolder%
-mkdir %adobetempinstaller%
-mkdir %adobetempinstaller%\packages
-cd "%~dp0packages"
+mkdir "%adobeworkfolder%"
+mkdir "%adobetempinstaller%"
+mkdir "%adobetempinstaller%\packages"
+cd /d "%source_directory%\packages"
 for /d %%a in ("*") do mkdir "%adobetempinstaller%\packages\%%a"
-cd "%~dp0"
-mkdir %adobetempinstaller%\payloads
-cd "%~dp0payloads"
+mkdir "%adobetempinstaller%\payloads"
+cd /d "%source_directory%\payloads"
 for /d %%b in ("*") do mkdir "%adobetempinstaller%\payloads\%%b"
-echo "==> Creating Exclusion File ..."
-echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
-pause
-cd "%~dp0packages"
-powershell -command "start-transcript -path "%adobeworkfolder%\excludepackages.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
-cd "%~dp0"
-cd "%~dp0payloads"
-powershell -command "start-transcript -path "%adobeworkfolder%\excludepayloads.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
-echo "Remove all lines but file/folder paths, remove main folders, remove all things before packages and payloads that not including \ before on packages and payloads folder, put \ every end of the line, copy first line to one below to avoid an anomaly and save it."
-pause
-notepad %adobeworkfolder%\excludepackages.txt
-notepad %adobeworkfolder%\excludepayloads.txt
+
+echo "==> Creating Exclusion Files ..."
+cd /d "%source_directory%\packages"
+for /d %%c in ("*") do for /d %%d in ("%%c\*") do @echo %%~fd >> "%adobeworkfolder%\excludepackages.txt"
+cd /d "%source_directory%\payloads"
+for /d %%e in ("*") do for /d %%f in ("%%e\*") do @echo %%~ff >> "%adobeworkfolder%\excludepayloads.txt"
 rem #####################
 rem # Compression Phase #
 rem #####################
+
+echo "==> Creating Compression Files ..."
+cd /d "%source_directory%\packages"
+for /d %%g in ("*") do for /d %%h in ("%%g\*") do @echo %%~fh >> "%adobeworkfolder%\compresspackages.txt"
+cd /d "%source_directory%\payloads"
+for /d %%i in ("*") do for /d %%j in ("%%i\*") do @echo %%~fj >> "%adobeworkfolder%\compresspayloads.txt"
+cls
+
+echo "==> Editing Required Files ..."
+echo "+ On exclusion files:"
+echo "- Remove all things before packages and payloads that not including \ before on packages and payloads folder."
+echo "- Remove all folder paths that came from unpacked Adobe Acrobat MSI installer or Adobe InDesign's OEM_ folder."
+echo "- Replace <spaceCharacter> with \."
+echo "- Each line should like this:"
+echo "-- \packages\CCM\CCM\"
+echo "-- \payloads\AdobeSpeedGrade9AllTrial\Assets1_1\"
+echo "I"
+echo "+ On compression files:"
+echo "- Remove all things before packages and payloads that not including \ before on packages and payloads folder."
+echo "- Replace <spaceCharacter> with <nothing> to remove spaces end of folder paths."
+echo "- Each line should like this:"
+echo "-- \packages\CCM\CCM"
+echo "-- \payloads\AdobeSpeedGrade9AllTrial\Assets1_1"
+explorer "%adobeworkfolder%"
+pause
+
 echo "==> Compressing Unpacked Products ..."
-echo "Be sure to maximize shell window here, because get-childitem will clip directory names if you don't maximize the shell window."
-pause
-cd "%~dp0packages"
-powershell -command "start-transcript -path "%adobeworkfolder%\compresspackages.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
-cd "%~dp0"
-cd "%~dp0payloads"
-powershell -command "start-transcript -path "%adobeworkfolder%\compresspayloads.txt"; get-childitem -path "." -recurse -directory -depth 1 | foreach-object { Write-Host $_.FullName }; stop-transcript"
-echo "Remove all lines but file/folder paths, remove main folders, remove all things before packages and payloads that not including \ before on packages and payloads folder, copy first line to one below to avoid an anomaly and save it."
-notepad %adobeworkfolder%\compresspackages.txt
-notepad %adobeworkfolder%\compresspayloads.txt
-pause
-for /f "usebackq delims=" %%c in ("%adobeworkfolder%\compresspackages.txt") do "C:\Program Files\7-Zip\7z.exe" a -bd -tzip "%adobetempinstaller%\%%c.pima" -mx5 -r "%~dp0%%c\*"
-for /f "usebackq delims=" %%d in ("%adobeworkfolder%\compresspayloads.txt") do "C:\Program Files\7-Zip\7z.exe" a -bd -tzip "%adobetempinstaller%\%%d.zip" -mx5 -r "%~dp0%%d\*"
+for /f "usebackq delims=" %%k in ("%adobeworkfolder%\compresspackages.txt") do "%sevenzip_bin%" a -bd -tzip "%adobetempinstaller%%%k.pima" -mx5 -r "%source_directory%%%k\*"
+for /f "usebackq delims=" %%l in ("%adobeworkfolder%\compresspayloads.txt") do "%sevenzip_bin%" a -bd -tzip "%adobetempinstaller%%%l.zip" -mx5 -r "%source_directory%%%l\*"
 rem ###########################
 rem # Copying Installer Phase #
 rem ###########################
+
 echo "==> Copying Installer ..."
-xcopy /q /e /h "%~dp0*" "%adobetempinstaller%" /exclude:%adobeworkfolder%\excludepackages.txt+%adobeworkfolder%\excludepayloads.txt
+xcopy /q /e /h "%source_directory%\*" "%adobetempinstaller%" /exclude:%adobeworkfolder%\excludepackages.txt+%adobeworkfolder%\excludepayloads.txt
 rem ######################
 rem # Installation Phase #
 rem ######################
+
 echo "==> Installing Product ..."
 call "%adobetempinstaller%\Set-up.exe"
 echo "==> Waiting For Installation To Be Completed ..."
@@ -64,6 +82,7 @@ pause
 rem ##################
 rem # Clean-up Phase #
 rem ##################
+
 echo "==> Cleaning Up ..."
 rd %adobetempinstaller% /s /q
 rd %adobeworkfolder% /s /q
