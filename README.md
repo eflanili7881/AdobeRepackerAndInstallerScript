@@ -80,13 +80,37 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
       - **str.File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
 
         ![image](./pictures/316228194-19eb7cf7-6b08-4de5-8919-ad0722fa4e2c.png)
-          
+        
       - Above picture, click right **jne 0x1000f58c** to open menu and then click Edit > Instruction.
       - Change **0x1000f58c** to **0x1000f588** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses *.pima archive verification in AdobePIM.dll.
       - When you reload file with same settings, graph will turn into this:
 
         ![image](./pictures/316228570-074fd6d7-8367-4dc3-8f8f-534f813c1a2b.png)
           
+      - As you can see, **str.File___s__is_corrupted._OCEError:__d** is not visible in graph.
+    # - On AdobePIM.dll (version 9.0.0.72):
+      - Open AdobePIM.dll with experimental (aaaa) mode and in write mode (-w).
+      - When it's loaded switch to Search tab and search **str.Signature_pima_CheckSum** with these settings:
+        - Search for: 32-bit value
+        - Search in: All mapped sections
+      - This will return only 1 value like this:
+
+        ![image](./pictures/393610949-5af14c51-7507-46c6-8567-163bfd4c3d39.png)
+ 
+      - Double click to switch to this address.
+      - It will load in Disassembly mode. Change it to Graph section.
+        - If it loads in Graph mode by default, skip to step below.
+      - Then scroll slightly up to find **str.File___s__is_corrupted._OCEError:__d**'s connected box.
+      - **str.File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
+ 
+        ![image](./pictures/393611050-6732590d-10da-4615-abfb-526309a68c75.png)
+
+      - Above picture, click right **jne 0x1000fdaf** to open menu and then click Edit > Instruction.
+      - Change **0x1000fdb5** to **0x1000fdb1** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses *.pima archive verification in AdobePIM.dll.
+      - When you reload file with same settings, graph will turn into this:
+ 
+        ![image](./pictures/393611278-eff19af6-ae81-4a84-baf6-bcfc5760e84b.png)
+
       - As you can see, **str.File___s__is_corrupted._OCEError:__d** is not visible in graph.
     # - On Setup.dll (version 9.0.0.65):
       - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
