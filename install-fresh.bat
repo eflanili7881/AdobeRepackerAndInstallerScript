@@ -9,6 +9,9 @@ echo "Enter Adobe installer directory that contains packages and payloads folder
 set /p source_directory=
 echo "Enter 7-Zip Console binary path:"
 set /p sevenzip_bin=
+echo "Enter compression ratio for archive files between 0 and 9"
+echo "0 (store only) ==> 9 (ultra compression)"
+set /p compression_level=
 set adobetempinstaller=%userprofile%\adobetempinstaller
 set adobeworkfolder=%userprofile%\adobeworkfolder
 cd /d "%source_directory%"
@@ -62,8 +65,8 @@ explorer "%adobeworkfolder%"
 pause
 
 echo "==> Compressing Unpacked Products ..."
-for /f "usebackq delims=" %%k in ("%adobeworkfolder%\compresspackages.txt") do "%sevenzip_bin%" a -bd -tzip "%adobetempinstaller%%%k.pima" -mx5 -r "%source_directory%%%k\*"
-for /f "usebackq delims=" %%l in ("%adobeworkfolder%\compresspayloads.txt") do "%sevenzip_bin%" a -bd -tzip "%adobetempinstaller%%%l.zip" -mx5 -r "%source_directory%%%l\*"
+for /f "usebackq delims=" %%k in ("%adobeworkfolder%\compresspackages.txt") do "%sevenzip_bin%" a -bd -tzip "%adobetempinstaller%%%k.pima" -mx%compression_level% -r "%source_directory%%%k\*"
+for /f "usebackq delims=" %%l in ("%adobeworkfolder%\compresspayloads.txt") do "%sevenzip_bin%" a -bd -tzip "%adobetempinstaller%%%l.zip" -mx%compression_level% -r "%source_directory%%%l\*"
 rem ###########################
 rem # Copying Installer Phase #
 rem ###########################
