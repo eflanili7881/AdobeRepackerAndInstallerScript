@@ -135,6 +135,29 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](./pictures/316229445-b4ffefe1-24cb-458d-a630-b593e5458d7a.png)
           
       - As you can see, **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** is not visible in graph.
+    # - On Setup.dll (version 9.0.0.10):
+      - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
+      - When it's loaded switch to Search tab and search **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** with these settings:
+        - Search for: 32-bit value
+        - Search in: All mapped sections
+      - This will return only 1 value like this:
+ 
+        ![image](./pictures/393611449-1fa92a0b-addd-474e-9589-5bd7d6a1ed97.png)
+      
+      - It will load in Disassembly mode. Change it to Graph section.
+        - If it loads in Graph mode by default, skip to step below.
+      - Then scroll slightly up to find **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d**'s connected box.
+      - **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d**'s box is connected to one box like this:
+ 
+        ![image](./pictures/393611559-4c03b1ea-c163-4325-8157-2d07473f42f9.png)
+
+      - Above picture, click right **jne 0x100b4b17** to open menu and then click Edit > Instruction.
+      - Change **0x100b4b17** to **0x100b4b0e** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses signature check of assets in Setup.dll.
+      - When you reload file with same settings, graph will turn into this:
+ 
+        ![image](./pictures/393611806-e123e512-c09d-4b79-b983-bb69cfc0bea2.png)
+
+      - As you can see, **str.s_is_corrupted._File___s__is_corrupted._OCEError:__d** is not visible in graph.
     # - On updatercore.dll (version 9.0.0.30):
       - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
       - When it's loaded switch to Search tab and search **str.CFU_Webfeed_:_Patch_is_meant_only_for_subscription_licenses__but_client_doesn_t_have_a_valid_subscription_license.** with these settings:
@@ -156,6 +179,28 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
 
         ![image](./pictures/316230462-465ea6e5-c3b7-440e-9f78-fb23b986a7c6.png)
           
+      - As you can see, all checks for perpetual and subscription updates are bypassed.
+    # - On updatercore.dll (version 9.0.0.4):
+      - Open Setup.dll with experimental (aaaa) mode and in write mode (-w).
+      - When it's loaded switch to Search tab and search **str.CFU_Webfeed_:_Patch_is_meant_only_for_subscription_licenses__but_client_doesn_t_have_a_valid_subscription_license.** with these settings:
+        - Search for: 32-bit value
+        - Search in: All mapped sections
+      - This will return only 1 value like this:
+ 
+        ![image](./pictures/393611956-250cf937-4baf-4518-a54f-8ff6fccfd102.png)
+ 
+      - It will load in Disassembly mode. Change it to Graph section.
+        - If it loads in Graph mode by default, skip to step below.
+      - Delete all cases (;-- **case name**:) in this graph.
+        - To do that, right click ;-- **case name**:, and click Delete flag.
+      - Then on picture below, right click **ja 0x1006eefd**, click Edit > Instruction, change **ja** to **jmp** and disable *Fill all remaining bytes with NOP opcodes*. This bypasses perpetual and subscription update check on updatercore.dll:
+ 
+        ![image](./pictures/393612622-47dd606e-c8e8-46a3-af98-4fe571d4419e.png)
+
+      - When you reload file with same settings, graph will turn into this:
+
+        ![image](./pictures/393612338-fad73bc9-eb74-484f-9369-0500a6f4c2b3.png)
+
       - As you can see, all checks for perpetual and subscription updates are bypassed.
     - PainteR versions have other small changes but bypassing only these values does trick. If you curious, you can research it further.
 ## How to build unpacked RIBS app installer?
