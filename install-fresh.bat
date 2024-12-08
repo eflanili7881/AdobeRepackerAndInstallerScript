@@ -2,7 +2,7 @@
 rem #####################
 rem # Preparation Phase #
 rem #####################
-echo "==> Adobe Repacker and Installer Script v0.3.0-ribs-win rc - for clean installs"
+echo "==> Adobe Repacker and Installer Script v0.3.0.1-ribs-win rc - for clean installs"
 
 echo "==> Setting Variables ..."
 echo "Enter Adobe installer directory that contains packages and payloads folder:"
