@@ -8,12 +8,14 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 - [Me](https://github.com/eflanili7881) for writing script.
 - Adobe Systems Incorporated for providing applications.
 
-## Requirements
-- On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip". But you can edit install.bat to change 7-Zip's location currently. I may update script to detect 7-Zip's install location by reading registry.
-- Latest PowerShell for Windows. Without updating PowerShell, it may work but folder scanning may not successful.
-
 ## What does this script do?
 This script compresses all unpacked assets that present on "products" folder to temporary directory set by script, copies HyperDrive installer engine from installation media with unpacked assets excluded via exclude.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
+
+## Requirements
+- ~~On default settings, you'll need 7-Zip installed on "C:\Program Files\7-Zip". But you can edit install.bat to change 7-Zip's location currently. I may update script to detect 7-Zip's install location by reading registry.~~
+  - From v0.3.0, you can select 7-Zip Console's binary path.
+- ~~Latest PowerShell for Windows. Without updating PowerShell, it may work but folder scanning may not successful.~~
+  - From v0.3.0, it's not necessary.
 
 ## Limitations
 - ~~*.pima archives under "packages" directory (for Creative Cloud itself) cannot be unpacked and repacked because Creative Cloud installer throws error 4 with original AdobePIM.dll and modified *.pima archive.~~
@@ -60,15 +62,16 @@ This script compresses all unpacked assets that present on "products" folder to 
   - With script I wrote in https://github.com/eflanili7881/AdobeLZMA2UnpackerScript , they can now be unpacked.
 
 ## Known Issues
-- On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, *packages* turns into *´╗┐packages* i.e.). 
-  - To solve this, copy first line just below the first line.
-    - If output's like this:
-      - products\AEFT
-      - products\KFNT
-      - products\ACR
-    - After that, output should be like this:
-      - products\AEFT
-      - products\AEFT
-      - products\KFNT
-      - products\ACR
-  - I think this caused by auto creation by PowerShell script. When I freshly create .txt file from New menu from right click, this bug didn't happen. I don't know what causes this. Probably invisible special ASCII or Unicode character for initiating start of text file by PowerShell.
+- ~~On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, *packages* turns into *´╗┐packages* i.e.).~~
+  - ~~To solve this, copy first line just below the first line.~~
+    - ~~If output's like this:~~
+      - ~~products\AEFT~~
+      - ~~products\KFNT~~
+      - ~~products\ACR~~
+    - ~~After that, output should be like this:~~
+      - ~~products\AEFT~~
+      - ~~products\AEFT~~
+      - ~~products\KFNT~~
+      - ~~products\ACR~~
+  - ~~I think this caused by auto creation by PowerShell script. When I freshly create .txt file from New menu from right click, this bug didn't happen. I don't know what causes this. Probably invisible special ASCII or Unicode character for initiating start of text file by PowerShell.~~
+  - With v0.3.0, it's fixed.
