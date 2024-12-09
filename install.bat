@@ -3,7 +3,7 @@
 rem #####################
 rem # Preparation Phase #
 rem #####################
-echo "==> Adobe Repacker and Installer Script v0.3.0-hd-win beta"
+echo "==> Adobe Repacker and Installer Script v0.3.0-hd-win rc"
 
 echo "==> Setting Variables ..."
 echo "Enter Adobe installer directory that contains packages and products folder:"
