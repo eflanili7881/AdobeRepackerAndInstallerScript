@@ -24,11 +24,11 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 This repo contains patched binaries for installing unpacked Adobe RIBS applications.
 
 ## Special note
-- When I examined AdobePIM.dylib version 8.0.0.73 (got it from Adobe Premiere Pro CC 2014's Install.app file) on IDA Pro 6.5, it revealed more clues:
+- When I examined AdobePIM.dylib version 8.0.0.72 (got it from Adobe Premiere Pro CC 2014's Install.app file) on IDA Pro 6.5, it revealed more clues:
 
   ![image](./pictures/382582570-b9b2e84e-1555-41aa-8c9f-88b4678c11c5.png)
   
-  - When I looked script invoke path from IDA Pro 6.5, it follows this path (on AdobePIM.dylib version 8.0.0.73):
+  - When I looked script invoke path from IDA Pro 6.5, it follows this path (on AdobePIM.dylib version 8.0.0.72):
     - _pim_installAdobeApplication
     - sub_130CA (on IDA Pro 6.5)
     - sub_124CB (on IDA Pro 6.5)
