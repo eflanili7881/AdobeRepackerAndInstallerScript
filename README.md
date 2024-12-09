@@ -296,3 +296,38 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](./pictures/391647172-1fcc10f8-2e26-4027-8d09-02af30b3b2d3.png)
 
       - With this, you can install subscription updates on perpetually licensed apps or vice versa.
+## How to build unpacked RIBS app installer?
+- I assume you got:
+  - RIBS-based installer for your Adobe application.
+- Extract your desired app installer to a directory.
+- On **packages** folder, extract every *.pima archive or disk images to same folder where original *.pima archive or disk image is located.
+  - Structure should like this:
+    - packages/UWA/UWA
+      - If it's *.zip archive:
+        - <contentsOfUWA.pimaArchive>
+      - If it's *.dmg disk image:
+        - <diskLabelOfUWA.pima>
+          - <contentsOfUWA.pimaDiskImage>
+    - packages/UWA/UWA.sig
+    - packages/UWA/UWA.pimx
+- Delete original *.pima archives or disk images after extraction is done.
+- On **payloads** folder, extract every *.zip archive or *.dmg disk images to same folder where original *.zip archive is located.
+  - Structure should like this:
+    - payloads/AdobeSpeedGrade9AllTrial/AdobeSpeedGrade9AllTrial
+      - If it's *.zip archive:
+        - <contentsOfAdobeSpeedGrade9AllTrial.zipArchive>
+      - If it's *.dmg disk image:
+        - <diskLabelOfAdobeSpeedGrade9AllTrial.dmg>
+          - <contentsOfAdobeSpeedGrade9AllTrial.dmgDiskImage>
+    - payloads/AdobeSpeedGrade9AllTrial/AdobeSpeedGrade9AllTrial.sig
+    - <otherFilesThatDoesn'tImportant>
+- Make backup of your AdobePIM.dylib.
+- Patch the AdobePIM.dylib.
+- Move your original AdobePIM.dylib to AdobePIM_original.dylib.
+- Make backup of your packages/DECore/DECore/DE6/Setup.dylib.
+- Patch the packages/DECore/DECore/DE6/Setup.dylib.
+- Move your original packages/DECore/DECore/DE6/Setup.dylib to packages/DECore/DECore/DE6/Setup_original.dylib.
+- Make backup of your packages/UWA/UWA/UpdaterCore.framework/Versions/A/UpdaterCore.
+- Patch the packages/UWA/UWA/UpdaterCore.framework/Versions/A/UpdaterCore.
+- Move your original packages/UWA/UWA/UpdaterCore.framework/Versions/A/UpdaterCore to packages/UWA/UWA/UpdaterCore.framework/Versions/A/UpdaterCore_original.
+- Copy your unpacked installer to your storage server and run deduplication right after unpacked installer is copied if you want.
