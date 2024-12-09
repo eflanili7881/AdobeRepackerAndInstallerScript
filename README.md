@@ -251,6 +251,19 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - P6
 - CS4 and CS3 doesn't require this script. Payloads stored as MSI installer and no verification is present except for protected ones (?). If installer assets unpacked via "msiexec /a" and replacing packed assets with unpacked ones, installer will install our unpacked assets with an honor.
 
+## Known Issues
+- ~~On exclude.txt and compress.txt, first lines be bugged (it looks fine, but while command processes, *packages* turns into *´╗┐packages* i.e.).~~
+  - ~~To solve this, copy first line just below the first line.~~
+    - ~~If output's like this:~~
+      - ~~payloads\AdobeSpeedGrade9AllTrial~~
+      - ~~payloads\AdobeSpeedGrade9en_USLanguagePack~~
+    - ~~After that, output should be like this:~~
+      - ~~payloads\AdobeSpeedGrade9AllTrial~~
+      - ~~payloads\AdobeSpeedGrade9AllTrial~~
+      - ~~payloads\AdobeSpeedGrade9en_USLanguagePack~~
+  - ~~I think this caused by auto creation by PowerShell script. When I freshly create .txt file from New menu from right click, this bug didn't happen. I don't know what causes this. Probably invisible special ASCII or Unicode character for initiating start of text file by PowerShell.~~
+  - With v0.3.0, it's fixed.
+
 ## About MSI-based RIBS Applications (CS4 and below)
 - On very big suites that contains small files or lots of files like Master Collection when MSI packages unpacked, initialization phase takes about like 10 minutes to 1 hour or longer depending on selected suite and hardware of PC that suite is going to be installed due to count of files (i.e. ~150K files alone in LS1 language group of Master Collection CS4).
   - For me, my system with these specs below, CS4 Design Premium LS1 (~110K files) took ~30 minutes to complete initialization phase:
