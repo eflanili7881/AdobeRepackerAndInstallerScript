@@ -75,12 +75,12 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
    
         ![image](./pictures/387316398-af86035e-c5f6-4a4c-b74a-0765e47c7da8.png)
  
-        ![image](,/pictures/387318659-595b1811-ba74-465b-8e14-3c3de1b5e5ef.png)
+        ![image](./pictures/387318659-595b1811-ba74-465b-8e14-3c3de1b5e5ef.png)
         - x86 section:
        
           ![image](./pictures/387327317-a985bbd4-fc55-4dd9-b60f-6adbf68d4f12.png)
 
-          ![image](,/pictures/387318876-cdd91ce3-6857-4071-8533-9fe5be172a30.png)
+          ![image](./pictures/387318876-cdd91ce3-6857-4071-8533-9fe5be172a30.png)
  
         - x64 section:
        
@@ -92,11 +92,11 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
        
           ![image](./pictures/387319975-080d6140-0a8e-4ed9-8a7b-7f6cbbe65980.png)
  
-          ![image](,/pictures/387320060-966b9df4-4e3a-4bbd-a7f2-ebb9af626d8e.png)
+          ![image](./pictures/387320060-966b9df4-4e3a-4bbd-a7f2-ebb9af626d8e.png)
  
           - ARM64 section:
          
-            ![image](,/pictures/387320180-94ecdcea-d43f-40ab-94e7-9a398f4577da.png)
+            ![image](./pictures/387320180-94ecdcea-d43f-40ab-94e7-9a398f4577da.png)
 
             ![image](./pictures/387320274-924b86ca-bfa1-4ef5-bc21-80d9b31ef739.png)
  
