@@ -296,6 +296,30 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
         ![image](./pictures/391587292-a172cf6f-d5fe-48e0-9533-3c4f6113610e.png)
 
       - With this, you can install subscription updates on perpetually licensed apps or vice versa.
+    # - On UpdaterCore.framework/Versions/A/UpdaterCore (version 8.0.0.14)
+      - Open UpdaterCore.framework/Versions/A/UpdaterCore on IDA Pro and open it with Mach-O decompiler.
+      - On IDA Pro, search for string **patch is mean**
+      - Click on result that contains **Patch is meant only for (very first 3 results)**.
+ 
+        ![image](./pictures/393982288-eaadf267-29f0-44ab-892c-d75a41852590.png)
+
+      - Locate the very first box thats connected to result from previous step.
+ 
+        ![image](./pictures/393982603-466c5da4-8fb7-4fc6-ad27-b739ead4f328.png)
+        
+      - Note the address of **call $+5**.
+      - Now you got necessary address to change on Cutter.
+      - Open UpdaterCore.framework/Versions/A/UpdaterCore on Cutter with experimental (aaaa) mode and in write mode (-w).
+      - Jump to address 0x32c2c on Cutter.
+ 
+        ![image](./pictures/393984051-d4f40399-0633-4802-a3e1-9c8a27ed5369.png)
+
+      - Change **call 0x32c31** to **jmp 0x32cab** with disabling *Fill all remaining bytes with NOP opcodes*.
+      - When you reload the file on Cutter, graph will turn into this:
+ 
+        ![image](./pictures/393986337-8d7e4831-67e6-4812-a85e-1d7b23d62542.png)
+
+      - With this, you can install subscription updates on perpetually licensed apps or vice versa.
     # - On UpdaterCore.framework/Versions/A/UpdaterCore (version 9.0.0.4)
       - Open UpdaterCore.framework/Versions/A/UpdaterCore on IDA Pro and open it with Mach-O decompiler.
       - On IDA Pro, search for string **patch is mean**
