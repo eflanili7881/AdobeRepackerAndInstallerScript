@@ -142,6 +142,54 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
           ![image](./pictures/382787946-f229aaf5-549f-475f-a22e-4cb200760c37.png)
           
         - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
+    # - On Setup.dylib (version 8.0.0.15)
+      - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
+      - Also, this one is pretty hard because of absence of comments (they exist in __cstring section, but not exist in __text section). But if you understand the basics, you can perform this steps on other versions of Setup.dylib with proper hexadecimal addresses for specific versions.
+        - Open Setup.dylib on IDA Pro and open it with Mach-O decompiler.
+        - On IDA Pro, search for string **verifying**
+        - Click the result on address 0xb7c23
+       
+          ![image](./pictures/393964191-6fc39d55-515e-42cd-8e63-e09bc4892199.png)
+ 
+        - Go to address 0xb801d
+       
+          ![image](./pictures/393967620-cf5c66f4-b4de-4383-88f4-dbd493d294e3.png)
+
+          - Setup.dylib binaries on macOS most probably have verification mechanism on function that contains result from previous step. On versions that doesn't contain strings, that's the location you should look.
+            - On IDA Pro, here's the required visual location to call verification mechanism. On other versions, it's generally same.
+              
+              ![image](./pictures/393968400-ad777107-450d-4101-be07-a49f4ca864f6.png)
+           
+            - Required location to go is last call function on the box that viewed from previous step (in case, it's 0xb742c).
+        - On function 0xb742c, go to this visual location.
+         
+          ![image](./pictures/393969241-a6e455ad-0f71-4ef1-b48e-af403591e09e.png)
+            
+        - Locate the call function that has CryptoPP in it (in case, it's 0x1861d9)
+ 
+          ![image](./pictures/393970703-6e18d4be-f37a-4a45-bdeb-d30e638f42ac.png)
+ 
+          - Here's the visual location.
+         
+            ![image](./pictures/393971132-b8601ffa-bbb1-4288-b762-4ec5a76ee65c.png)
+ 
+        - Locate the start address of function that contains function that has CryptoPP in it (in case, it's 0xb78f7).
+       
+          ![image](./pictures/393971714-f0cbf602-83fc-4398-b767-78d258adac0e.png)
+
+        - You got the necessary location to change on Cutter from **mov [esp], ebx** to **jne 0xB7AAE**.
+        - Open Setup.dylib on Cutter with experimental (aaaa) mode and in write mode (-w).
+        - Jump to address 0xb78f7 on Cutter.
+ 
+          ![image](./pictures/393972999-b965b3f8-b5eb-42b3-be95-7986cc93cee7.png)
+
+        - Change **mov [esp], ebx** to **jne 0xb7aae** with disabling *Fill all remaining bytes with NOP opcodes*.
+        - Changing will invalidate function on address 0xb790e but it's not going to be a problem.
+        - When you reload the file on Cutter, graph will turn into this:
+       
+          ![image](./pictures/393976784-0e22ad06-494c-4044-a22d-18a5e4b0e0a6.png)
+
+        - As you can see, the box that contains error condition for signature verification failure is not visible anymore.
     # - On Setup.dylib (version 9.0.0.10 (from Adobe Application Manager 9.0.0.72, got from Adobe Premiere Pro CC 2015))
       - You need to use this version for ZIP-based installers (CC 2013 (7.x.x.x) and above) as CS6 (6.x.x.x) and below will use DMG-based installers.
       - Also, this one is pretty hard because of absence of comments (they exist in __cstring section, but not exist in __text section). But if you understand the basics, you can perform this steps on other versions of Setup.dylib with proper hexadecimal addresses for specific versions.
@@ -165,7 +213,7 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
  
           ![image](./pictures/386206428-25c86f99-1d2a-4800-a097-955df8e3415e.png)
           
-        - Locate the call function that has CryptoPP in it (in case, it's 0x201B26)
+        - Locate the call function that has CryptoPP in it (in case, it's 0x201B26).
  
           ![image](./pictures/386207380-7480b045-19d2-49f6-a68c-5e0be898df66.png)
           
