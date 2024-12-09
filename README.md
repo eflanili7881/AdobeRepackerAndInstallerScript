@@ -224,16 +224,13 @@ This repo contains patched binaries for installing unpacked Adobe RIBS applicati
       - Note that can be multiple AssetsX_Y *.sig files depending on assets archives' signature file count.
       - In example, Assets1_1.sig and Assets2_1.sig.
     - <otherFilesThatDoesn'tImportant>
-- Move your original AdobePIM.dll to AdobePIM_original.dll.
 - Make backup of your AdobePIM.dll.
 - Patch the AdobePIM.dll.
-- Move your patched AdobePIM.dll to AdobePIM_patched.dll.
-- Move your original packages\DECore\DECore\DE6\Setup.dll to packages\DECore\DECore\DE6\Setup_original.dll.
+- Move your original AdobePIM.dll to AdobePIM_original.dll.
 - Make backup of your packages\DECore\DECore\DE6\Setup.dll.
 - Patch the packages\DECore\DECore\DE6\Setup.dll.
-- Move your patched packages\DECore\DECore\DE6\Setup.dll to packages\DECore\DECore\DE6\Setup_patched.dll.
-- Move your original packages\UWA\UWA\updatercore.dll to packages\UWA\UWA\updatercore_original.dll.
+- Move your original packages\DECore\DECore\DE6\Setup.dll to packages\DECore\DECore\DE6\Setup_original.dll.
 - Make backup of your packages\UWA\UWA\updatercore.dll.
 - Patch the packages\UWA\UWA\updatercore.dll.
-- Move your patched packages\UWA\UWA\updatercore.dll to packages\UWA\UWA\updatercore_patched.dll.
+- Move your original packages\UWA\UWA\updatercore.dll to packages\UWA\UWA\updatercore_original.dll.
 - Copy your unpacked installer to your storage server and run deduplication right after unpacked installer is copied if you want.
