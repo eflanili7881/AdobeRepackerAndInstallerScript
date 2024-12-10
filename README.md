@@ -5,12 +5,7 @@ A .bat script that compresses unpacked Adobe RIBS assets and installs them.
 Please, don't use this script for piracy things. I wrote this script for who wants to store RIBS-based Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 ## Credits
-- [Me](https://github.com/eflanili7881) for writing script.
-- Adobe Systems Incorporated for providing applications.
-- [bkcrack](https://github.com/kimci86/bkcrack) by [kimci86](https://github.com/kimci86) for ZipCrypto cracking software.
-- PainteR for providing patched binaries for installing unpacked Adobe RIBS-based applications.
-- [DB Browser for SQLite](https://sqlitebrowser.org) for editing and viewing various *.db databases.
-- [HxD Hex Editor](https://mh-nexus.de/en/hxd) for hexadecimal viewing files.
+- Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/main/README.md
 
 ## What does this script do?
 This script compresses all unpacked assets that present on "payloads" and "packages" folder to temporary directory set by script, copies RIBS installer engine from installation media with unpacked assets excluded via excludepackages.txt and excludepayloads.txt that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
