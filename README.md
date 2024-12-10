@@ -14,11 +14,7 @@ Please, don't use this branch's content for piracy things. I put this patched bi
 Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these instructions for **LEGITIMATE** users.
 
 ## Credits
-- [Me](https://github.com/eflanili7881) for writing script.
-- [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program .
-- [Hex-Rays](https://hex-rays.com/) for [IDA Pro 6.5](https://hex-rays.com/ida-pro) reverse engineering program.
-- PainteR for patching AdobePIM.dll (RIBS-based installers) for understanding verification algorithm on HyperDrive-based installers.
-- Adobe Systems Incorporated for providing original binaries.
+- Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/main/README.md
 
 ## What's this repo contains?
 This repo contains patched binaries for installing unpacked Adobe Creative Cloud *.pima assets.
