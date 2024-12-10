@@ -14,10 +14,7 @@ Please, don't use this branch's content for piracy things. I put this patched bi
 Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these instructions for **LEGITIMATE** users.
 
 ## Credits
-- [Me](https://github.com/eflanili7881) for writing script.
-- [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program .
-- PainteR for patching specific 6 binaries for installing unpacked Adobe RIBS-based applications (version 8.0.0.15 and 7.0.0.103 of RIBS to be precise).
-- Adobe Systems Incorporated for providing original binaries.
+- Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/main/README.md
 
 ## What's this repo contains?
 This repo contains patched binaries for installing unpacked Adobe RIBS applications.
