@@ -6,14 +6,16 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 
 ## Credits
 - Adobe Systems Incorporated for providing applications.
+- [GitHub](https://github.com) for hosting this project.
 - [Me](https://github.com/eflanili7881) for writing script and patching HyperDrive-based installers from knowledge I gained from PainteR's patched binaries.
+- [Microsoft Copilot](https://copilot.microsoft.com) and [OpenAI ChatGPT](https://chat.openai.com) for helping me on generating complex scripts (I wrote this script myself, but I say no to little help from AI :D).
 - [Internet Archive](https://archive.org) for providing [Wayback Machine](https://web.archive.org) service.
 - PainteR for patching various binaries based on Windows platform (RIBS-based installers), so I can understand verification algorithm on newer or older binaries and even on macOS-based binaries and HyperDrive-based installers.
 - [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program.
 - [Hex-Rays](https://hex-rays.com/) for [IDA Pro](https://hex-rays.com/ida-pro) reverse engineering program.
 - [bkcrack](https://github.com/kimci86/bkcrack) by [kimci86](https://github.com/kimci86) for ZipCrypto cracking software.
 - [DB Browser for SQLite](https://sqlitebrowser.org) for editing and viewing various *.db databases.
-- [HxD Hex Editor](https://mh-nexus.de/en/hxd) for hexadecimal viewing files.
+- [Maël Hörz](https://mh-nexus.de) for [HxD Hex Editor](https://mh-nexus.de/en/hxd) hexadecimal viewing program.
 
 ## What does this script do?
 This script compresses all unpacked assets that present on install media folder to temporary directory set by script, copies installer engine from installation media with unpacked assets excluded via text file that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
