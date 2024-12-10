@@ -5,8 +5,14 @@ A .bat/.sh script that compresses unpacked assets of Adobe products and installs
 Please, don't use this script for piracy things. I wrote this script for who wants to store Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 ## Credits
-- [Me](https://github.com/eflanili7881) for writing script.
+- [Me](https://github.com/eflanili7881) for writing script and .
 - Adobe Systems Incorporated for providing applications.
+- [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program.
+- [Hex-Rays](https://hex-rays.com/) for [IDA Pro](https://hex-rays.com/ida-pro) reverse engineering program.
+- PainteR for patching various binaries based on Windows platform (RIBS-based installers), so I can understand verification algorithm on newer or older binaries and even on macOS-based binaries and HyperDrive-based installers.
+- [bkcrack](https://github.com/kimci86/bkcrack) by [kimci86](https://github.com/kimci86) for ZipCrypto cracking software.
+- [DB Browser for SQLite](https://sqlitebrowser.org) for editing and viewing various *.db databases.
+- [HxD Hex Editor](https://mh-nexus.de/en/hxd) for hexadecimal viewing files.
 
 ## What does this script do?
 This script compresses all unpacked assets that present on install media folder to temporary directory set by script, copies installer engine from installation media with unpacked assets excluded via text file that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
