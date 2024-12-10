@@ -14,7 +14,7 @@ Please, don't use this branch's content for piracy things. I put this patched bi
 Because I'm afraid that Adobe can copy-strike me like on archive.org. I put these instructions for **LEGITIMATE** users.
 
 ## Credits
-- Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/main/README.md
+- Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/main/README.md#credits
 
 ## What's this repo contains?
 This repo contains patched binaries for installing unpacked Adobe Creative Cloud *.pima assets.
