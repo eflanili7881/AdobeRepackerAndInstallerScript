@@ -14,7 +14,7 @@ This script compresses all unpacked assets that present on install media folder 
 # Latest Versions
 ## For RIBS-based for DMG-based (CS3 and CS4) installers on Macintosh platform - v0.3.0-ribscs3andcs4-mac-dmg rc
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribscs3andcs4-dmg-mac-0.3.0
-## For RIBS-based for DMG-based (CS5<=x=<CS6) installers on Macintosh platform - v0.3.0.2-ribs-mac-dmg rc
+## For RIBS-based for DMG-based (CS5, CS5.5 and CS6) installers on Macintosh platform - v0.3.0.2-ribs-mac-dmg rc
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribs-dmg-mac-0.3.0.2
 ## For RIBS-based for ZIP-based (x>=CC2013) installers on Macintosh platform - v0.3.0.2-ribs-mac-zip rc
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribs-zip-mac-0.3.0.2
