@@ -4,7 +4,7 @@
 #Preparation Phase#
 ###################
 
-echo -n -e "\033]0;Adobe Repacker and Installer Script v0.4.0-hd-win rc2\007"
+echo -n -e "\033]0;Adobe Repacker and Installer Script v0.4.0-hd-mac rc2\007"
 
 menu() {
     clear
