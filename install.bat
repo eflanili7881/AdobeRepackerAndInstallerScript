@@ -7,6 +7,7 @@ title Adobe Repacker and Installer Script v0.4.0-hd-win rc2
 goto menu
 
 :menu
+cls
 echo ============================================================Menu========================================================
 echo =                                                                                                                      =
 echo =    1) Start Install                                                                                                  =
@@ -106,19 +107,15 @@ explorer "%adobeworkfolder%"
 pause
 exit /b
 
-rem #####################
-rem # Compression Phase #
-rem #####################
+rem #########################
+rem # Preparing Files Phase #
+rem #########################
 
 :compressPackages
 echo "==> Compressing Unpacked Products ..."
 for /f "usebackq delims=" %%k in ("%adobeworkfolder%\compresspackages.txt") do "C:\Program Files\7-Zip\7z.exe" a -bd -tzip "%adobetempinstaller%%%k.pima" -mx%compression_level% -r "%source_directory%%%k\*"
 for /f "usebackq delims=" %%l in ("%adobeworkfolder%\compressproducts.txt") do "C:\Program Files\7-Zip\7z.exe" a -bd -tzip "%adobetempinstaller%%%l.zip" -mx%compression_level% -r "%source_directory%%%l\*"
 exit /b
-
-rem ###########################
-rem # Copying Installer Phase #
-rem ###########################
 
 :copyOtherInstallerFiles
 echo "==> Copying Other Installer Files ..."
