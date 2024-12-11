@@ -162,7 +162,7 @@ installACC() {
     cp "$adobetempinstaller/resources/AdobePIM_patched/AdobePIM.dylib" "$adobetempinstaller/resources/AdobePIM.dylib"
     open -a "$adobetempinstaller/Install_CC.app"
     echo "==> Waiting For Installation To Be Completed ..."
-    echo "Press any key to continue..."
+    echo "After installation completed, press any key ..."
     read -n 1
 }
 
@@ -172,7 +172,7 @@ installHyperDrive() {
     cp "$adobetempinstaller/resources/AdobePIM_original/AdobePIM.dylib" "$adobetempinstaller/resources/AdobePIM.dylib"
     open -a "$adobetempinstaller/Install_HD.app"
     echo "==> Waiting For Installation To Be Completed ..."
-    echo "Press any key to continue..."
+    echo "After installation completed, press any key ..."
     read -n 1
 }
 
