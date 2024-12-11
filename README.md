@@ -33,8 +33,8 @@ https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribs-win-0.3.0.1
 ## For HyperDrive-based installers on Macintosh platform - v0.3.0.1-hd-mac rc
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-hd-mac-0.3.0.1
-## For HyperDrive-based installers on Windows platform - v0.3.0-hd-win rc
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-hd-win-0.3.0
+## For HyperDrive-based installers on Windows platform - v0.4.0-hd-win rc2
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc2-hd-win-0.4.0
 
 # Branches
 ## For HyperDrive (HD)-based installers on Macintosh platform
