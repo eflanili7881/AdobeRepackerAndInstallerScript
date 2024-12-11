@@ -3,6 +3,7 @@
 rem #####################
 rem # Preparation Phase #
 rem #####################
+
 title Adobe Repacker and Installer Script v0.4.0-hd-win rc2
 goto menu
 
@@ -52,7 +53,7 @@ exit /b
 
 :cdInstMed
 echo "==> Entering install media ..."
-cd "%source_directory%"
+cd /d "%source_directory%"
 exit /b
 
 :cleanWorkspace
@@ -67,11 +68,10 @@ mkdir %adobeworkfolder%
 mkdir %adobetempinstaller%
 mkdir %adobetempinstaller%\packages
 mkdir %adobetempinstaller%\products
-cd "%source_directory%\packages"
+cd /d "%source_directory%\packages"
 for /d %%a in ("*") do mkdir "%adobetempinstaller%\packages\%%a"
-cd "%source_directory%\products"
+cd /d "%source_directory%\products"
 for /d %%b in ("*") do mkdir "%adobetempinstaller%\products\%%b"
-cd "%source_directory%"
 exit /b
 
 :createTextFiles
