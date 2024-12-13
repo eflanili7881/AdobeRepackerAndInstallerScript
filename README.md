@@ -8,7 +8,7 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 - Adobe Systems Incorporated for providing applications.
 - [GitHub](https://github.com) for hosting this project.
 - [Me](https://github.com/eflanili7881) for writing script and patching HyperDrive-based installers from knowledge I gained from PainteR's patched binaries.
-- [Microsoft Copilot](https://copilot.microsoft.com) and [OpenAI ChatGPT](https://chat.openai.com) for helping me on generating complex scripts (I wrote this script myself, but I say no to little help from AI :D).
+- [Microsoft Copilot](https://copilot.microsoft.com) and [OpenAI ChatGPT](https://chat.openai.com) for helping me on generating complex scripts (I wrote this script myself, but I don't say no to little help from AI :D).
 - [Internet Archive](https://archive.org) for providing [Wayback Machine](https://web.archive.org) service.
 - PainteR for patching various binaries based on Windows platform (RIBS-based installers), so I can understand verification algorithm on newer or older binaries and even on macOS-based binaries and HyperDrive-based installers.
 - [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program.
