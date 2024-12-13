@@ -21,18 +21,12 @@ Please, don't use this script for piracy things. I wrote this script for who wan
 This script compresses all unpacked assets that present on install media folder to temporary directory set by script, copies installer engine from installation media with unpacked assets excluded via text file that's generated via script and invokes Set-up.exe on temporary directory set by script to install repacked product.
 
 # Latest Versions
-## For RIBS-based for DMG-based (CS3 and CS4) installers on Macintosh platform - v0.3.0-ribscs3andcs4-mac-dmg rc
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribscs3andcs4-dmg-mac-0.3.0
-## For RIBS-based for DMG-based (CS5, CS5.5 and CS6) installers on Macintosh platform - v0.3.0.2-ribs-mac-dmg rc
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribs-dmg-mac-0.3.0.2
-## For RIBS-based for ZIP-based (x>=CC2013) installers on Macintosh platform - v0.3.0.2-ribs-mac-zip rc
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribs-zip-mac-0.3.0.2
-## For RIBS-based for ZIP-based (x>=CC2013) installers with DMG-based components on Macintosh platform - v0.3.0.2-ribs-mac-zipwdmgcmpnts rc
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-ribs-zipwdmgcmpnts-mac-0.3.0.2
+## For RIBS-based installers on Macintosh platform - v0.4.0-ribs-mac rc2
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc2-ribs-mac-0.4.0
 ## For RIBS-based installers on Windows platform - v0.4.0-ribs-win rc2
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc2-ribs-win-0.4.0
-## For HyperDrive-based installers on Macintosh platform - v0.3.0.1-hd-mac rc
-https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc-hd-mac-0.3.0.1
+## For HyperDrive-based installers on Macintosh platform - v0.4.0-hd-mac rc2
+https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc2-hd-mac-0.4.0
 ## For HyperDrive-based installers on Windows platform - v0.4.0-hd-win rc2
 https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/releases/tag/rc2-hd-win-0.4.0
 
