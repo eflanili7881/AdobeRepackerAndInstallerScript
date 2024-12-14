@@ -52,21 +52,56 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       ![image](./pictures/385924245-ad538934-5426-4bda-b9c1-01fd15feefa6.png)
 
 ## Known bugs
-- Not critical, but some folders icons not correctly installed.
+- Not critical and it's only cosmetic, but some folders icons may not correctly installed.
   - You can fix icons via Finder.
-  - Remove hidden Icon? from installed application folder.
-    - You can reveal hidden files via command-shift-period shortcut.
-  - Select random image and press command-c to copy it.
-  - Open Install.db with DB Browser for SQLite and go to table InstallFolderIcon.
- 
-    ![image](./pictures/395775231-2f982fed-f2fd-47ab-95cf-a0d365de2bf9.png)
+    - Remove hidden Icon? from installed application folder.
+   
+      ![image](./pictures/395775880-cc9703a2-1b52-4f0d-81a7-46076054cac1.png)
 
-    - You can see icons that's gonna be installed.
-  - Open folder properties of folder that you want to change it's icon.
-  - Click folder icon that's left side on folder name.
-  - Press command-v to update folder icon.
-  - Remove hidden Icon? from installed application folder.
-    - Finder cannot replace hidden files.
-  - From unpacked software location, select Icon? and press command-c to copy it.
-  - Go to appropriate folder and press command-v to paste it.
-  - You'll see that folder icon is updated as it should be.
+      - You can reveal hidden files via command-shift-period shortcut.
+    - Open random image with Preview app or other folder properties with has icon.
+      - From Preview app
+        - Open random image file.
+
+          ![image](./pictures/395775996-fe1294bf-17e6-4693-af1a-6dea19691a2f.png)
+   
+          ![image](./pictures/395776619-925ad4d7-c256-4f3a-9dab-cccbf3ca06a8.png)
+
+        - Press command-a to select first icon and command-c to copy it.
+      - From folder with random icon
+        - Open folder properties that has icon.
+        - Select icon that's left side on folder name.
+       
+          ![image](./pictures/395776673-5c7cdf3e-2cbd-4ffa-a83d-0ef9f9540415.png)
+
+        - Press command-c to copy it.
+    - Open folder properties of folder that you want to change it's icon.
+    - Click folder icon that's left side on folder name.
+   
+      ![image](./pictures/395776092-4871edc7-7747-4193-956b-1dba76d4766e.png)
+
+    - Press command-v to update folder icon.
+   
+      ![Untitled](./pictures/395777536-f0715471-143a-413d-a89e-9d3d3ab93bf8.png)
+
+    - Remove hidden Icon? from installed application folder.
+   
+      ![image](./pictures/395775880-cc9703a2-1b52-4f0d-81a7-46076054cac1.png)
+      
+      - Finder cannot replace hidden files.
+    - For CS5 and above
+      - Open appropriate Install.db from unpacked software location with DB Browser for SQLite and go to table InstallFolderIcon.
+ 
+        ![image](./pictures/395775231-2f982fed-f2fd-47ab-95cf-a0d365de2bf9.png)
+
+        - You can see icons that's gonna be installed.
+    - For CS3 and CS4
+      - Open appropriate Instructions.js from unpacked software location with any text editor and search Icon\x0D.
+     
+        ![image](./pictures/395777204-cbf75d20-74ca-4aae-89b7-425d914b59cf.png)
+
+    - From unpacked software location, select Icon? from appropriate location and press command-c to copy it.
+    - Go to appropriate folder and press command-v to paste it.
+    - You'll see that folder icon is updated as it should be.
+
+      ![image](./pictures/395777417-d9689b60-db12-4cd3-b259-a21cbbc1c459.png)
