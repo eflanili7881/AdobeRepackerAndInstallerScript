@@ -28,6 +28,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     ![image](./pictures/392084739-8acb7210-8847-436b-9e88-20e6184e5dfb.png)
 
     - To resolve this, go to ~/adobetempinstaller and copy all contents to a USB, disk image or physical disk partition that's formatted as HFS+. Script can be updated to make a disk image formatted as HFS+.
+
 ## Special note
 - With Adobe CC 2013 (7.x.x.x), *.dmg format with *.pima extension in packages folder and *.dmg format in payloads folder changed to *.zip format (On *payloads* folder, extension is changed to *.zip, but in *packages* folder, extension is still *.pima).
   - DMG-based installers uses:
@@ -49,3 +50,23 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - But partition labels and sizes can be what you want as I tested DECore.pima and AdobePremierePro6.0AllTrial.dmg for the unpack test.
 
       ![image](./pictures/385924245-ad538934-5426-4bda-b9c1-01fd15feefa6.png)
+
+## Known bugs
+- Not critical, but some folders icons not correctly installed.
+  - You can fix icons via Finder.
+  - Remove hidden Icon? from installed application folder.
+    - You can reveal hidden files via command-shift-period shortcut.
+  - Select random image and press command-c to copy it.
+  - Open Install.db with DB Browser for SQLite and go to table InstallFolderIcon.
+ 
+    ![image](./pictures/395775231-2f982fed-f2fd-47ab-95cf-a0d365de2bf9.png)
+
+    - You can see icons that's gonna be installed.
+  - Open folder properties of folder that you want to change it's icon.
+  - Click folder icon that's left side on folder name.
+  - Press command-v to update folder icon.
+  - Remove hidden Icon? from installed application folder.
+    - Finder cannot replace hidden files.
+  - From unpacked software location, select Icon? and press command-c to copy it.
+  - Go to appropriate folder and press command-v to paste it.
+  - You'll see that folder icon is updated as it should be.
