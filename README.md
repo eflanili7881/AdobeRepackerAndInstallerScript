@@ -52,7 +52,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       ![image](./pictures/385924245-ad538934-5426-4bda-b9c1-01fd15feefa6.png)
 
 ## Known bugs
-- Not critical and it's only cosmetic, but some folders icons may not correctly installed.
+- Not critical and it's only cosmetic, but some folders icon may not correctly installed.
   - You can fix icons via Finder.
     - Remove hidden Icon? from installed application folder.
    
