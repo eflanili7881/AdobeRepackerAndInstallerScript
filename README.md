@@ -27,7 +27,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
  
     ![image](./pictures/392084739-8acb7210-8847-436b-9e88-20e6184e5dfb.png)
 
-    - ~~To resolve this, go to ~/adobetempinstaller and copy all contents to a USB, disk image or physical disk partition that's formatted as HFS+. Script can be updated to make a disk image formatted as HFS+.~~
+    - ~~To resolve this, go to (homeDirectoryOfYourAccount)/adobetempinstaller and copy all contents to a USB, disk image or physical disk partition that's formatted as HFS+. Script can be updated to make a disk image formatted as HFS+.~~
   - With v0.4.0, you can specify another location for temporary installer on CS3 and CS4.
 
 ## Special note
