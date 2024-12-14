@@ -22,12 +22,13 @@ This script compresses all unpacked assets that present on "payloads" and "packa
   - ~~I tried to patch engine like in Windows, but it's almost impossible, but it isn't impossible, it takes too much time as they're almost no comments to parse packages.~~
   - With my recent researches, it will now possible to install repacked assets. More information on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-mac-patchedbins/README.md
   - But like in Windows, Adobe CS5.5 and below doesn't have signature verification for *.pima (actually, they're just .dmg files with .pima extension) and *.dmg archives.
-- CS3 and probably CS4 can't be installed from APFS volume, but CS3 and probably CS4 apps can be installed to APFS volume.
-  - If you try install CS3 and probably CS4 app from APFS volume, installer will throw white empty window titled as "Installer Alert". You can't continue installation from now on.
+- ~~CS3 and probably CS4 can't be installed from APFS volume, but CS3 and probably CS4 apps can be installed to APFS volume.~~
+  - ~~If you try install CS3 and probably CS4 app from APFS volume, installer will throw white empty window titled as "Installer Alert". You can't continue installation from now on.~~
  
     ![image](./pictures/392084739-8acb7210-8847-436b-9e88-20e6184e5dfb.png)
 
-    - To resolve this, go to ~/adobetempinstaller and copy all contents to a USB, disk image or physical disk partition that's formatted as HFS+. Script can be updated to make a disk image formatted as HFS+.
+    - ~~To resolve this, go to ~/adobetempinstaller and copy all contents to a USB, disk image or physical disk partition that's formatted as HFS+. Script can be updated to make a disk image formatted as HFS+.~~
+  - With v0.4.0, you can specify another location for temporary installer on CS3 and CS4.
 
 ## Special note
 - With Adobe CC 2013 (7.x.x.x), *.dmg format with *.pima extension in packages folder and *.dmg format in payloads folder changed to *.zip format (On *payloads* folder, extension is changed to *.zip, but in *packages* folder, extension is still *.pima).
