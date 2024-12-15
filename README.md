@@ -177,6 +177,16 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
 - Rename Install.app to anything you want (i.e. Install_HD.app (for installing Adobe HyperDrive-based applications)).
 - Move your original AdobePIM.dylib to AdobePIM_original/AdobePIM.dylib.
   - When viewing your file on Finder, be sure to able to see AdobePIM.dylib's file version. If not, they may borked somehow (not corrupted) I don't know.
+    - How should it seen on properties:
+   
+      ![image](./pictures/395886790-596f55ba-81a7-44a9-a494-4abfedfad926.png)
+
+    - How shouldn't seen on properties:
+   
+      ![image](./pictures/395886855-87ae3041-424f-4d14-b547-b8abcf0c79fa.png)
+
+      - As you can see, version is not visible.
+        - You can copy or move AdobePIM.dylib to another place, delete old copy of AdobePIM.dylib (if you moved AdobePIM.dylib, skip this) and move AdobePIM.dylib back to it's original location to workarond this issue.
   - But Windows is not affected by this issue.
 - Make backup of your AdobePIM.dylib.
 - Patch the AdobePIM.dylib.
