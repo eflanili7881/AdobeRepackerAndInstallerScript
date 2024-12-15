@@ -176,7 +176,7 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
   - Get Install.app from **ACCCx5_3_1_470.dmg/packages/ADC/HDBox/HDBox.pima/Install.app** and put Install.app to where you extracted **ACCCx5_3_1_470.dmg** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that supports ARM64 platform natively.)**.
 - Rename Install.app to anything you want (i.e. Install_HD.app (for installing Adobe HyperDrive-based applications)).
 - Move your original AdobePIM.dylib to AdobePIM_original/AdobePIM.dylib.
-  - When viewing your file on Finder, be sure to able to see AdobePIM.dylib's file version. If not, they may borked somehow (not corrupted) I don't know.
+  - When viewing your file on Finder, be sure to able to see AdobePIM.dylib's file version. If not, they may borked somehow (not corrupted).
     - How should it seen on properties:
    
       ![image](./pictures/395886790-596f55ba-81a7-44a9-a494-4abfedfad926.png)
@@ -186,6 +186,7 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
       ![image](./pictures/395886855-87ae3041-424f-4d14-b547-b8abcf0c79fa.png)
 
       - As you can see, version is not visible.
+      - Usually, this occurs when *.dylib files are renamed.
         - You can copy or move AdobePIM.dylib to another place, delete old copy of AdobePIM.dylib (if you moved AdobePIM.dylib, skip this) and move AdobePIM.dylib back to it's original location to workarond this issue.
   - But Windows is not affected by this issue.
 - Make backup of your AdobePIM.dylib.
