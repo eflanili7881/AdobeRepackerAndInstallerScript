@@ -66,7 +66,9 @@ This repo contains patched binaries for installing unpacked Adobe Creative Cloud
     - Install Cutter and IDA Pro 6.5 or newer.
     # - On AdobePIM.dylib (version 5.1.0.407)
       - Probably you can use this method for all versions.
-        - I don't know much about dual architecture dylibs.
+        - On dual architecture *.dylib files, you need to extract both binaries and merge them after patch.
+          - You can "thin" *.dylib files with **ditto --arch** or other tool.
+          - You can merge *.dylib files with **lipo AdobePIM_x86_64.dylib AdobePIM_arm64.dylib -output AdobePIM.dylib -create**
       - AdobePIM.dylib version x<=5.0.0.354 uses dual architecture design.
    
         ![image](./pictures/387316398-af86035e-c5f6-4a4c-b74a-0765e47c7da8.png)
