@@ -5,14 +5,14 @@ A .bat/.sh script that compresses unpacked assets of Adobe products and installs
 Please, don't use this script for piracy things. I wrote this script for who wants to store Adobe application installers with unpacked assets for various reasons. My reason was maximize deduplication ratings on my Windows Server Storage Spaces storage to store more programs. That's why I wrote this script. I will improve this script day by day.
 
 ## Credits
-- Adobe Systems Incorporated for providing applications.
+- [Adobe Systems Incorporated](https://www.adobe.com) for providing applications.
 - [GitHub](https://github.com) for hosting this project.
 - [Me](https://github.com/eflanili7881) for writing script and patching HyperDrive-based installers from knowledge I gained from PainteR's patched binaries.
 - [Microsoft Copilot](https://copilot.microsoft.com) and [OpenAI ChatGPT](https://chat.openai.com) for helping me on generating complex scripts (I wrote this script myself, but I don't say no to little help from AI :D).
 - [Internet Archive](https://archive.org) for providing [Wayback Machine](https://web.archive.org) service.
 - PainteR for patching various binaries based on Windows platform (RIBS-based installers), so I can understand verification algorithm on newer or older binaries and even on macOS-based binaries and HyperDrive-based installers.
 - [Rizin](https://rizin.re) for [Cutter](https://cutter.re) reverse engineering program.
-- [Hex-Rays](https://hex-rays.com/) for [IDA Pro](https://hex-rays.com/ida-pro) reverse engineering program.
+- [Hex-Rays](https://hex-rays.com) for [IDA Pro](https://hex-rays.com/ida-pro) reverse engineering program.
 - [bkcrack](https://github.com/kimci86/bkcrack) by [kimci86](https://github.com/kimci86) for ZipCrypto cracking software.
 - [DB Browser for SQLite](https://sqlitebrowser.org) for editing and viewing various *.db databases.
 - [Maël Hörz](https://mh-nexus.de) for [HxD Hex Editor](https://mh-nexus.de/en/hxd) hexadecimal viewing program.
