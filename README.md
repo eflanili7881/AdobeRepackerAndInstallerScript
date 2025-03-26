@@ -150,7 +150,7 @@ Currently script doesn't repack Creative Cloud packages on **packages** folder (
 - Put **resources\content\images\appIcon.png** to where you **ACCCx(version_numer_you_want).zip** is extracted.
   - (Optional) Put **resources\content\images\appIcon2x.png** to where you **ACCCx(version_numer_you_want).zip** is extracted.
 - Get Set-up.exe from **ACCCx(version_numer_you_want).zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx(version_numer_you_want).zip** if bundled version of Creative Cloud is **x<=5.3.1.470**.
-  - Get Install.app from **ACCCx5_3_1_470.zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx5_3_1_470.zip** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that supports ARM64 platform natively.)**.
+  - Get Set-up.exe from **ACCCx5_3_1_470.zip\packages\ADC\HDBox\HDBox.pima\Set-up.exe** and put Set-up.exe to where you extracted **ACCCx5_3_1_470.zip** if bundled version of Creative Cloud is **x=>5.3.5.518 (or 5.3.5.499 if you're gonna use prerelease copy of first Creative Cloud version that supports ARM64 platform natively.)**.
 - Rename Set-up.exe to anything you want (i.e. Set-up_HD.exe (for installing Adobe HyperDrive-based applications)).
 - Move your original AdobePIM.dll to AdobePIM_original.dll.
 - Make backup of your AdobePIM.dll.
