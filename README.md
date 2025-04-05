@@ -17,7 +17,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 - Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/main/README.md#credits
 
 ## What's this repo contains?
-This repo contains patched binaries for installing unpacked Adobe RIBS applications.
+This repo contains patch methods for various files for installing unpacked Adobe RIBS applications.
 
 ## Special note
 - When I examined AdobePIM.dylib version 8.0.0.72 (got it from Adobe Premiere Pro CC 2014's Install.app file) on IDA Pro 6.5, it revealed more clues:
