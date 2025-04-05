@@ -57,6 +57,7 @@ This script compresses all unpacked assets that present on "products" folder to 
       - ~~Or you can just install full Creative Cloud desktop after installing product just to be sure the product was %100 successfully uninstalled.~~
     - With my recent searches, it's now possible. More details on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/tree/HyperDrive-win-patchedbins
 - ZIP file must not exceed 2 GB. I tested Premiere Pro with -mx0 flag on 7z command line and HyperDrive installer engine throws error. Maybe it's with CompressionType on Application.json or something.
+  - I think it need to be changed to "Zip64" or something similar due to ZIP files that has 2 GB or more size will automatically become Zip64 format.
 - ~~Currently, LZMA2-compressed ZIP files cannot be unpacked and repacked. They cannot be unpacked with 7-Zip itself. They may obtainable if unpacked version is copied from adobeTemp directory really fast. Because as soon as install finishes, HyperDrive installer engine deletes that files as soon as possible.~~
   - With script I wrote in https://github.com/eflanili7881/AdobeLZMA2UnpackerScript , they can now be unpacked.
 
