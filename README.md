@@ -17,7 +17,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 - Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/main/README.md#credits
 
 ## What's this repo contains?
-This repo contains patched binaries for installing unpacked Adobe RIBS applications.
+This repo contains patch methods for various files for installing unpacked Adobe RIBS applications.
 
 ## Special note
 - I compared all dll's with Cutter and I see what's the PainteR did. PainteR just bypassed verification mechanism. With manual patching, I able to patch 9.x.x.x engine (9.0.0.65 to be precise) and install SpeedGrade CC 2015 with modified assets in both folders without a problem.
