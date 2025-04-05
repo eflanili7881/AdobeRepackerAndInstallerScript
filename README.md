@@ -17,7 +17,7 @@ Because I'm afraid that Adobe can copy-strike me like on archive.org. I put thes
 - Mentioned on https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/main/README.md#credits
 
 ## What's this repo contains?
-This repo contains patched binaries for installing unpacked Adobe Creative Cloud *.pima assets.
+This repo contains patch methods for various files for installing unpacked Adobe Creative Cloud *.pima assets.
 
 ## Special note
 - Normally, HyperDrive-based installers doesn't have any verification mechanism for "products" folder. But on "packages" folder, HyperDrive-based installers enforce signature to be valid.
