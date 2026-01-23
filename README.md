@@ -145,7 +145,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - In example, AdobePremierePro5RoyaltyWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\SetupRoyalty.
         - In example, AdobePremierePro5ProtectedWrapperAll installs to C:\Program Files\Adobe\Adobe Premiere Pro CS5\Setup.
       - Launching specific application will trigger of installation of these packages.
-      - Probable standalone protected payloads used for repairing already installed protected payload.
+      - Probably, standalone protected payloads used for repairing already installed protected payload.
     - But only wrapper packages are installed. Later, launching specific apps will install real protected payload.
     - Protected packages are below:
       - Creative Suite 5.5 (CS5.5)
