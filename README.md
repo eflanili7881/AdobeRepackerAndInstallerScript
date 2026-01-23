@@ -275,9 +275,8 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - msiexec /a X:\path\to\MSI\file.msi /qb targetdir=X:\path\to\expand transforms=X:\transform\file.mst
       - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
       - This may also fix bunch of CS3 packages.
-- Move unpacked assets via 7-Zip or other archive software after unpack of MSI is done as Windows Explorer may broke up something in our unpacked assets.
 - Unpack MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
-- Copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
+- Copy or move your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations (Windows Explorer may break something).
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
   - Errors are due to searching proxy file (even when proxy file is in root of the payload media, i.e. in payloads\AdobeAfterEffects9ProtectedAll\AdobeAfterEffects9ProtectedAll.proxy.xml, it isn't satisfied unless all subfolders inside of payload media checked).
     - Check for not unpackable packages section for more information.
