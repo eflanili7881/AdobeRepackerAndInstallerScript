@@ -275,7 +275,6 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - msiexec /a X:\path\to\MSI\file.msi /qb targetdir=X:\path\to\expand transforms=X:\transform\file.mst
       - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
       - This may also fix bunch of CS3 packages.
-- Unpack MSI files to very short location (i.e. D:\1) to avoid issues about file path limitation.
 - Move unpacked assets via 7-Zip or other archive software after unpack of MSI is done as Windows Explorer may broke up something in our unpacked assets.
 - Unpack MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
 - Copy your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations.
