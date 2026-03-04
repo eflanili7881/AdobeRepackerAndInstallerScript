@@ -229,9 +229,9 @@ This script compresses all unpacked assets that present on "payloads" and "packa
       - Miscellenaous
         - AdobePresenter706-AS_PC-mul
           - N/A
-      - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
+      - Use this keys **ONLY** for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
     - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
-      - You need to launch specific application to install protected payload.
+      - You need to launch specific application to install protected payload. After launching these apps, they'll prompt you to install protected payload.
        
         ![image](./pictures/389936471-0bc51da5-d6cb-4131-9ee9-665f609eca94.png)
 
@@ -239,7 +239,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
 
     - Or more easy way:
       - This method is required for packages that doesn't have any uncompressed (Store) file inside the archive.
-        - This also solves problem for AdobeOnLocation5.1ProtectedAll and AdobeOnLocation5ProtectedAll as these payloads doesn't have any uncompressed files inside their assets archive.
+        - This also solves problem for AdobeOnLocation5.1ProtectedAll and AdobeOnLocation5ProtectedAll as these payloads doesn't have any uncompressed files inside their assets archive to find 3 required keys to unpack these files.
       - Launch my [Adobe LZMA2 Unpacker Script](https://github.com/eflanili7881/AdobeLZMA2UnpackerScript).
       - On 1st field, enter C:\Program Files (x86)\Common Files\Adobe\Installers\adobeTemp.
         - This is the source folder for unpacked assets folder.
@@ -249,7 +249,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
         - You'll need to grab an installer engine for protected payload.
           - If your payload is CS5.5 based, grab an CS5.5 based installer engine.
           - Above is also valid for CS5 based protected payloads.
-            - You can try CS5.5 based installer engine.
+            - You can try CS5.5 based installer engine for CS5 based payloads.
         - Grab protected payloads "payloads" folder and it's respective deploy .xml file, then copy them to another place.
         - Copy installer engine to where you copied the "payloads" folder and deployment .xml file.
         - Run this command:
@@ -291,13 +291,14 @@ This script compresses all unpacked assets that present on "payloads" and "packa
     - HDDOS: WDC WD10EZEX-08WN4A0
     - HDDInstallMedia: Same as HDDOS
   - For big packages like Master Collection, I suggest to put their install medium to very fast medium like SSD's if you can.
+    - Probably long wait caused by installer engine as it'll search entire unpacked install media for all proxy files it can find.
   - After that, installation takes much, much less time.
 - MSI-based assets need to be unpacked with *.mst file if it exists.
   - This is also valid for Adobe Acrobat installers.
   - To do this, run:
     - msiexec /a X:\path\to\MSI\file.msi /qb targetdir=X:\path\to\expand transforms=X:\transform\file.mst
-      - If you don't, some apps may say "source file not found" if app is tried to installed in languages other than English.
-      - This may also fix bunch of CS3 packages.
+      - If you don't, some apps may say "source file not found" if app is tried to install in languages other than English or your current Windows locale if it's supported by product that you want to install.
+      - This may also fix bunch of CS3 package problems.
 - Unpack MSI-based Adobe applications from very short location (i.e. D:\1) to avoid errors due to file path limitations.
 - Copy or move your unpacked MSI-based application for installation with 7-Zip or other archive software to a very short location to avoid getting error about file path limitations (Windows Explorer may break something).
 - CS4 and CS3's protected content can be unpacked unlike in CS5 and above, but some packages will throw error on initialization phase. If you look installer logs, you will see i.e. AdobeAfterEffects9ProtectedAll was failed error 1603. I think it's also valid for CS3.
