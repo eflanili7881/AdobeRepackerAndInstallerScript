@@ -137,7 +137,7 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - With this, you don't need to edit Media_db.db to allow lower versions of RIBS to install higher version packages.
   - Or to manually patch these Adobe DLL's, view special note section of https://github.com/eflanili7881/AdobeRepackerAndInstallerScript/blob/RIBS-win-patchedbins/README.md#special-note
 - CS5.5 and CS5 do not require patching AdobePIM.dll to install repacked assets. Also, *.pima archives under "packages" directory can be repacked on CS5.5 and CS5 installers with original AdobePIM.dll. Because CS5.5 and below RIBS installer engines doesn't have file verification.
-  - But some packages will be protected and they cannot be unpacked via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
+  - But some packages will be protected and they cannot be unpacked directly via 7-Zip. These packages will prompt for password if they tried to unpacked. Only RIBS installer engine can unpack these packages.
     - But weird thing is almost all packages has wrapper packages.
       - AdobePresenter706-AS_PC-mul doesn't have wrapper payload.
       - In example, AdobeEncore5RoyaltyAll and AdobeEncore5RoyaltyWrapperAll.
@@ -231,12 +231,35 @@ This script compresses all unpacked assets that present on "payloads" and "packa
           - N/A
       - Use this keys ONLY for unpacking and storing these payloads as unpacked, **NOT FOR PIRACY STUFF**.
     - Or you can install specific app (with serializing, protected payloads not installed if application is not installed with serial number), examine Install.db, copy files one by one to another location, rename these files with corresponding names from Install.db, pack these files to *.zip file and then change \payloads\Media_db.db\Payloads\ (payload ID for protected payload) \payload_type\protected to normal.
-        - You need to launch specific application to install protected payload.
+      - You need to launch specific application to install protected payload.
        
-          ![image](./pictures/389936471-0bc51da5-d6cb-4131-9ee9-665f609eca94.png)
+        ![image](./pictures/389936471-0bc51da5-d6cb-4131-9ee9-665f609eca94.png)
 
-          ![image](./pictures/389937206-2cbf4992-329c-4b64-af24-1a8c3050069d.png)
+        ![image](./pictures/389937206-2cbf4992-329c-4b64-af24-1a8c3050069d.png)
 
+    - Or more easy way:
+      - This method is required for packages that doesn't have any uncompressed (Store) file inside the archive.
+        - This also solves problem for AdobeOnLocation5.1ProtectedAll and AdobeOnLocation5ProtectedAll as these payloads doesn't have any uncompressed files inside their assets archive.
+      - Launch my [Adobe LZMA2 Unpacker Script](https://github.com/eflanili7881/AdobeLZMA2UnpackerScript).
+      - On 1st field, enter C:\Program Files (x86)\Common Files\Adobe\Installers\adobeTemp.
+        - This is the source folder for unpacked assets folder.
+      - On 2nd and last field, enter any folder path you want.
+        - This is the destination folder for unpacked assets to go.
+      - While this script is running, install protected payload.
+        - You'll need to grab an installer engine for protected payload.
+          - If your payload is CS5.5 based, grab an CS5.5 based installer engine.
+          - Above is also valid for CS5 based protected payloads.
+            - You can try CS5.5 based installer engine.
+        - Grab protected payloads "payloads" folder and it's respective deploy .xml file, then copy them to another place.
+        - Copy installer engine to where you copied the "payloads" folder and deployment .xml file.
+        - Run this command:
+          - Set-up.exe --mode=silent --deploymentFile=(pathToTheDeploymentXMLFile)
+        - You can see while files are copying on Resource Monitor.
+
+          ![image](./pictures/558271148-af3ba659-c0ec-4d15-8bc0-339b56ee4c55.png)
+
+        - After setup is finished, be sure to compare file and folders count to archive.
+          - Especially on payloads that have too many small files, script may miss some or majority of files.
   - Despite with patched AdobePIM.dll that *.pima archives can be unpacked, minimal package set for just installing application with unpatched AdobePIM.dll and legit packed RIBS installer engine is this package set (with pirating, unfortunately (This package set gives error about Adobe Application Manager when application launches. If application is pirated, when you click OK, application will start with no problem.).):
     - core
     - D6
