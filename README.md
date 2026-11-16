@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - Patched Binaries for ZIP-based RIBS Installers for Windows (for CS6 - CC 2015)
+# Adobe Repacker and Installer Script - Patched Binaries for ZIP-based Rapid Installation Bootstrap Service (RIBS) Installers for Windows (for CS6 - CC 2015)
 A repo that contains patched binaries for installing unpacked Adobe RIBS assets.
 
 # CAUTION!
