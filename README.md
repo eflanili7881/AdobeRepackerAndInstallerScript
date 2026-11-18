@@ -1,4 +1,4 @@
-# Adobe Repacker and Installer Script - Rapid Installation Bootstrap Service (RIBS) for Windows (for CS5 - CC 2015)
+# Adobe Repacker and Installer Script - Rapid Installation Bootstrap Service (RIBS) for Windows (for CS5 - CC 2017 (RIBS-based ones))
 A .bat script that compresses unpacked Adobe RIBS assets and installs them.
 
 # CAUTION!
